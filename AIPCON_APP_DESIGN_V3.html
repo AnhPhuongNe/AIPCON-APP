@@ -753,6 +753,27 @@ select.inp{appearance:none;-webkit-appearance:none;background-image:linear-gradi
 .sugg svg{color:var(--acc);margin-top:2px;}
 .sugg b{display:block;font-size:var(--fs-sm);font-weight:600;}
 .sugg small{font-size:var(--fs-2xs);color:var(--tx3);}
+/* Nút phụ (ghost): nền trắng cố định, không ăn theo nền phía sau */
+.btn.ghost,.donews .wal .btn:not(.ghost){background:var(--white)!important;}
+/* Trang Dịch vụ: phân cấp nền — nền trang (kem) › thẻ nhóm (trắng) › icon (vàng nhạt) */
+.svl{gap:12px;}
+.svl .grp,.svbiz{background:var(--s1);border:1px solid var(--line);border-radius:var(--r-md);padding:2px 14px 4px;box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent);}
+.svl .grp .gh{border-top:0;padding-top:12px;}
+.svbiz{margin-top:0;}
+.svbiz .card.list{padding-left:0!important;}
+.svl .li .svcgo .ic,.svbiz .li .svcgo .ic{background:color-mix(in srgb,var(--gold-600) 8%,var(--bg));border-color:transparent;color:var(--gold-600);}
+/* Trường nhập: nền trắng */
+.inp{background:var(--white)!important;}
+.field.err .inp{background:color-mix(in srgb,var(--err) 4%,var(--white))!important;}
+/* Popup (bảng chọn mua, QR phóng to, gợi ý): nền trắng */
+.sheet,.qbf,.qbhd,.sugg{background:var(--white);}
+/* Đổ bóng khung nội dung: thống nhất theo trang Dịch vụ */
+:root:not([data-theme="dark"]) :is(.card,.promo,.prod,.wal,.bk,.trio button,.trio2 button,.jcard){box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent)!important;}
+.lkcard{box-shadow:0 0 0 1px color-mix(in srgb,var(--acc) 35%,transparent),0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent)!important;}
+/* Trang Dịch vụ: danh sách bên trong thẻ nhóm không đổ bóng (tránh vệt ở đáy thẻ) */
+:root .svl .card.list,:root .svbiz .card.list{box-shadow:none!important;}
+/* Khung nội dung: giữ chuyển sắc trắng → xám nhưng giảm xám một nửa */
+:root:not([data-theme="dark"]) :is(.card,.promo,.prod,.wal,.bk,.trio button,.trio2 button){background:linear-gradient(180deg,var(--white) 0%,color-mix(in srgb,var(--grey-25) 50%,var(--white)) 100%);}
 </style>
 </head>
 <body>
