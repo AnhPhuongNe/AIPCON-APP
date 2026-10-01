@@ -774,6 +774,27 @@ select.inp{appearance:none;-webkit-appearance:none;background-image:linear-gradi
 :root .svl .card.list,:root .svbiz .card.list{box-shadow:none!important;}
 /* Khung nội dung: giữ chuyển sắc trắng → xám nhưng giảm xám một nửa */
 :root:not([data-theme="dark"]) :is(.card,.promo,.prod,.wal,.bk,.trio button,.trio2 button){background:linear-gradient(180deg,var(--white) 0%,color-mix(in srgb,var(--grey-25) 50%,var(--white)) 100%);}
+/* Thẻ ACP: đổ bóng nhẹ như các khung nội dung, giữ viền kim loại mảnh */
+:root .acp,:root:not([data-theme="dark"]) .acp{box-shadow:0 0 0 .5px color-mix(in srgb,var(--gold-300) 55%,transparent),0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent);}
+:root .acpx{box-shadow:0 0 0 .5px color-mix(in srgb,var(--m) 55%,transparent),0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent);}
+/* Ví trang chủ: tab + danh sách chung một khung */
+.walbox{padding:0 14px 2px;}
+.walbox .wtabs{margin:0 -14px;padding:0 4px;}
+.walbox .wtabs button{padding:12px 0 12px;}
+.walbox .card.list{background:none!important;border:0!important;box-shadow:none!important;border-radius:0;padding:2px 0 0!important;}
+.walbox .wempty{padding:16px 0 14px;text-align:center;}
+/* Trang chủ: nhắc chuyến bay sắp tới dạng thông báo 2 dòng */
+.fltnote{display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;padding:12px 14px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent);color:var(--tx);}
+.fltnote .ic{width:36px;height:36px;border:0;background:color-mix(in srgb,var(--gold-600) 8%,var(--bg));color:var(--gold-600);}
+.fltnote .tx{min-width:0;}
+.fltnote b,.fltnote small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fltnote b{display:block;font-size:var(--fs-sm);font-weight:600;}
+.fltnote small{display:block;font-size:var(--fs-xs);color:var(--tx2);margin-top:2px;}
+.fltnote > svg{color:var(--tx3);}
+.fltnote:active{background:color-mix(in srgb,var(--acc) 6%,var(--white));}
+/* Thông báo chuyến bay: icon chuông dạng nét */
+.fltnote{grid-template-columns:24px 1fr auto;}
+.fltnote .ic{width:24px;height:24px;background:none!important;border:0;color:var(--gold-600);position:relative;}
 </style>
 </head>
 <body>
@@ -974,14 +995,9 @@ function vHome(){
     <button class="iconbtn" data-go="notif" aria-label="Thông báo">${ico('bell')}${unread()?'<span class="dot"></span>':''}</button></div></div>
 
   ${S.logged?`<div class="acpbtn" role="button" tabindex="0" aria-label="Thẻ ACP. Chạm để xuất trình mã hội viên" data-sheet="qrz">${acpCard()}</div>
+    <button class="fltnote" data-go="trip:BE-260826-0093" aria-label="Chuyến bay sắp tới, xem chi tiết"><span class="ic">${ico('bell',22)}</span><span class="tx"><b>HAN → ICN | 09:40 | T7, 05/09</b><small>VN 417 · 3 dịch vụ · <span class="jwait">1 chờ xác nhận</span></small></span>${ico('chev',16)}</button>
 
     ${walletHome()}
-
-  <div class="sec2"><b>Chuyến bay sắp tới</b><span>3 dịch vụ</span></div>
-  <div class="jcard" role="button" tabindex="0" data-go="trip:BE-260826-0093">
-    <div class="top"><div class="fl">VN 417 · T7, 05/09</div><div class="fl">Khởi hành 09:40</div></div>
-    <div class="route"><div><b>HAN</b><small>Nội Bài · T2</small></div><div class="ln">${ico('plane')}</div><div style="text-align:right"><b>ICN</b><small>Seoul · Incheon</small></div></div>
-    <div class="jsum"><span>SH Elite+ · Fast Track</span><span class="jwait">1 chờ xác nhận</span>${ico('chev',16)}</div></div>
 
   `:guestHome()}
   
@@ -1223,10 +1239,10 @@ function walLbl(w){ return w.booked?'Xem booking':w.st==='wait'?'Đặt lịch':
 function walletHome(){
   const live=S.wallet.filter(w=>w.st!=='used'&&w.k!=='Gift Pass'), rd=live.filter(w=>w.st==='ready'), wt=live.filter(w=>w.st==='wait');
   const tab=fv('hw', rd.length?'ready':'wait'), list=tab==='ready'?rd:wt;
-  return `<div class="sec2"><b>Ví của tôi</b><button data-go="wallet">Xem tất cả (${live.length})</button></div>
-  <div class="wtabs" role="tablist">${[['ready','Sẵn sàng',rd.length],['wait','Chờ lịch',wt.length]].map(t=>`<button role="tab" aria-selected="${tab===t[0]}" data-pk="hw|${t[0]}">${t[1]}<span>${t[2]}</span></button>`).join('')}</div>
+  return `<div class="sec2"><b>Ví của tôi</b><button data-go="wallet">Xem chi tiết</button></div>
+  <div class="card walbox"><div class="wtabs full" role="tablist">${[['ready','Sẵn sàng',rd.length],['wait','Chờ lịch',wt.length]].map(t=>`<button role="tab" aria-selected="${tab===t[0]}" data-pk="hw|${t[0]}">${t[1]}<span>${t[2]}</span></button>`).join('')}</div>
   ${list.length?`<div class="card list" style="padding-block:2px">${list.slice(0,3).map(w=>`<div class="li wrow"><span class="th" style="background-image:url(${IMG[w.img]})"></span><div><b>${esc(w.n)}</b><small>${walStatus(w)} · ${esc(w.cells[0][1])}</small></div><button class="rb" ${walAct(w)} aria-label="${walLbl(w)}">${ico(w.booked?'chev':w.st==='wait'?'cal':'qr',18)}</button></div>`).join('')}</div>`
-  :`<div class="small muted">Chưa có voucher ${tab==='ready'?'sẵn sàng':'chờ đặt lịch'}.</div>`}`;
+  :`<div class="small muted wempty">Chưa có voucher ${tab==='ready'?'sẵn sàng':'chờ đặt lịch'}.</div>`}</div>`;
 }
 // Tóm tắt Ví: đếm giống tab ở trang chủ và màn Ví
 function walSum(){
