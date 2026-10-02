@@ -9,7 +9,7 @@
 
 ## Quy tắc đã chốt
 - **V3 là bản chốt** (02/10/2026). V1a chỉ còn là lịch sử, không còn là nguồn design. Web V10 chỉ dùng để tham chiếu **flow và nội dung**, không lấy giao diện web áp vào app.
-- Hướng design (02/10/2026): **tinh giản mạnh, nhiều khoảng thở**, vẫn rõ ràng trực quan; giữ nguyên nội dung và flow.
+- Hướng design (02/10/2026): **tinh giản mạnh, nhiều khoảng thở**, vẫn rõ ràng trực quan; giữ nguyên nội dung và flow. **Quy ước màu và nút bấm của V3 giữ nguyên** (nút chính chuyển sắc vàng, nút phụ viền vàng, nút "Chọn"/"Đặt lịch" trên dòng, nút QR tròn, số đếm trên tab, nhãn trạng thái có nền, ô tìm kiếm, avatar). Tinh giản chỉ áp vào khoảng thở, khung, icon trong danh sách, tiêu đề nhóm.
 - Nghiệp vụ và thứ tự bước theo web V10; app chỉ khác ở cách trình bày cho điện thoại (chi tiết ở mục 2b của `AIPCON_REFERENCE.md`).
 - Chỉ phát triển nền sáng. Không thêm lại chế độ nền navy (còn sót vài selector `data-theme="dark"` trong CSS, không cần dùng).
 - Chỉ màn hình điện thoại, không cột điều hướng, không ghi chú thiết kế trong file; mọi thao tác chạy như app thật.
