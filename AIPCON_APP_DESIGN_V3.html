@@ -795,6 +795,841 @@ select.inp{appearance:none;-webkit-appearance:none;background-image:linear-gradi
 /* Thông báo chuyến bay: icon chuông dạng nét */
 .fltnote{grid-template-columns:24px 1fr auto;}
 .fltnote .ic{width:24px;height:24px;background:none!important;border:0;color:var(--gold-600);position:relative;}
+/* ================= V3 · TINH GIẢN (02/10/2026): bớt lớp trang trí, thêm khoảng thở; nội dung, luồng, màu và nút bấm giữ nguyên ================= */
+/* Khoảng thở: lề màn 20px, giữa các khối 28px */
+.scroll{padding:8px 20px 32px;gap:28px;}
+.chips,.rail{margin-inline:-20px;padding-inline:20px;}
+.appbar{padding-top:6px;}
+.h2{margin-top:4px;}
+
+/* Khung nội dung: một lớp duy nhất — nền trắng phẳng, không viền, không chuyển sắc, bóng rất nhẹ */
+html:root:not([data-theme="dark"]) :is(.card,.promo,.prod,.wal,.bk,.trio button,.trio2 button,.jcard,.fltnote,.lkcard,.svl .grp,.svbiz){
+  background:var(--white)!important;border:0!important;border-radius:var(--r-lg)!important;
+  box-shadow:0 1px 3px color-mix(in srgb,var(--navy-900) 4%,transparent)!important;}
+.card{padding:20px;}
+.card.list,.svl .grp,.svbiz{padding:4px 20px!important;}
+html:root:not([data-theme="dark"]) :is(.svl,.svbiz,.walbox) .card.list{box-shadow:none!important;padding:0!important;border-radius:0!important;}
+.walbox{padding:0 20px 4px!important;}
+.walbox .wtabs{margin:0 -20px!important;padding:0 8px!important;}
+.walbox .wtabs button{padding:16px 0 14px!important;}
+.svl{gap:16px;}
+
+/* Dòng danh sách: cao hơn, đường kẻ mảnh hơn */
+.li{padding:16px 0;gap:16px;grid-template-columns:22px 1fr auto;border-bottom-color:color-mix(in srgb,var(--navy-900) 6%,transparent);}
+.li.wrow{grid-template-columns:44px 1fr auto;gap:14px;}
+.li b{font-weight:500;}
+.li small{color:var(--tx3);margin-top:3px;}
+
+/* Icon: bỏ vòng tròn nền và viền, chỉ còn nét mảnh màu xám */
+:root .ic,:root .svl .li .svcgo .ic,:root .svbiz .li .svcgo .ic,:root .fltnote .ic,:root .lkt .ic{
+  width:22px!important;height:22px!important;border:0!important;background:none!important;border-radius:0!important;color:var(--tx3)!important;}
+.ic svg{width:20px;height:20px;stroke-width:1.4;}
+.svcgo{grid-template-columns:22px 1fr;gap:16px;min-height:44px;}
+.svcgo b{font-size:var(--fs-md);font-weight:500;}
+.li .r{color:color-mix(in srgb,var(--tx3) 70%,transparent);}
+
+/* Tiêu đề nhóm: một kiểu duy nhất — chữ thường, đậm vừa, không in hoa giãn cách, không kẻ phía trên */
+.sec,.sec2,.sec.sub{margin-top:0;padding-top:0;border-top:0;align-items:baseline;}
+.sec b,.sec2 b,.sec.sub b,.svl .grp .gh b{font-family:var(--f-body);font-size:var(--fs-lg)!important;font-weight:600;letter-spacing:0!important;text-transform:none!important;color:var(--tx)!important;}
+.sec + *,.sec2 + *,.sec.sub + *{margin-top:-14px;}
+.sec2 button,.sec2 span,.sec.sub span{font-size:var(--fs-sm);font-weight:500;}
+.sec.sub span{color:var(--tx3);}
+
+/* Trang Dịch vụ: số bước dạng chữ nhỏ, không vòng tròn */
+.svl .grp .gh{padding-top:18px!important;margin-bottom:0!important;gap:8px!important;}
+:root .svl .grp .gh .n{width:auto!important;height:auto!important;border:0!important;background:none!important;color:var(--tx3)!important;font-size:var(--fs-lg)!important;font-weight:500;}
+:root .svl .grp .gh .n{display:inline-block!important;line-height:1.3!important;}
+.svl .grp .gh .n::after{content:" ·";}
+.svl .grp .gh{align-items:baseline!important;}
+.svl .grp .gh .n.ni{display:none!important;}
+
+/* Nhãn "Sắp ra mắt": chữ xám, không khung viền đứt */
+.soon{border:0;padding:0;font-size:var(--fs-xs);}
+.li.svc2 .soon{min-width:0;}
+
+/* Thông báo chuyến bay, thẻ hồ sơ, đặt lịch bằng mã */
+.fltnote{padding:16px 20px;gap:14px;}
+.prof{gap:16px;}
+.lkf{margin-top:18px;}
+.lkhelp{margin-top:0;}
+
+/* Ưu đãi: thẻ phẳng, chữ thoáng */
+.promo .bd{padding:14px 16px 16px;}
+.rail{gap:12px;}
+
+/* Thanh tab: phẳng, không đổ bóng */
+.tabbar{box-shadow:none;border-top-color:color-mix(in srgb,var(--navy-900) 6%,transparent);}
+
+/* Ô lựa chọn (phương án A, 02/10/2026): thanh trượt không viền — một khối nền kem, mục đang chọn nổi lên nền trắng */
+:root .pku{background:var(--trk);border-radius:var(--r-md);padding:3px;gap:3px;}
+:root .pku button,:root .pbuy .pku button:not([aria-pressed="true"]){border:0!important;background:none!important;border-radius:10px;padding:10px 6px;font-size:var(--fs-sm);font-weight:500;color:var(--tx3);white-space:nowrap;min-width:0;}
+:root .pku button[aria-pressed="true"]{background:var(--white)!important;color:var(--tx)!important;font-weight:600;box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 12%,transparent),0 0 0 .5px color-mix(in srgb,var(--navy-900) 4%,transparent);}
+:root .pku button::before{display:none!important;}
+:root .pku button small{font-size:var(--fs-2xs);color:var(--tx3);margin-top:2px;font-weight:400;}
+:root .pku button[aria-pressed="true"] small{color:var(--acc);}
+/* Chữ quá dài so với ô: thu một bậc; vẫn không vừa thì xếp mỗi phương án một hàng (class .stack do script gắn) */
+:root .pku button.fit{font-size:var(--fs-xs);}
+:root .pku.stack{grid-template-columns:1fr!important;}
+:root .pku.stack button{text-align:left;padding-inline:14px;}
+:root .pku.stack button.fit{font-size:var(--fs-sm);}
+
+/* Nhãn câu hỏi trong bảng chọn: nhẹ hơn, cách khối phía trên nhiều hơn */
+.qbl,.pbuy .plab{font-size:var(--fs-xs);font-weight:500;color:var(--tx3);margin:20px 0 8px;}
+.sheet h3 + .qbl{margin-top:12px;}
+
+/* Nút cộng trừ: tròn nền kem, không viền */
+.stepper button{border:0;background:var(--trk);color:var(--tx);}
+.step{padding:12px 0;}
+.step b{font-weight:500;}
+.step small{color:var(--tx3);}
+
+/* Không rớt chữ: mọi nút, chip, tab giữ một dòng */
+.btn,.chip,.wtabs button,.tabbar .tab,.sec2 button,.qbinfo{white-space:nowrap;}
+
+/* Danh sách lựa chọn (.opt) và chip — một quy tắc: ô trắng nổi = bấm được · viền vàng = đang chọn · nền xám phẳng = không chọn được. Bỏ chấm tròn. */
+:root .opt,:root .pbuy .opt,:root .popts .opt{grid-template-columns:1fr auto;border:0!important;margin:0!important;background:var(--white)!important;border-radius:var(--r-md);padding:14px 16px;gap:12px;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--navy-900) 8%,transparent),0 1px 3px color-mix(in srgb,var(--navy-900) 6%,transparent);}
+:root .opt .rd{display:none!important;}
+:root .opt[aria-pressed="true"]{background:color-mix(in srgb,var(--gold-600) 6%,var(--white))!important;box-shadow:0 0 0 1.5px var(--gold-600);}
+:root .opt b{font-weight:500;}
+:root .opt[aria-pressed="true"] b{font-weight:600;}
+:root .opt small{color:var(--tx3);}
+:root .opt .p{white-space:nowrap;}
+:root .opt[disabled]{opacity:1;background:color-mix(in srgb,var(--navy-900) 4%,var(--bg))!important;box-shadow:none!important;}
+:root .opt[disabled] b,:root .opt[disabled] small,:root .opt[disabled] .p{color:var(--ink-400);}
+:root .popts{background:none;padding:0;gap:10px!important;display:flex;flex-direction:column;}
+.sheet .opt{margin-bottom:10px!important;}
+.sheet .popts .opt{margin-bottom:0!important;}
+
+/* Chip (Điểm đón/trả, bộ lọc): xuống dòng thay vì trượt ngang để thấy đủ lựa chọn; cùng quy tắc với danh sách */
+:root .chips{flex-wrap:wrap;overflow:visible;margin-inline:0;padding-inline:0;gap:8px;}
+:root .chip{border:0!important;background:var(--white)!important;padding:9px 14px;font-size:var(--fs-sm);color:var(--tx2);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--navy-900) 8%,transparent),0 1px 3px color-mix(in srgb,var(--navy-900) 6%,transparent);}
+:root .chip[aria-pressed="true"]{background:color-mix(in srgb,var(--gold-600) 6%,var(--white))!important;color:var(--tx)!important;font-weight:600;box-shadow:0 0 0 1.5px var(--gold-600);}
+.sheet .chips + *{margin-top:16px;}
+
+/* ===== Quy ước viền "đang chọn" (02/10/2026) — lấy theo ô nhập khi focus: vàng đồng 2px, cách mép 2px, giữ viền xám mảnh bên trong ===== */
+:root{--sel-stroke:2px solid var(--gold-600);--sel-offset:2px;}
+:root .opt[aria-pressed="true"],:root .chip[aria-pressed="true"]{
+  background:var(--white)!important;outline:var(--sel-stroke);outline-offset:var(--sel-offset);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--navy-900) 8%,transparent),0 1px 3px color-mix(in srgb,var(--navy-900) 6%,transparent)!important;}
+:root .inp:focus,:root .inp:focus-visible,:root select.inp:focus,:root textarea.inp:focus{outline:var(--sel-stroke);outline-offset:var(--sel-offset);box-shadow:none;}
+:root .field.err .inp:focus,:root .field.err .inp:focus-visible{outline:2px solid color-mix(in srgb,var(--err) 60%,transparent);outline-offset:var(--sel-offset);}
+
+/* Hàng có ảnh nhỏ (tin tức trong tìm kiếm): cột ảnh 44px, không đè chữ */
+.li:has(> .sth){grid-template-columns:44px 1fr auto;gap:14px;}
+.sth{width:44px;height:44px;}
+
+/* Danh sách theo loại: hàng nút xổ xuống — lọc nhà ga bên trái, sắp xếp bên phải */
+/* Danh sách theo loại: 2 nút xổ xuống chia đều một hàng, thẳng mép thẻ bên dưới; chữ trái, mũi tên phải */
+.rbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:-10px;}
+.rbar .apbtn{min-height:44px;padding:0 14px;font-size:var(--fs-sm);color:var(--tx);gap:8px;min-width:0;}
+.rbar .apbtn svg:first-child{flex:none;}
+.rbar .apbtn svg:last-child{margin-left:auto;flex:none;color:var(--tx3);}
+
+/* Nhãn nhóm đứng trong màn (Tìm nhanh, Lối tắt…): bám sát nội dung của nó */
+.scroll > .qbl{margin:0;}
+.scroll > .qbl + *{margin-top:-18px;}
+
+/* Thông báo chuyến bay: dòng trạng thái bắt đầu sát lề, không đẩy sang phải */
+.fltnote .jwait{margin-left:0;}
+/* Dòng phụ voucher: nơi dùng · mã, không cắt chữ (nội dung đã giữ ngắn) */
+.walbox .wrow small.wsub{display:flex;flex-wrap:wrap;gap:0 4px;}
+.wsub .wcd{white-space:nowrap;}
+
+/* ===== Tab Dịch vụ dạng lưới 3 cột (02/10/2026): không chia hạng mục; icon trong ô vuông vàng nhạt, tên dưới; chạm ô mở bảng mua nhanh ===== */
+.svg3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.svc3{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;min-width:0;padding:14px 6px 12px;
+  background:var(--white);border:0;border-radius:var(--r-md);text-align:center;color:var(--tx);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--navy-900) 6%,transparent),0 1px 3px color-mix(in srgb,var(--navy-900) 5%,transparent);}
+.svc3:active{background:color-mix(in srgb,var(--acc) 6%,var(--white));}
+:root .svc3 .ic{width:40px!important;height:40px!important;border-radius:12px!important;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--gold-600) 9%,var(--white))!important;color:var(--gold-600)!important;}
+.svc3 .ic svg{width:22px;height:22px;}
+.svc3 b{font-size:var(--fs-sm);font-weight:600;line-height:1.3;text-wrap:balance;}
+/* Sắp ra mắt: nền xám phẳng, chữ xám */
+.svc3.off{background:color-mix(in srgb,var(--navy-900) 4%,var(--bg));box-shadow:none;}
+:root .svc3.off .ic{background:color-mix(in srgb,var(--navy-900) 5%,var(--bg))!important;color:var(--ink-400)!important;}
+.svc3.off b{color:var(--ink-400);}
+.svc3.off small{font-size:var(--fs-2xs);color:var(--ink-400);margin-top:-4px;}
+/* Giải pháp doanh nghiệp: một hàng ngang dưới lưới */
+.svbiz2{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;margin-top:-16px;background:var(--white);border:0;border-radius:var(--r-md);text-align:left;color:var(--tx);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--navy-900) 6%,transparent),0 1px 3px color-mix(in srgb,var(--navy-900) 5%,transparent);}
+.svbiz2 b{flex:1;font-size:var(--fs-sm);font-weight:600;}
+.svbiz2 > svg{color:var(--tx3);}
+:root .svbiz2 .ic{width:36px!important;height:36px!important;border-radius:10px!important;display:grid;place-items:center;background:color-mix(in srgb,var(--gold-600) 9%,var(--white))!important;color:var(--gold-600)!important;}
+.svbiz2 .ic svg{width:20px;height:20px;}
+/* Icon trang Dịch vụ: cùng kiểu với các trang khác — nét mảnh, không ô nền, màu xám; to hơn vì là điểm nhìn của ô */
+:root .svc3 .ic,:root .svc3.off .ic,:root .svbiz2 .ic{background:none!important;border-radius:0!important;width:28px!important;height:28px!important;}
+:root .svc3 .ic,:root .svbiz2 .ic{color:var(--tx3)!important;}
+:root .svc3.off .ic{color:var(--ink-400)!important;}
+.svc3 .ic svg{width:26px;height:26px;stroke-width:1.3;}
+.svbiz2 .ic svg{width:22px;height:22px;stroke-width:1.4;}
+.svc3{gap:10px;padding:16px 6px 14px;}
+/* Booking của tôi (trang Dịch vụ): nhãn trạng thái không đẩy tên xuống dòng */
+.li.bkm{grid-template-columns:22px minmax(0,1fr) auto;}
+.li.bkm .st{align-self:center;}
+/* Thông báo chuyến bay: dòng 2 dùng nhãn trạng thái chung của booking + tên dịch vụ */
+.fltnote small.fltst{display:flex;align-items:center;gap:8px;white-space:nowrap;}
+
+/* ===== Trang chi tiết dịch vụ (02/10/2026): nền trơn, các phần tách bằng line xám mảnh, khoảng cách đều ===== */
+.pmeta{margin-top:-14px;gap:8px;}
+.pintro{margin:0;}
+.psec{gap:12px;padding-top:24px;border-top:1px solid var(--line);}
+.psec .sec2{margin:0;}
+.psec .sec2 + *{margin-top:0;}
+/* Dịch vụ gồm: 1 cột để không rớt chữ */
+.pincl{grid-template-columns:1fr;gap:10px;}
+.pincl li{font-size:var(--fs-sm);}
+.psec .condl{gap:8px;}
+.psec .condl+.note{margin-top:4px;padding-top:14px;}
+/* Khối chọn mua: giữ nền riêng như V3 (tách vùng thông tin và vùng mua), tràn hết chiều ngang theo lề màn 20px */
+.pbuy{margin:8px -20px -32px;padding:24px 20px 32px;}
+.pbuy h3{margin:0 0 4px;}
+.pbuy .plab,.sheet .plab{font-size:var(--fs-xs);font-weight:500;color:var(--tx3);margin:20px 0 8px;}
+.pbuy .cofields{margin-top:4px;}
+.pbuy .note,.sheet .note{margin-top:16px;}
+.sheet .popts + .note{margin-top:14px;}
+/* Mô tả gói đang chọn: ngay dưới hàng nút */
+.fhint.optd{margin:8px 0 0;}
+
+/* Ô chọn ngang bị xếp dọc vì chữ dài: chuyển sang kiểu danh sách (ô trắng, viền vàng khi chọn), không dùng nền kem */
+:root .pku.stack{background:none;padding:0;gap:8px;}
+:root .pku.stack button{background:var(--white)!important;border-radius:var(--r-md);padding:13px 16px!important;text-align:left;color:var(--tx)!important;font-weight:500;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--navy-900) 8%,transparent),0 1px 3px color-mix(in srgb,var(--navy-900) 6%,transparent)!important;}
+:root .pku.stack button[aria-pressed="true"]{font-weight:600;outline:var(--sel-stroke);outline-offset:var(--sel-offset);}
+:root .pku.stack button[disabled]{background:color-mix(in srgb,var(--navy-900) 4%,var(--bg))!important;box-shadow:none!important;color:var(--ink-400)!important;opacity:1;}
+.fhint.optd + .cofields,.fhint.optd + .plab{margin-top:20px;}
+.fhint.optd + .step,.fhint.optd + .card{margin-top:14px;}
+:root .pku button{padding-inline:4px;}
+
+/* Vùng thao tác sáng hơn (02/10/2026): nền vùng mua trắng; thanh trượt + nút cộng trừ màu be ấm rất nhạt (token --trk) thay cho xám pha navy */
+:root{--trk:color-mix(in srgb,var(--gold-600) 7%,var(--white));}
+.pbuy{background:var(--white)!important;}
+:root .pku button[disabled]{color:color-mix(in srgb,var(--tx3) 60%,transparent);opacity:1;}
+.pbuy .card{box-shadow:0 0 0 1px color-mix(in srgb,var(--navy-900) 8%,transparent)!important;}
+/* Chọn ngang: giữ nguyên độ đậm chữ khi chọn (ô trắng đã đủ nổi bật) để nút không đổi độ rộng */
+:root .pku:not(.stack) button,:root .pku:not(.stack) button[aria-pressed="true"]{font-weight:500;}
+:root .pku button{padding-inline:4px!important;}
+:root .pku button.fit{font-size:var(--fs-xs)!important;}
+:root .pku.stack button{padding-inline:16px!important;}
+:root .pku.stack button.fit{font-size:var(--fs-sm)!important;}
+
+/* Popup: ẩn thanh cuộn như màn chính (app di động). Thanh cuộn hiện/ẩn làm khung đổi độ rộng, khiến ô chọn nhảy giữa ngang và dọc */
+.sheet{scrollbar-width:none;}
+.sheet::-webkit-scrollbar{display:none;}
+/* Thanh trượt luôn có viền mảnh (cùng viền ô nhập) để không chìm khi đặt trên nền kem cùng tông; be ấm tăng nhẹ 9% */
+:root{--trk:color-mix(in srgb,var(--gold-600) 9%,var(--white));}
+:root .pku:not(.stack){box-shadow:inset 0 0 0 1px var(--line);}
+
+/* Trang chủ · Ưu đãi nổi bật (02/10/2026): thẻ 240px để thấy ~1,5 thẻ (gợi ý vuốt), ảnh 112px, mô tả tối đa 2 dòng, bỏ khoảng trống thừa */
+.promo{width:240px;}
+.promo .ph{height:112px;}
+.promo .ph .ttl{font-size:var(--fs-lg);left:12px;right:12px;bottom:10px;}
+.promo .bd{padding:10px 12px 12px;line-height:1.45;}
+
+/* Trang chủ · slide Ưu đãi nổi bật: 1 thẻ rộng hết khung, chữ trên ảnh, mũi tên 2 bên, chấm vị trí */
+.hpx{position:relative;}
+.hpx-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:var(--r-lg);}
+.hpx-track::-webkit-scrollbar{display:none;}
+.hpx-card{position:relative;flex:0 0 100%;scroll-snap-align:start;height:168px;border:0;padding:0;text-align:left;background:var(--navy-900) center/cover no-repeat;color:var(--ivory);overflow:hidden;}
+.hpx-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,22,66,.15) 0%,transparent 35%,rgba(15,22,66,.82) 100%);}
+.hpx-card .pill{position:absolute;left:14px;top:14px;z-index:1;font-size:var(--fs-2xs);font-weight:600;border-radius:var(--r-pill);padding:3px 9px;background:rgba(15,22,66,.72);color:var(--gold-300);}
+.hpx-tx{position:absolute;left:16px;right:56px;bottom:26px;z-index:1;display:flex;flex-direction:column;gap:4px;}
+.hpx-tx b{font-family:var(--f-disp);font-weight:400;font-size:var(--fs-2xl);line-height:1.2;text-wrap:balance;}
+.hpx-tx small{font-size:var(--fs-xs);color:color-mix(in srgb,var(--ivory) 82%,transparent);line-height:1.4;}
+.hpx-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:32px;height:32px;border:0;border-radius:var(--r-round);display:grid;place-items:center;padding:0;
+  background:color-mix(in srgb,var(--white) 88%,transparent);color:var(--tx);box-shadow:0 1px 3px rgba(15,22,66,.18);}
+.hpx-nav::after{content:"";position:absolute;inset:-6px;} /* vùng chạm 44px */
+.hpx-nav.prev{left:8px;}.hpx-nav.prev svg{transform:rotate(180deg);}
+.hpx-nav.next{right:8px;}
+.hpx-dots{position:absolute;left:0;right:0;bottom:10px;z-index:2;display:flex;justify-content:center;gap:5px;pointer-events:none;}
+.hpx-dots i{width:6px;height:6px;border-radius:var(--r-pill);background:color-mix(in srgb,var(--white) 50%,transparent);transition:width .2s;}
+.hpx-dots i.on{width:16px;background:var(--white);}
+/* Mũi tên: cặp nút ở góc trên phải (đối diện nhãn ưu đãi), không che tên ưu đãi */
+.hpx-nav{top:12px;transform:none;width:30px;height:30px;}
+.hpx-nav.prev{left:auto;right:46px;}
+.hpx-nav.next{right:10px;}
+.hpx-tx{right:16px;}
+
+
+/* Slide ưu đãi: tăng tương phản chữ trên ảnh — nền tối dày hơn ở nửa dưới + bóng chữ nhẹ */
+.hpx-card::after{background:linear-gradient(180deg,rgba(15,22,66,.30) 0%,rgba(15,22,66,.12) 28%,rgba(15,22,66,.62) 55%,rgba(15,22,66,.92) 100%);}
+.hpx-tx b,.hpx-tx small{text-shadow:0 1px 2px rgba(10,14,40,.45);}
+.hpx-tx small{color:color-mix(in srgb,var(--ivory) 92%,transparent);}
+/* Slide ưu đãi: lớp tối phủ đậm và cao hơn để chữ 2 dòng vẫn đọc rõ trên mọi ảnh; thẻ cao 180px */
+.hpx-card{height:180px;}
+.hpx-card::after{background:linear-gradient(180deg,rgba(15,22,66,.38) 0%,rgba(15,22,66,.42) 30%,rgba(15,22,66,.80) 62%,rgba(15,22,66,.94) 100%);}
+/* Khối Ví trang chủ: ảnh 40px, nút tròn 40px, khoảng cách gọn để "nơi dùng · mã" vừa 1 dòng ở màn hẹp */
+.walbox .li.wrow{grid-template-columns:40px minmax(0,1fr) auto;gap:12px;}
+.walbox .wrow .th{width:40px;height:40px;}
+.walbox .wrow .rb{width:40px;height:40px;margin-right:-4px;}
+/* Ô mã voucher: icon copy nhỏ ngay sau nhãn (chỉ để báo copy được), chạm cả ô để sao chép; mã giữ 1 dòng */
+.cells .vcode{cursor:pointer;}
+.cells .vcode small{display:flex;align-items:center;gap:4px;}
+.cells .vcode small svg{flex:none;color:var(--tx3);}
+.cells .vcode code{white-space:nowrap;}
+.cells .vcode:active{background:color-mix(in srgb,var(--acc) 8%,var(--white));}
+.li.bkm small{white-space:nowrap;}
+/* Lưới Dịch vụ: line mảnh ngắn ngăn icon và tên, thêm chút khoảng thở */
+.svc3{gap:0;padding:16px 6px 14px;}
+.svc3 b{position:relative;margin-top:11px;padding-top:11px;}
+.svc3 b::before{content:"";position:absolute;top:0;left:50%;width:28px;height:1px;transform:translateX(-50%);background:color-mix(in srgb,var(--navy-900) 12%,transparent);}
+.svc3.off small{margin-top:2px;}
+/* Line giữa icon và tên: dài 1/2 ô, căn giữa; cân theo thân chữ thường (mắt nhìn khối chữ, không nhìn đỉnh chữ hoa): icon→line ≈ line→thân chữ ≈ 15px */
+.svc3 b{margin-top:12px;padding-top:8px;align-self:stretch;}
+.svc3 b::before{width:50%;}
+.svc3 b{margin-top:11px;}
+.svc3 b::before{width:calc(50% + 6px);}
+/* Cân line theo đỉnh chữ hoa/dấu (mọi tên dịch vụ đều mở đầu bằng chữ hoa): icon→line = line→đỉnh chữ ≈ 14,5px */
+.svc3 b{margin-top:11px;padding-top:11px;}
+
+/* ===== Lưới Dịch vụ · phương án C (02/10/2026): kiểu icon ứng dụng — ô trắng chỉ chứa icon, tên nằm dưới ô, chữ medium 500 (bỏ line ngăn) ===== */
+.svg3{gap:14px 10px;}
+.svc3{background:none!important;box-shadow:none!important;border-radius:0;padding:0!important;gap:7px!important;}
+.svc3:active{background:none!important;}
+:root .svc3 .ic{width:100%!important;height:auto!important;aspect-ratio:1.3;border-radius:var(--r-md)!important;display:grid;place-items:center;
+  background:var(--white)!important;box-shadow:0 0 0 1px color-mix(in srgb,var(--navy-900) 6%,transparent),0 1px 3px color-mix(in srgb,var(--navy-900) 5%,transparent);}
+.svc3:active .ic{background:color-mix(in srgb,var(--acc) 6%,var(--white))!important;}
+.svc3 b{margin:0!important;padding:0!important;font-weight:500;font-size:var(--fs-sm);color:var(--tx);}
+.svc3 b::before{display:none!important;}
+/* Sắp ra mắt: ô xám phẳng, tên và dòng phụ xám */
+:root .svc3.off .ic{background:color-mix(in srgb,var(--navy-900) 4%,var(--bg))!important;box-shadow:none;}
+.svc3.off b{color:var(--ink-400);}
+.svc3.off small{margin-top:-5px!important;}
+:root .svc3.off .ic{width:100%!important;height:auto!important;aspect-ratio:1.3;border-radius:var(--r-md)!important;}
+.svbiz2 b{font-weight:500;}
+/* Lưới Dịch vụ: chặt hơn — tên bám sát ô của nó (6px), giãn khoảng giữa các hàng (20px) để không lẫn với ô hàng dưới; icon 28px cho ô đỡ trống */
+.svg3{gap:20px 10px;}
+.svc3{gap:6px!important;}
+.svc3 .ic svg{width:28px!important;height:28px!important;}
+:root .svc3 .ic{aspect-ratio:1.4;}
+.svc3.off small{margin-top:-4px!important;}
+
+/* ===== Độ đậm chữ toàn app (02/10/2026): 600 chỉ cho tiêu đề nhóm, số tiền, nút bấm, mã voucher/đơn, tiêu đề lịch, số đếm tab, thẻ ACP. Còn lại dùng 500 ===== */
+:root :is(.li b,.opt b,.opt[aria-pressed="true"] b,.bk .n,.wal .n,.citem .n,.combo b,.chk b,.pay b,.pkf b,.pkh b,.gwmail b,.sugg b,.tl .s b,.step b,.prog b,.fltnote b,.prod .nm,.pm1 b,.sub3,
+  .qbl,.pbuy .plab,.qbinfo,.lnks button,.lnkin,.ptlink,.sec2 button,.save,.upb,.qwait,.opend span,.citem .rm,
+  .st,.status,.stars,.jsum .tag,.tl .tag,.pktag,.promo .ph .pill,.hpx-card .pill,.ladder .on,.grp .gh .n,
+  .wtabs button,.wtabs button span,.chip[aria-pressed="true"],.pku button[aria-pressed="true"],.pku.stack button[aria-pressed="true"],.seg button[aria-pressed="true"],.toast,.tabbar .tab[aria-selected="true"],.tab[aria-selected="true"]){font-weight:500!important;}
+
+/* Trang Dịch vụ: gợi ý tìm nhanh (chip nhỏ dưới ô tìm kiếm, dùng lại bộ "Tìm nhanh") */
+.sqchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:-16px;}
+:root .sqchips .chip{padding:6px 12px;font-size:var(--fs-xs);color:var(--tx2);box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 6%,transparent)!important;}
+
+/* Lưới Dịch vụ: bỏ viền ô, chỉ còn bóng mềm; icon 2D hai tông (nét xám navy + thân be vàng nhạt) */
+:root .svc3 .ic{box-shadow:0 2px 8px -2px color-mix(in srgb,var(--navy-900) 10%,transparent),0 1px 2px color-mix(in srgb,var(--navy-900) 4%,transparent)!important;}
+:root .svc3:not(.off) .ic{color:var(--ink-500)!important;}
+.svc3:not(.off) .ic svg{fill:color-mix(in srgb,var(--gold-300) 32%,var(--white));stroke-width:1.4;}
+:root .svc3.off .ic{box-shadow:none!important;}
+
+/* ===== Lưới Dịch vụ · 4 cột, tên chung trong ô (02/10/2026, theo hình tham khảo): ô trắng không viền, bóng mềm; icon nét xám như trang Tài khoản ===== */
+.svg3{grid-template-columns:repeat(4,1fr)!important;gap:8px!important;}
+.svc3{background:var(--white)!important;border-radius:var(--r-md)!important;padding:14px 4px 12px!important;gap:8px!important;justify-content:flex-start;
+  box-shadow:0 2px 8px -2px color-mix(in srgb,var(--navy-900) 10%,transparent),0 1px 2px color-mix(in srgb,var(--navy-900) 4%,transparent)!important;}
+.svc3:active{background:color-mix(in srgb,var(--acc) 6%,var(--white))!important;}
+:root .svc3 .ic,:root .svc3.off .ic{width:26px!important;height:26px!important;aspect-ratio:auto;background:none!important;box-shadow:none!important;border-radius:0!important;color:var(--tx3)!important;}
+.svc3 .ic svg,.svc3:not(.off) .ic svg{width:24px!important;height:24px!important;fill:none!important;stroke-width:1.4;}
+.svc3 b{font-size:var(--fs-xs)!important;font-weight:500;line-height:1.3;text-wrap:balance;}
+/* Sắp ra mắt: ô xám phẳng */
+.svc3.off{background:color-mix(in srgb,var(--navy-900) 4%,var(--bg))!important;box-shadow:none!important;}
+:root .svc3.off .ic{color:var(--ink-400)!important;}
+.svc3.off small{margin-top:-6px!important;font-size:var(--fs-2xs);}
+/* 4 cột: lề trong 2px để tên ngắn vừa 1 dòng; tên dài (Meet & Greet) xuống 2 dòng như hình tham khảo; chừa sẵn 2 dòng để mọi ô cao bằng nhau */
+.svc3{padding:14px 2px 10px!important;}
+.svc3:not(.off) b{min-height:calc(2em * 1.3);text-wrap:wrap;}
+/* Ô "Sắp ra mắt" (nhóm phụ): tên nhỏ một bậc để tên dài vừa 2 dòng, giữ hàng cuối cao bằng các hàng khác */
+.svc3.off b{font-size:var(--fs-2xs)!important;text-wrap:balance;}
+.svc3.off{gap:6px!important;}
+/* "Sắp ra mắt" thành nhãn nhỏ gắn mép trên ô (như nhãn "MỚI" ở hình tham khảo) để ô cao bằng các ô khác */
+.svc3.off{position:relative;overflow:visible;}
+.svc3.off small{position:absolute;top:-7px;left:50%;transform:translateX(-50%);margin:0!important;white-space:nowrap;padding:1px 7px;border-radius:var(--r-pill);background:var(--white);color:var(--tx3);box-shadow:0 0 0 1px var(--line);font-size:var(--fs-2xs);line-height:1.4;}
+.svg3{row-gap:12px!important;}
+/* Lưới Dịch vụ: chữ nhỏ lại (11px) và chừa lề 6px để tên không sát mép ô.
+   Ô "Sắp ra mắt": tên 10px (đủ để "Xe điện trong nhà ga" vừa 2 dòng), chữ "Sắp ra mắt" nhỏ hơn, nằm ngay dưới tên, không còn nhãn gắn mép */
+.svc3{padding:14px 6px 12px!important;}
+.svc3 b{font-size:var(--fs-2xs)!important;line-height:1.3;}
+.svc3.off{padding-inline:5px!important;gap:6px!important;}
+.svc3.off b{font-size:var(--fs-card-sm)!important;}
+.svc3.off small{position:static!important;transform:none!important;padding:0!important;background:none!important;box-shadow:none!important;margin-top:-4px!important;font-size:var(--fs-card-sm)!important;color:color-mix(in srgb,var(--ink-400) 85%,transparent);}
+.svg3{row-gap:8px!important;}
+/* Ô "Sắp ra mắt": bỏ chữ phụ, chỉ còn ô xám phẳng (quy ước không chọn được); chạm hiện thông báo "… sắp ra mắt". Tên cùng cỡ các ô khác để mọi ô cao bằng nhau */
+.svc3.off{padding:14px 6px 12px!important;gap:8px!important;cursor:default;}
+.svc3.off b{font-size:var(--fs-2xs)!important;}
+.svc3.off b{min-height:calc(2em * 1.3);}
+
+/* Giỏ hàng: ô tích trước mỗi dịch vụ để chọn dịch vụ cần thanh toán; tổng + Thanh toán chỉ tính dịch vụ đã chọn */
+.citem{grid-template-columns:24px 64px 1fr!important;align-items:start;}
+.csel{width:22px;height:22px;margin-top:21px;border-radius:6px;border:1.5px solid color-mix(in srgb,var(--tx) 28%,transparent);background:var(--white);display:grid;place-items:center;padding:0;color:transparent;position:relative;flex:none;}
+.csel::after{content:"";position:absolute;inset:-11px;} /* vùng chạm 44px */
+.csel svg{width:14px;height:14px;stroke-width:2.4;}
+.csel[aria-checked="true"],.cselall[aria-checked="true"] .csel{background:var(--gold-600);border-color:var(--gold-600);color:var(--white);}
+.csel[disabled]{opacity:.4;}
+.cselall{display:flex;align-items:center;gap:10px;background:none;border:0;padding:4px 0;font-size:var(--fs-sm);font-weight:500;color:var(--tx);margin-top:-12px;}
+.cselall .csel{margin-top:0;}
+
+/* Voucher chờ đặt lịch (tab Đặt lịch): cả dòng bấm được, mũi tên thay nút "Đặt lịch"; nơi dùng · mã giữ 1 dòng như khối Ví */
+.li.wrow.wgo{grid-template-columns:40px minmax(0,1fr) auto;gap:12px;}
+.wgo .th{width:40px;height:40px;}
+.wrow small.wsub{display:flex;flex-wrap:wrap;gap:0 4px;}
+.wsub .wcd{white-space:nowrap;}
+
+/* Nút tìm kiếm: kiểu nút phụ (nền trắng, viền vàng mảnh, icon vàng) thay cho nút vàng đặc */
+:root .search .go{background:var(--white)!important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--acc) 45%,transparent)!important;color:var(--acc)!important;}
+:root .search .go svg{color:var(--acc)!important;}
+
+/* ===== Thang chữ trang Dịch vụ (02/10/2026): gợi ý < phụ < nội dung chính < tiêu đề nhóm < tiêu đề trang ===== */
+/* Cấp 5 · gợi ý tìm nhanh: 11px, chữ thường 400, xám, đệm nhỏ — luôn nhỏ hơn nội dung chính */
+:root .sqchips .chip{font-size:var(--fs-2xs)!important;font-weight:400!important;color:var(--tx3)!important;padding:4px 10px!important;}
+.sqchips{gap:6px;}
+/* Cấp 4 · ô tìm kiếm: chữ 13px, gợi ý xám */
+.search input{font-size:var(--fs-sm);}
+/* Cấp 3b · nội dung chính trong ô hẹp: tên dịch vụ 11px/500 navy (giữ), hàng Doanh nghiệp 12.5px/500 cùng cấp lưới */
+.svbiz2 b{font-size:var(--fs-xs);}
+
+/* ===== Thang chữ toàn app (02/10/2026): đồng bộ sau khi rà 10 màn ===== */
+/* Cấp 3 · tên dòng/thẻ: 14/500 ở mọi nơi (thẻ booking Đặt lịch, tên dịch vụ ở Thanh toán) */
+:root .bk .n{font-size:var(--fs-md)!important;font-weight:500!important;}
+:root .card > div > div > b[style*="font-size:var(--fs-sm)"]{font-size:var(--fs-md)!important;font-weight:500!important;}
+/* Không dùng 700: tiêu đề + số tiền về 600 */
+:root :is(.prof b,.lkt b,.cpr,.prod .ft .p,.combo .p,.opt .p,.pkf b){font-weight:600!important;}
+:root .card b[style*="font-size:var(--fs-lg)"]{font-weight:600!important;}
+/* Tab: một cỡ 13 ở mọi nơi */
+:root .wtabs.sm button{font-size:var(--fs-sm)!important;}
+/* Số đếm cạnh tiêu đề nhóm: cấp phụ */
+:root .sec > span,:root .sec.sub > span{font-size:var(--fs-xs)!important;font-weight:400!important;color:var(--tx3)!important;}
+:root .kv[style*="font-weight"] > span{font-weight:500!important;}
+:root .note b{font-weight:600!important;}
+/* Màn Booking của tôi: dòng gọn như web V10 (tên dịch vụ / ngày · mã booking / nhãn) */
+.li.bkl small.wsub{display:flex;flex-wrap:wrap;gap:0 4px;white-space:normal;}
+.li.bkl{grid-template-columns:22px minmax(0,1fr) auto!important;}
+.bkl .bkt{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.bkl .bkt b{min-width:0;}
+.bkl .bkt .st{flex:none;}
+
+/* ===== Khoảng cách toàn app (02/10/2026, giảm độ thoáng): lề màn 16px, giữa các khối 20px, tiêu đề nhóm → nội dung 10px, đệm thẻ 16px, dòng danh sách 13px ===== */
+:root{--pad-x:16px;--gap-sec:20px;}
+.scroll{padding:6px var(--pad-x) 24px;gap:var(--gap-sec);}
+.chips,.rail{margin-inline:calc(-1 * var(--pad-x));padding-inline:var(--pad-x);}
+.sec + *,.sec2 + *,.sec.sub + *{margin-top:calc(10px - var(--gap-sec))!important;}
+.scroll > .qbl + *{margin-top:calc(8px - var(--gap-sec))!important;}
+.sqchips{margin-top:calc(10px - var(--gap-sec))!important;}
+.rbar{margin-top:calc(12px - var(--gap-sec))!important;}
+.svbiz2{margin-top:calc(8px - var(--gap-sec))!important;}
+.card{padding:16px;}
+.card.list,.svl .grp,.svbiz{padding:2px 16px!important;}
+.walbox{padding:0 16px 2px!important;}
+.walbox .wtabs{margin:0 -16px!important;padding:0 6px!important;}
+.walbox .wtabs button{padding:13px 0 11px!important;}
+.li{padding:13px 0;gap:14px;}
+.li.wrow{gap:12px;}
+.fltnote{padding:13px 16px;}
+/* Trang chi tiết */
+.psec{gap:10px;padding-top:var(--gap-sec);}
+.pbuy{margin:4px calc(-1 * var(--pad-x)) -24px!important;padding:var(--gap-sec) var(--pad-x) 24px!important;}
+.qbl,.pbuy .plab,.sheet .plab{margin:16px 0 6px!important;}
+.pbuy .note,.sheet .note{margin-top:12px;}
+/* Popup */
+.sheet{padding:10px var(--pad-x) 24px;}
+/* Thẻ voucher / booking / sản phẩm */
+.wal,.bk{padding:14px;gap:10px;}
+.citem.card{padding:14px;}
+.psec > .sec2 + *,.psec > .sec + *{margin-top:0!important;} /* trong phần trang chi tiết đã có gap 10px */
+
+/* Nút "Xoá" (giỏ hàng, hành khách thường đi cùng…): một kiểu chung — chữ xám 12.5/500, không khung, vùng chạm rộng */
+:root .rm{background:none;border:0;color:var(--tx2);font:inherit;font-size:var(--fs-xs);font-weight:500;text-decoration:none;padding:12px 0 12px 16px;margin:-12px 0;cursor:pointer;}
+:root .rm:active{color:var(--err);}
+
+/* Tab: gạch chân nằm trong khung (khung tab cuộn ngang nên cắt mọi thứ tràn ra mép dưới) — 2px vàng đồng, đè lên đường kẻ xám */
+:root .wtabs button[aria-selected="true"]::after{bottom:0!important;height:2px!important;background:var(--gold-600)!important;border-radius:var(--r-xs);}
+
+/* ===== Nhịp khoảng cách 2 bậc (02/10/2026): 8px trong cùng nhóm · 16px giữa các nhóm. Tiêu đề nhóm → nội dung 8px ===== */
+:root{--gap-sec:16px;--gap-in:8px;}
+.sec + *,.sec2 + *,.sec.sub + *{margin-top:calc(var(--gap-in) - var(--gap-sec))!important;}
+.scroll > .qbl + *{margin-top:calc(var(--gap-in) - var(--gap-sec))!important;}
+.sqchips{margin-top:calc(var(--gap-in) - var(--gap-sec))!important;gap:var(--gap-in)!important;}
+.svg3{gap:var(--gap-in)!important;}
+.svbiz2{margin-top:calc(var(--gap-in) - var(--gap-sec))!important;}
+.rbar{margin-top:calc(var(--gap-in) - var(--gap-sec))!important;gap:var(--gap-in)!important;}
+.psec{gap:var(--gap-in);padding-top:var(--gap-sec);}
+.pmeta{margin-top:calc(var(--gap-in) - var(--gap-sec));}
+
+/* Logo trang chủ nhỏ lại (54 → 40px) */
+.appbar .logo{height:40px;}
+
+/* ===== Phân cấp thông tin: chính rõ, phụ nhỏ (đủ đọc) và nhạt hơn ===== */
+:root{--fs-sub:12px;--tx-sub:var(--ink-500);--tx-meta:var(--ink-400);}
+/* Dòng phụ dưới tên (danh sách, voucher, booking, giỏ hàng, sản phẩm): 12px, xám */
+:root :is(.li small,.wsub,.bkm small,.citem .o,.prod .loc,.wal .sub,.fltnote small,.pmi,.pm1 span,.svbiz2 small){font-size:var(--fs-sub)!important;color:var(--tx-sub)!important;}
+/* Thông tin kèm theo ít quan trọng (giờ thông báo, số đếm cạnh tiêu đề, gợi ý dưới ô nhập, đơn vị giá): 11px, xám nhạt */
+:root :is(.li .r,.sec > span,.sec.sub > span,.fhint,.prod .p small,.citem .sku,.wal .foot,.lkhl){font-size:var(--fs-2xs)!important;color:var(--tx-meta)!important;}
+
+/* ===== Tab: một kiểu duy nhất ở mọi nơi (Ví trang chủ, Ví của tôi, Booking của tôi) ===== */
+:root{--fill-soft:color-mix(in srgb,var(--navy-900) 6%,var(--bg));}
+:root .wtabs{gap:0!important;}
+:root .wtabs button{flex:1!important;justify-content:center;padding:12px 0!important;gap:6px!important;font-size:var(--fs-sm)!important;}
+:root .wtabs button span{min-width:20px!important;padding:1px 6px!important;font-size:var(--fs-2xs)!important;font-weight:500!important;border-radius:var(--r-pill);}
+:root .wtabs button:not([aria-selected="true"]) span{background:var(--fill-soft)!important;color:var(--tx2)!important;}
+:root .wtabs button[aria-selected="true"] span{background:var(--tx)!important;color:var(--white)!important;}
+:root .walbox .wtabs{padding:0!important;}
+:root .wtabs button{gap:4px!important;}
+:root .wtabs button span{min-width:18px!important;padding:1px 5px!important;}
+:root .wtabs button{flex:1 1 auto!important;} /* rộng theo chữ + phần dư chia đều: khoảng giữa các tab bằng nhau */
+:root .wtabs{border-bottom:1px solid color-mix(in srgb,var(--navy-900) 6%,transparent)!important;} /* đường kẻ dưới tab = đường ngăn dòng (6%), không dùng viền mảnh 9% */
+:root .wtabs button[aria-selected="true"]::after{height:1.5px!important;background:var(--gold-400)!important;} /* gạch chân tab nhẹ hơn: 1.5px vàng sáng */
+/* Trang Dịch vụ: nút tìm kiếm tròn cạnh nút chọn sân bay (thay thanh tìm kiếm lớn) */
+.apact{display:flex;align-items:center;gap:8px;}
+
+/* ===== Trang chủ · phong cách mới (02/10/2026, chỉ trang chủ; chốt xong mới áp toàn app) ===== */
+/* Bo góc 22px cho các thẻ trang chủ */
+#scr[data-v="home"] :is(.acp,.fltnote,.walbox,.hpx-track){border-radius:22px!important;}
+/* Thẻ chuyến bay: nền be ấm, chặng bay chữ lớn (font tiêu đề), ngày ở trên, trạng thái + dịch vụ ở dưới */
+#scr[data-v="home"] .fltnote{display:flex!important;align-items:center;gap:12px;padding:14px 16px!important;
+  background:color-mix(in srgb,var(--gold-300) 24%,var(--white))!important;box-shadow:none!important;}
+#scr[data-v="home"] .fltnote .tx{flex:1;min-width:0;display:flex;flex-direction:column;}
+#scr[data-v="home"] .fltnote .fltk{font-size:var(--fs-2xs)!important;font-weight:500;color:var(--gold-700)!important;margin:0;}
+#scr[data-v="home"] .fltnote .tx b{font-family:var(--f-disp);font-weight:400!important;font-size:var(--fs-3xl)!important;line-height:1.15;margin:2px 0 8px;white-space:nowrap;}
+#scr[data-v="home"] .fltnote small.fltst{display:flex;align-items:center;gap:8px;font-size:var(--fs-xs)!important;color:var(--tx2)!important;}
+#scr[data-v="home"] .fltnote .fltst .st{background:var(--white)!important;color:var(--gold-700)!important;}
+#scr[data-v="home"] .fltnote .fchev{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--white) 70%,transparent);color:var(--gold-700);}
+/* Thẻ Ví: bóng mềm hơn */
+#scr[data-v="home"] .walbox{box-shadow:0 4px 14px -6px color-mix(in srgb,var(--navy-900) 16%,transparent)!important;}
+/* Thanh tab nổi navy · phương án A: tab đang chọn là viên kem trong suốt 14% có thêm tên tab, các tab khác chỉ icon (tên ẩn trên giao diện, vẫn cho trình đọc màn hình). Không dùng vàng. Icon nét 1.3, bóng nhẹ */
+#dock:has(> .tabbar){background:var(--bg);}
+#dock .tabbar{display:flex!important;justify-content:space-between;align-items:center;margin:0 16px 14px;border:0!important;border-radius:var(--r-pill);
+  background:var(--navy-900)!important;padding:6px 8px!important;box-shadow:0 6px 16px -10px color-mix(in srgb,var(--navy-950) 45%,transparent)!important;}
+#dock .tabbar .tab{flex:none;font-size:0!important;height:40px;min-width:44px;padding:0!important;display:flex;align-items:center;justify-content:center;gap:6px;
+  border-radius:var(--r-pill);color:color-mix(in srgb,var(--ivory) 58%,transparent)!important;background:none!important;transition:background .2s,padding .2s,color .2s;}
+#dock .tabbar .tab svg{width:21px;height:21px;stroke-width:1.3;}
+#dock .tabbar .tab .disc,#dock .tabbar .tab .icw{background:none!important;box-shadow:none!important;width:auto;height:auto;color:inherit;display:inline-flex;}
+#dock .tabbar .tab[aria-selected="true"]{font-size:var(--fs-xs)!important;font-weight:500!important;padding:0 14px!important;background:color-mix(in srgb,var(--ivory) 14%,transparent)!important;color:var(--ivory)!important;}
+#dock .tabbar .bdg{font-size:var(--fs-2xs)!important;box-shadow:0 0 0 2px var(--navy-900);}
+#dock .tabbar .tab{flex-direction:row!important;white-space:nowrap;line-height:1;}
+/* Thanh tab: icon/chữ trắng (không ngả vàng); nền navy 90% + làm mờ phía sau cho nhẹ mà vẫn rõ */
+#dock .tabbar{background:color-mix(in srgb,var(--navy-900) 90%,transparent)!important;-webkit-backdrop-filter:blur(12px) saturate(140%);backdrop-filter:blur(12px) saturate(140%);
+  box-shadow:0 6px 16px -10px color-mix(in srgb,var(--navy-950) 45%,transparent),inset 0 0 0 1px color-mix(in srgb,var(--white) 8%,transparent)!important;}
+#dock .tabbar .tab{color:color-mix(in srgb,var(--white) 65%,transparent)!important;}
+#dock .tabbar .tab[aria-selected="true"]{background:color-mix(in srgb,var(--white) 16%,transparent)!important;color:var(--white)!important;}
+/* Để nội dung cuộn chạy bên dưới thanh (thấy hiệu ứng mờ): thanh nổi đè lên vùng cuộn */
+#dock:has(> .tabbar:only-child){position:absolute;left:0;right:0;bottom:0;z-index:5;background:none!important;pointer-events:none;}
+#dock .tabbar{pointer-events:auto;}
+.screen:has(> #dock > .tabbar:only-child) > #scr{padding-bottom:96px!important;}
+/* Trang chủ · ô ghép (thử): Sẵn sàng (trắng, cao 2 hàng) · Chờ lịch (navy) · Nhắc nhở (be nhạt) */
+.hbento{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-in);margin-top:var(--gap-in);}
+.hbento.tall .hb-rd{grid-row:span 2;}
+.hbento .hb:only-child{grid-column:1/-1;}
+.hb{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:104px;padding:14px;border-radius:22px;background:var(--white);box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent);color:var(--tx);font-family:inherit;text-align:left;min-width:0;}
+.hb:focus-visible{outline:var(--sel-stroke);outline-offset:var(--sel-offset);}
+.hb small{font-size:var(--fs-xs);font-weight:500;color:var(--tx2);}
+.hb .hbn{font-family:'SVN-Aptima',serif;font-size:var(--fs-5xl);font-weight:400;line-height:1.05;}
+.hb .hbx{font-size:var(--fs-2xs);color:var(--tx3);margin-top:auto;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.hb-rd .hbth{display:flex;margin-top:auto;padding-top:10px;}
+.hb-rd .hbth i{width:34px;height:34px;border-radius:50%;background-size:cover;background-position:center;box-shadow:0 0 0 2px var(--white);}
+.hb-rd .hbth i+i{margin-left:-9px;}
+.hb-rd .hbth+.hbx{margin-top:8px;}
+.hb-wt{background:var(--navy-900);color:var(--white);}
+.hb-wt small,.hb-wt .hbx{color:color-mix(in srgb,var(--white) 72%,transparent);}
+.hb-nt{background:color-mix(in srgb,var(--gold-300) 24%,var(--white));}
+.hb-nt .hbic{color:var(--tx3);display:inline-flex;}
+.hb-nt .hbt{font-size:var(--fs-xs);font-weight:500;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.hb-nt small{font-size:var(--fs-2xs);font-weight:400;color:var(--tx3);margin-top:auto;}
+/* Ô ghép v2: chuyến bay vào trong cụm (trái, cao 2 hàng) + nét bay vẽ mảnh; Sẵn sàng gọn (số + ảnh cùng hàng); nhắc nhở thành hàng ngang dưới cùng */
+#scr[data-v="home"] .acpbtn + .hbento{margin-top:var(--gap-sec);}
+.hbento.tall .hb-rd{grid-row:auto;}
+.hbento.tall .hb-fl{grid-row:span 2;}
+.hb-fl{background:color-mix(in srgb,var(--gold-300) 24%,var(--white));gap:2px;}
+.hb-fl .hbx{margin-top:0;color:var(--acc-tx,var(--gold-700));font-weight:500;}
+.hb-fl small{color:var(--acc-tx,var(--gold-700));}
+.hb-fl .hbrt{display:flex;flex-direction:column;align-items:flex-start;margin:10px 0 12px;}
+.hb-fl .hbrt b{font-family:'SVN-Aptima',serif;font-size:var(--fs-4xl);font-weight:400;line-height:1;letter-spacing:.02em;}
+.hb-fl .hbart{width:40px;height:44px;color:var(--gold-600);margin:4px 0 4px 6px;}
+.hb-fl .hbst{margin-top:auto;display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-size:var(--fs-xs);color:var(--tx2);}
+.hb-fl .hbst .st{background:var(--white)!important;}
+.hb-rd .hbrow{display:flex;align-items:center;justify-content:space-between;width:100%;gap:8px;}
+.hb-rd .hbth{margin-top:0;padding-top:0;}
+.hb-rd .hbth i{width:28px;height:28px;}
+.hb-rd .hbth i+i{margin-left:-8px;}
+.hb-nt{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;gap:12px;padding:13px 16px;background:var(--white);}
+.hb-nt .hbtx{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1;}
+.hb-nt .hbtx b{font-size:var(--fs-md);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hb-nt .hbtx small{font-size:var(--fs-sub,12px);font-weight:400;color:var(--tx3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hb-nt .hbtm{margin-top:0;align-self:flex-start;font-size:var(--fs-2xs);color:var(--tx3);}
+/* Ô ghép v3: 2 cột so le (cột trái chuyến bay kéo cao bằng cột phải; cột phải Sẵn sàng cao + Chờ lịch thấp); Sẵn sàng liệt kê voucher, chạm dòng mở QR */
+.hbento{grid-template-columns:1fr 1fr;align-items:stretch;}
+.hbento .hbc{display:flex;flex-direction:column;gap:var(--gap-in);min-width:0;}
+.hbento .hbc:only-of-type{grid-column:1/-1;}
+.hbento .hbc > .hb{min-height:0;}
+.hbento .hbc > .hb-fl{flex:1;}
+.hb-fl .hbrt{flex:1;margin:12px 0;}
+.hb-fl .hbart{flex:1;min-height:40px;height:auto;width:34px;}
+.hb-rd{cursor:default;padding:14px 10px 8px 14px;gap:0;}
+.hb-rd .hbhd{all:unset;cursor:pointer;display:grid;grid-template-columns:1fr auto;align-items:end;width:100%;box-sizing:border-box;padding-right:4px;margin-bottom:6px;}
+.hb-rd .hbhd small{grid-column:1/-1;font-size:var(--fs-xs);font-weight:500;color:var(--tx2);}
+.hb-rd .hbhd .hbch{color:var(--tx3);display:inline-flex;padding-bottom:6px;}
+.hb-rd .hbi{all:unset;cursor:pointer;box-sizing:border-box;display:flex;align-items:center;gap:8px;width:100%;min-height:44px;border-top:1px solid color-mix(in srgb,var(--navy-900) 6%,transparent);font-size:var(--fs-xs);font-weight:500;color:var(--tx);}
+.hb-rd .hbi i{flex:none;width:26px;height:26px;border-radius:50%;background-size:cover;background-position:center;}
+.hb-rd .hbi span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hb-rd .hbi svg{flex:none;color:var(--gold-600);}
+.hb-rd .hbi:focus-visible,.hb-rd .hbhd:focus-visible{outline:var(--sel-stroke);outline-offset:var(--sel-offset);border-radius:var(--r-xs);}
+.hb-wt{padding:12px 14px;}
+.hb-wt .hbrow{display:flex;align-items:baseline;gap:8px;}
+.hb-wt .hbx{margin-top:0;}
+.hb-wt .hbn{font-size:var(--fs-4xl);}
+/* Ô Sẵn sàng: tên voucher hiện đủ, tối đa 2 dòng (không cắt "…") */
+.hb-rd .hbi{padding-block:6px;}
+.hb-rd .hbi span{white-space:normal;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:clip;}
+/* Trang chủ · phương án A: thẻ Lịch sắp tới (dòng thời gian) + thẻ Ví gọn. Một màu nhấn duy nhất (be), còn lại nền trắng */
+#scr[data-v="home"] .acpbtn + .htl{margin-top:var(--gap-sec);}
+.htl{background:color-mix(in srgb,var(--gold-300) 24%,var(--white));border-radius:22px;padding:16px;display:flex;flex-direction:column;}
+.htl .tln{all:unset;box-sizing:border-box;cursor:pointer;display:flex;width:100%;font-family:inherit;color:var(--tx);}
+.htl .tln:focus-visible,.htl .tlall:focus-visible{outline:var(--sel-stroke);outline-offset:var(--sel-offset);border-radius:var(--r-xs);}
+.htl .tln.big{flex-direction:column;align-items:flex-start;gap:4px;}
+.htl .tld{font-size:var(--fs-2xs);font-weight:500;color:var(--acc-tx,var(--gold-700));}
+.htl .tlr{font-family:'SVN-Aptima',serif;font-size:var(--fs-3xl);font-weight:400;line-height:1.15;}
+.htl .tls{display:flex;align-items:center;gap:8px;font-size:var(--fs-xs);color:var(--tx2);margin-top:2px;}
+.htl .st{background:var(--white)!important;}
+.htl .tlrest{margin:14px 0 0 4px;border-left:1.2px dashed var(--gold-400);display:flex;flex-direction:column;}
+.htl .tlrest .tln{position:relative;align-items:center;gap:8px;padding:8px 0 8px 14px;min-height:44px;}
+.htl .tlrest .tln::before{content:"";position:absolute;left:-4.5px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--gold-600);}
+.htl .tlrest .tln + .tln{border-top:1px solid color-mix(in srgb,var(--gold-600) 14%,transparent);}
+.htl .tlx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;}
+.htl .tlx b{font-size:var(--fs-md);font-weight:500;}
+.htl .tlx small{font-size:var(--fs-sub,12px);color:var(--tx3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.htl .tlall{all:unset;cursor:pointer;align-self:flex-start;display:inline-flex;align-items:center;gap:4px;min-height:44px;margin:4px 0 -10px;font-size:var(--fs-xs);font-weight:500;color:var(--acc-tx,var(--gold-700));}
+.hwal{border-radius:22px!important;}
+.hwal .hwsum{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:space-between;width:100%;min-height:44px;padding:0 0 0 0;border-top:1px solid var(--line);font-size:var(--fs-sub,12px);color:var(--tx3);}
+.hwal .hwsum svg{color:var(--tx3);}
+/* Thẻ chuyến bay gọn (để thấy Ví + QR ngay màn đầu): chặng bay + "Xem tất cả" cùng hàng; mỗi booking 1 hàng 44px (tên · ngày / nhãn) */
+.htl{padding:14px 16px 6px;}
+.htl .tlhd{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.htl .tlr{all:unset;cursor:pointer;font-family:'SVN-Aptima',serif;font-size:var(--fs-3xl);line-height:1.2;color:var(--tx);padding-block:2px;}
+.htl .tlall{margin:0;min-height:36px;}
+.htl .tlrest{margin:6px 0 0 4px;}
+.htl .tlrest .tln{padding:0 0 0 14px;min-height:44px;}
+.htl .tlx{flex-direction:row;align-items:baseline;gap:6px;}
+.htl .tlx b{font-size:var(--fs-sm);}
+.htl .tlx small{font-size:var(--fs-sub,12px);}
+.htl .tlr:focus-visible{outline:var(--sel-stroke);outline-offset:var(--sel-offset);border-radius:var(--r-xs);}
+/* Trang chủ · khối thẻ ACP tràn mép (thử): hết chiều ngang, sát mép trên, bo 2 góc dưới 22px; gộp hàng đầu trang (logo trắng, tìm kiếm, chuông) */
+#scr[data-v="home"] .hhero.acpx{aspect-ratio:auto;transform:none!important;margin:-6px calc(-1 * var(--pad-x,16px)) 0;width:auto;border-radius:0 0 22px 22px;padding:12px var(--pad-x,16px) 18px;gap:0;justify-content:flex-start;box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent);flex:none;}
+.hhero .hhtop{display:flex;align-items:center;justify-content:space-between;min-height:44px;}
+.hhero .hhtop img{height:34px;width:auto;display:block;}
+.hhero .hhic{display:flex;gap:8px;}
+.hhero .iconbtn{background:color-mix(in srgb,var(--white) 8%,transparent)!important;border:.5px solid color-mix(in srgb,var(--m) 35%,transparent)!important;color:var(--white)!important;box-shadow:none!important;}
+.hhero .iconbtn .dot{background:var(--gold-300)!important;box-shadow:0 0 0 2px var(--b1)!important;}
+.hhero .hhcard{border-radius:var(--r-md);margin-top:18px;display:flex;flex-direction:column;gap:16px;}
+.hhero .hhcard:active{transform:scale(.99);}
+.hhero .hhcard:focus-visible{outline:2px solid var(--white);outline-offset:4px;}
+.hhero .hhmid{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;}
+.hhero .ft .prog{margin-top:12px;}
+#scr[data-v="home"] .hhero + .htl{margin-top:0;}
+/* Khối tràn mép: bỏ khung viền trong của thẻ (chỉ hợp với thẻ có bo 4 góc) */
+#scr[data-v="home"] .hhero.acpx::before{display:none;}
+/* Khối navy lên hết mép trên: thanh trạng thái (giờ, pin) nổi trên khối, chữ trắng; cuộn qua khối thì thanh trạng thái về nền kem chữ navy */
+.screen:has(> #scr[data-v="home"] .hhero) > .status{position:absolute;top:0;left:0;right:0;z-index:6;color:var(--white);background:transparent;transition:background .2s,color .2s;}
+.screen:has(> #scr[data-v="home"] .hhero) > .status.solid{background:var(--bg);color:var(--tx);}
+#scr[data-v="home"] .hhero.acpx{padding-top:calc(10px + var(--sbh,0px));padding-bottom:14px;}
+/* Thẻ hội viên gọn hơn: giảm khoảng giữa các hàng */
+.hhero .hhcard{margin-top:10px;gap:10px;}
+.hhero .tl{margin-bottom:3px;}
+.hhero .ft .prog{margin-top:8px;}
+/* Chưa đăng nhập: cùng khối navy, lời mời đăng nhập + 2 nút như V3 */
+.hhero .hhg{margin-top:12px;display:flex;flex-direction:column;gap:4px;}
+.hhero .hhg b{font-family:'SVN-Aptima',serif;font-size:var(--fs-2xl);font-weight:400;line-height:1.25;color:var(--white);}
+.hhero .hhg small{font-size:var(--fs-xs);line-height:1.5;color:color-mix(in srgb,var(--white) 72%,transparent);}
+.hhero .hhg .row2{margin-top:10px;}
+/* Tiêu đề lời mời đăng nhập: cân 2 dòng, không rớt 1 chữ */
+.hhero .hhg b{text-wrap:balance;}
+/* Trang chủ · Dành cho bạn (khách): thẻ dịch vụ trượt ngang, rộng ~42% khung để thấy thẻ kế tiếp; ảnh 4:3, tên tối đa 2 dòng, giá từ */
+.hfy{display:flex;gap:var(--gap-in);overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--pad-x,16px));padding:0 var(--pad-x,16px) 2px;scrollbar-width:none;}
+.hfy::-webkit-scrollbar{display:none;}
+.hfyc{all:unset;box-sizing:border-box;cursor:pointer;flex:0 0 42%;scroll-snap-align:start;scroll-margin-left:var(--pad-x,16px);background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent);display:flex;flex-direction:column;font-family:inherit;color:var(--tx);}
+.hfyc:focus-visible{outline:var(--sel-stroke);outline-offset:var(--sel-offset);}
+.hfyc .ph{display:block;aspect-ratio:4/3;background-size:cover;background-position:center;}
+.hfyc .bd{display:flex;flex-direction:column;gap:4px;padding:10px 12px 12px;flex:1;}
+.hfyc b{font-size:var(--fs-sm);font-weight:500;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em;}
+.hfyc small{font-size:var(--fs-2xs);color:var(--tx3);margin-top:auto;}
+.hfyc .p{font-size:var(--fs-sm);font-weight:600;color:var(--tx);}
+#scr[data-v="home"] .hhero + .sec2{margin-top:0;}
+/* Dành cho bạn: tên hiện đủ (tối đa 3 dòng); các thẻ cao bằng nhau theo thẻ cao nhất */
+.hfyc b{-webkit-line-clamp:3;}
+/* Thanh tab trang chủ: tông đậm như khối thẻ (màu theo hạng, chuyển sắc), giữ độ trong 90% + làm mờ */
+#dock .tabbar{background:linear-gradient(155deg,color-mix(in srgb,var(--hb1,var(--navy-900)) 90%,transparent),color-mix(in srgb,var(--hb2,var(--navy-950)) 90%,transparent))!important;}
+#dock .tabbar .bdg{box-shadow:0 0 0 2px var(--hb1,var(--navy-900));}
+.hfy{cursor:grab;}
+/* Timeline trang chủ: nét đứt chỉ nối từ chấm đầu tới chấm cuối (không thò ra trên/dưới) */
+.htl .tlrest{border-left:0;}
+.htl .tlrest .tln:not(:last-child)::after{content:"";position:absolute;left:-1.1px;top:50%;height:100%;border-left:1.2px dashed var(--gold-400);}
+/* Trang Dịch vụ · đầu trang navy (tông thẻ ACP, sát mép trên, thanh trạng thái nổi trên) + khung trắng bo góc trên đè lên */
+.screen:has(> #scr .svhd) > .status{position:absolute;top:0;left:0;right:0;z-index:6;color:var(--white);background:transparent;transition:background .2s,color .2s;}
+.screen:has(> #scr .svhd) > .status.solid{background:var(--bg);color:var(--tx);}
+#scr[data-v="services"] .svhd.acpx{aspect-ratio:auto;transform:none!important;margin:-6px calc(-1 * var(--pad-x,16px)) 0;width:auto;border-radius:0;box-shadow:none;padding:calc(10px + var(--sbh,0px)) var(--pad-x,16px) 40px;display:flex;flex-direction:column;justify-content:flex-start;gap:10px;flex:none;}
+#scr[data-v="services"] .svhd.acpx::before{display:none;}
+.svhd .svhdt{display:flex;align-items:center;justify-content:space-between;min-height:44px;}
+.svhd .h2{color:var(--white);margin:0;}
+.svhd .iconbtn{background:color-mix(in srgb,var(--white) 8%,transparent)!important;border:.5px solid color-mix(in srgb,var(--m) 35%,transparent)!important;color:var(--white)!important;box-shadow:none!important;}
+.svhd .apbtn{align-self:flex-start;background:color-mix(in srgb,var(--white) 8%,transparent)!important;border:.5px solid color-mix(in srgb,var(--m) 35%,transparent)!important;color:var(--white)!important;box-shadow:none!important;}
+.svhd .apbtn svg{color:color-mix(in srgb,var(--white) 80%,transparent)!important;}
+#scr[data-v="services"] .svsheet{position:relative;z-index:1;margin:-28px calc(-1 * var(--pad-x,16px)) 0;padding:16px var(--pad-x,16px) 6px;background:var(--white);border-radius:22px;display:flex;flex-direction:column;gap:var(--gap-in);box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent);}
+.svsheet .svg3{margin:0;}
+.svsheet .svc3{background:var(--white)!important;border:1px solid var(--line)!important;box-shadow:none!important;min-height:80px;}
+.svsheet .svc3.off{background:var(--fill-soft,#F1F0EC)!important;border-color:transparent!important;}
+.svsheet .svbiz2{background:none!important;border:0!important;box-shadow:none!important;border-top:1px solid var(--line)!important;border-radius:0!important;margin:4px 0 0;padding-inline:0!important;}
+#scr[data-v="services"] .svsheet + .sec2{margin-top:var(--gap-in);}
+/* Thanh tab nổi (thử): tab đang chọn là viên trắng đặc, icon + chữ navy theo tông khối thẻ */
+#dock .tabbar .tab[aria-selected="true"]{background:var(--white)!important;color:var(--hb1,var(--navy-900))!important;}
+/* Tab đang chọn dịu và nhỏ hơn: trắng 88%, cao 34px, cách viền thanh ~9px */
+#dock .tabbar{padding:9px 10px!important;}
+#dock .tabbar .tab[aria-selected="true"]{background:color-mix(in srgb,var(--white) 88%,transparent)!important;height:34px;padding:0 12px!important;gap:5px;}
+#dock .tabbar .tab[aria-selected="true"] svg{width:18px;height:18px;}
+/* Thanh tab nổi (mọi trang): các tab chia đều, tab đang chọn rộng theo chữ; viên chọn là lớp riêng .tbi trượt giữa các tab (script), căn giữa theo chiều dọc thanh */
+#dock .tabbar{position:relative;justify-content:space-between;}
+#dock .tabbar .tab{flex:1 1 0;min-width:44px;position:relative;z-index:1;}
+#dock .tabbar .tab[aria-selected="true"]{flex:0 0 auto;background:none!important;}
+#dock .tabbar .tbi{position:absolute;top:50%;height:34px;margin-top:-17px;border-radius:var(--r-pill);background:color-mix(in srgb,var(--white) 88%,transparent);pointer-events:none;z-index:0;}
+#dock .tabbar .tab .icw{display:inline-flex;align-items:center;justify-content:center;}
+#dock .tabbar .tbl{display:inline-block;}
+/* Tên tab: chỉ hiện ở tab đang chọn (ẩn hẳn ở tab khác, vẫn còn cho trình đọc màn hình qua aria) */
+#dock .tabbar .tab .tbl{font-size:var(--fs-xs)!important;font-weight:500;line-height:1;}
+#dock .tabbar .tab:not([aria-selected="true"]) .tbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+/* Số đếm trên tab: luôn ở góc trên phải icon, không đè lên icon/tên khi tab đang chọn */
+#dock .tabbar .tab .icw{position:relative;}
+#dock .tabbar .tab .bdg{left:auto!important;right:-9px!important;top:-8px!important;}
+/* Tab đang chọn có số đếm: nới khoảng icon → tên để số đếm không chạm tên */
+#dock .tabbar .tab[aria-selected="true"]:has(.bdg){gap:13px!important;}
+/* Vàng đồng ở trang chủ: thanh tiến độ lên hạng + số điểm (thông tin "phần thưởng" của thẻ) dùng vàng; ánh kim nhẹ, không thêm mảng vàng lớn */
+.hhero .prog .bar{height:3px;background:color-mix(in srgb,var(--white) 14%,transparent);}
+.hhero .prog .bar i{background:linear-gradient(90deg,var(--gold-400),var(--gold-300));}
+.hhero .prog .bar i::after{background:var(--gold-300);box-shadow:0 0 6px color-mix(in srgb,var(--gold-300) 70%,transparent);}
+.hhero .pt b{color:var(--gold-300)!important;}
+/* Ưu đãi nổi bật: thẻ trắng, ảnh ở trên, chữ navy ở dưới (bớt mảng tối tranh chấp với khối thẻ navy); nhãn, mũi tên giữ trên ảnh */
+.hpx-card{display:flex!important;flex-direction:column;height:auto!important;background:var(--white)!important;color:var(--tx)!important;}
+.hpx-card::after{display:none!important;}
+.hpx-card .hpxph{display:block;height:120px;background-size:cover;background-position:center;flex:none;}
+.hpx-card .hpx-tx{position:static!important;padding:12px 16px 28px;gap:2px;}
+.hpx-card .hpx-tx b{color:var(--tx);text-shadow:none!important;font-size:var(--fs-xl);}
+.hpx-card .hpx-tx small{color:var(--tx3)!important;text-shadow:none!important;font-size:var(--fs-sub,12px);}
+.hpx .hpx-dots i{background:color-mix(in srgb,var(--navy-900) 18%,transparent);}
+.hpx .hpx-dots i.on{background:var(--gold-600);}
+/* Thanh tiến độ lên hạng: kéo hết chiều ngang khối (trước đây rộng 0 nên không thấy), chữ "Còn … điểm" căn giữa bên dưới */
+.hhero .prog .bar{align-self:stretch;flex:none;width:auto;}
+/* Khối navy (trang chủ, đầu trang Dịch vụ): quầng sáng góc trên phải rõ hơn */
+#scr :is(.hhero,.svhd).acpx{background:radial-gradient(125% 100% at 100% 0%,color-mix(in srgb,var(--glow) 95%,var(--white) 5%),transparent 60%),linear-gradient(155deg,var(--b1),var(--b2));}
+/* Vệt sáng chạy dọc viền khối thẻ trang chủ (một vòng 8 giây; tắt khi bật giảm chuyển động) */
+@property --hbA{syntax:'<angle>';inherits:false;initial-value:0deg;}
+@keyframes hbRun{to{--hbA:360deg;}}
+#scr .hhero.acpx::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;padding:1.2px;
+  background:conic-gradient(from var(--hbA) at 50% 50%,transparent 0deg,transparent 300deg,color-mix(in srgb,var(--m) 70%,transparent) 340deg,var(--white) 352deg,transparent 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:hbRun 8s linear infinite;}
+@media (prefers-reduced-motion: reduce){#scr .hhero.acpx::after{animation:none;opacity:0;}}
+/* Dành cho bạn (hạng mục): chỉ ảnh + tên, không giá; tên tối đa 2 dòng, các thẻ cao bằng nhau */
+.hfyc.cat{flex-basis:36%;}
+.hfyc.cat .ph{aspect-ratio:1/1;}
+.hfyc.cat .bd{padding:10px 12px 12px;}
+.hfyc.cat b{-webkit-line-clamp:2;min-height:2.7em;}
+/* Bỏ vệt sáng chạy viền khối thẻ */
+#scr .hhero.acpx::after{display:none!important;animation:none!important;}
+/* Trang Dịch vụ: khung trắng đè lên khối navy đủ sâu (≥ bán kính bo) để góc bo không lộ nền kem; tiêu đề + nút sân bay + tìm kiếm cùng 1 hàng */
+#scr[data-v="services"] .svsheet{margin-top:calc(-28px - var(--gap-sec,16px));}
+#scr[data-v="services"] .svhd.acpx{gap:0;}
+.svhd .svhdt .apact{display:flex;align-items:center;gap:8px;}
+.svhd .apbtn{align-self:auto;}
+/* Lưới Dịch vụ nổi bật hơn (đang thử): icon dạng fill hai tông trong ô vuông bo nền be ấm; chữ navy; ô sắp ra mắt giữ xám */
+html:root .svsheet .svc3:not(.off) .ic{width:40px!important;height:40px!important;border-radius:12px!important;background:color-mix(in srgb,var(--gold-300) 22%,var(--white))!important;color:var(--gold-700)!important;display:grid;place-items:center;}
+html:root .svsheet .svc3:not(.off) .ic svg{width:22px;height:22px;stroke-width:1.5;}
+html:root .svsheet .svc3:not(.off) .ic svg :is(path,rect,circle,ellipse,polygon){fill:currentColor;fill-opacity:.2;}
+html:root .svsheet .svc3.off .ic{width:40px!important;height:40px!important;border-radius:12px!important;background:color-mix(in srgb,var(--navy-900) 5%,transparent)!important;display:grid;place-items:center;}
+html:root .svsheet .svc3.off .ic svg{width:22px;height:22px;}
+/* Icon lưới Dịch vụ: phần fill đậm hơn một chút cho rõ dạng icon đặc */
+html:root .svsheet .svc3:not(.off) .ic svg :is(path,rect,circle,ellipse,polygon){fill-opacity:.3;}
+/* Dành cho bạn (dạng khay chọn): một khay trắng bo 22px, bóng nhẹ, không viền; bên trong các ô vuông trượt ngang (ảnh bo 14px + tên 1 dòng căn giữa), không viền, không bóng riêng */
+.hfyw{background:var(--white);border-radius:22px;box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 5%,transparent),0 8px 20px -14px color-mix(in srgb,var(--navy-900) 22%,transparent);overflow:hidden;}
+.hfyw .hfy{margin:0;padding:8px;gap:4px;scroll-padding-inline:8px;}
+.hfyw .hfyc.cat{flex:0 0 112px;aspect-ratio:1/1;background:none;box-shadow:none;border-radius:14px;padding:4px;scroll-margin-left:0;}
+.hfyw .hfyc.cat:hover{background:color-mix(in srgb,var(--navy-900) 3%,transparent);}
+.hfyw .hfyc.cat .ph{aspect-ratio:auto;flex:1;border-radius:12px;}
+.hfyw .hfyc.cat .bd{flex:none;padding:7px 0 2px;}
+.hfyw .hfyc.cat b{display:block;-webkit-line-clamp:unset;min-height:0;white-space:nowrap;text-align:center;font-size:var(--fs-2xs);font-weight:500;letter-spacing:-.1px;overflow:visible;}
+/* Ô vuông 126px: tên dài nhất ("Phòng chờ thương gia") vừa 1 dòng ở cỡ 11 */
+.hfyw .hfyc.cat{flex-basis:126px;}
+/* Dành cho bạn · 4 ô chia đều trong khay trắng (không trượt, không tràn): khay bo 22px đệm 10px → ảnh bo 12px (22 − 10, bo góc đồng tâm); ảnh vuông; tên tối đa 2 dòng căn giữa, chừa sẵn 2 dòng để 4 ô cao bằng nhau */
+.hfyw{padding:10px;}
+.hfy4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+.hfyc4{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;align-items:stretch;gap:6px;min-width:0;font-family:inherit;color:var(--tx);border-radius:12px;}
+.hfyc4:focus-visible{outline:var(--sel-stroke);outline-offset:var(--sel-offset);}
+.hfyc4 .ph{display:block;aspect-ratio:1/1;border-radius:12px;background-size:cover;background-position:center;}
+.hfyc4 b{font-size:var(--fs-2xs);font-weight:500;line-height:1.3;text-align:center;min-height:2.6em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;padding:0 2px;}
+/* Dành cho bạn · khay lướt ngang tràn mép phải: lề trái thẳng các khối khác, bên phải kéo tới mép màn (chỉ bo 2 góc trái); 5 ô 74px, tên ngắn 1 dòng; ô cuối lộ một phần để biết còn nữa */
+#scr .hfyw{margin-right:calc(-1 * var(--pad-x,16px));border-radius:22px 0 0 22px;padding:10px 0 10px 10px;}
+#scr .hfyw .hfy4{display:flex;grid-template-columns:none;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding:0 16px 0 0;margin:0;scrollbar-width:none;cursor:grab;}
+#scr .hfyw .hfy4::-webkit-scrollbar{display:none;}
+#scr .hfyw .hfyc4{flex:0 0 74px;scroll-snap-align:start;}
+#scr .hfyw .hfyc4 b{min-height:0;white-space:nowrap;-webkit-line-clamp:unset;display:block;overflow:visible;}
+/* Ô 72px, khoảng cách 6px: ô thứ 5 lộ ~20px để biết còn lướt được */
+#scr .hfyw .hfy4{gap:6px;}
+#scr .hfyw .hfyc4{flex-basis:72px;}
+/* Dành cho bạn · tiêu đề nằm trong khay trắng (như ảnh tham khảo); "Xem tất cả" nhỏ hơn (11), tên dịch vụ lớn hơn (12.5/500); ô 84px cách nhau 14px, lộ ~1/2 ô thứ 4 để biết còn lướt được */
+#scr .hfyw{padding:14px 0 14px 14px;}
+#scr .hfyw .hfyh{margin:0 0 12px;padding-right:var(--pad-x,16px);}
+#scr .hfyw .hfyh button{font-size:var(--fs-2xs)!important;}
+#scr .hfyw .hfy4{gap:14px;}
+#scr .hfyw .hfyc4{flex-basis:84px;gap:8px;}
+#scr .hfyw .hfyc4 b{font-size:var(--fs-xs);font-weight:500;}
+#scr[data-v="home"] .hhero + .hfyw{margin-top:0;}
+/* Dành cho bạn · khoảng cách đều nhịp 16: mép khay → chữ tiêu đề 16, chữ tiêu đề → ảnh 16, tên → mép dưới 16, lề trái 16 (như đệm thẻ) */
+#scr .hfyw{padding:16px 0 16px 16px!important;}
+#scr .hfyw .hfyh{margin:0 0 12px!important;}
+/* Bỏ kéo lên -8px của ".sec2 + *" trong khay; tiêu đề → ảnh = 16 */
+#scr .hfyw .hfyh + .hfy4{margin-top:0!important;}
+#scr .hfyw .hfyh{margin-bottom:14px!important;}
+/* Mép trên khay → chữ tiêu đề = 16 (bù khoảng đệm dòng của chữ) */
+#scr .hfyw{padding-top:14px!important;}
+/* Lưới Dịch vụ · icon đặc không viền (bộ FICO): vàng đồng trên ô be ấm; ô sắp ra mắt icon xám đặc */
+html:root .svsheet .svc3 .ic svg{stroke:none!important;fill:currentColor!important;width:22px;height:22px;}
+html:root .svsheet .svc3 .ic svg *{stroke:none!important;fill-opacity:1!important;fill:currentColor!important;}
+html:root .svsheet .svc3:not(.off) .ic{color:var(--gold-600)!important;}
+html:root .svsheet .svc3.off .ic{color:var(--ink-400)!important;}
+/* Đầu trang Dịch vụ cao hơn, khoảng cách cân: mép trên → hàng tiêu đề 16, hàng tiêu đề → khung trắng 28 (phần navy lộ ra) */
+#scr[data-v="services"] .svhd.acpx{padding-top:calc(16px + var(--sbh,0px))!important;padding-bottom:calc(28px + 28px)!important;}
+#scr[data-v="services"] .svhd .h2{font-size:var(--fs-4xl);line-height:1.15;}
+/* Ưu đãi nổi bật · A: ảnh thụt vào trong thẻ trắng, bo đủ 4 góc (thẻ bo 22, đệm 10 → ảnh bo 12, đồng bộ khay Dành cho bạn); nhãn + mũi tên dời theo mép ảnh */
+.hpx-card{padding:10px!important;}
+.hpx-card .hpxph{border-radius:12px;height:116px;}
+.hpx-card .pill{left:20px!important;top:20px!important;}
+.hpx .hpx-nav{top:20px!important;}
+.hpx .hpx-nav.next{right:20px!important;}
+.hpx .hpx-nav.prev{right:56px!important;}
+.hpx-card .hpx-tx{padding:12px 6px 22px!important;}
+/* Lưới Dịch vụ · icon đặc không ô nền, màu theo nhóm dịch vụ (màu lấy từ guideline): đi lại xanh chàm · thủ tục vàng đồng · nghỉ chờ navy · chăm sóc xanh lá · ăn uống đỏ rượu · gói & quà mận; ô sắp ra mắt xám */
+html:root .svsheet .svc3 .ic,html:root .svsheet .svc3.off .ic{background:none!important;width:30px!important;height:30px!important;border-radius:0!important;}
+html:root .svsheet .svc3 .ic svg{width:26px!important;height:26px!important;}
+html:root .svsheet .svc3[data-ic="car"] .ic{color:var(--info,#3F4C9A)!important;}
+html:root .svsheet .svc3:is([data-ic="wave"],[data-ic="bolt"]) .ic{color:var(--gold-600)!important;}
+html:root .svsheet .svc3:is([data-ic="sofa"],[data-ic="star"]) .ic{color:var(--tx)!important;}
+html:root .svsheet .svc3[data-ic="leaf"] .ic{color:var(--ok,#2F6B4F)!important;}
+html:root .svsheet .svc3[data-ic="cup"] .ic{color:#8C3232!important;}
+html:root .svsheet .svc3:is([data-ic="box"],[data-ic="gift"]) .ic{color:#6E3F68!important;}
+html:root .svsheet .svc3.off .ic{color:var(--ink-400)!important;}
+/* Đường kẻ trên "Giải pháp doanh nghiệp": cách lưới 16px, không dính đáy ô */
+#scr[data-v="services"] .svsheet .svbiz2{margin-top:8px!important;}
+/* Ưu đãi nổi bật · chốt bản B: kính mờ: ảnh phủ hết thẻ, chữ trên tấm trắng mờ (blur), vẫn thấy ảnh chạy tiếp phía sau (ghi đè bản A bên trên) */
+.hpx-card{padding:0!important;height:212px!important;position:relative;}
+.hpx-card .hpxph{position:absolute;inset:0;height:auto;border-radius:0;}
+.hpx-card .pill{left:14px!important;top:14px!important;}
+.hpx .hpx-nav{top:12px!important;}
+.hpx .hpx-nav.next{right:10px!important;}
+.hpx .hpx-nav.prev{right:46px!important;}
+.hpx-card .hpx-tx{position:absolute!important;left:10px;right:10px;bottom:10px;z-index:1;padding:12px 14px 24px!important;border-radius:14px;background:color-mix(in srgb,var(--white) 74%,transparent);-webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--white) 55%,transparent);}
+.hpx .hpx-dots{bottom:18px!important;}
+/* Gỡ hẳn ô nền be sau icon (quy tắc cũ có :not(.off) cụ thể hơn) */
+html:root .svsheet .svc3:not(.off) .ic,html:root .svsheet .svc3.off .ic{background:none!important;width:30px!important;height:30px!important;border-radius:0!important;}
+/* Thẻ nhắc chuyến bay: vàng sâm panh ánh kim (cùng họ --grad-btn, sáng hơn) thay be đục; viền vàng mảnh, chữ navy, nhãn chữ vàng đậm; nét timeline + đường chia theo vàng */
+.htl{background:linear-gradient(135deg,color-mix(in srgb,var(--gold-300) 30%,var(--white)) 0%,color-mix(in srgb,var(--gold-300) 48%,var(--white)) 55%,color-mix(in srgb,var(--gold-300) 36%,var(--white)) 100%)!important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold-400) 35%,transparent),0 6px 16px -12px color-mix(in srgb,var(--gold-600) 55%,transparent)!important;}
+.htl .tld,.htl .tlall{color:var(--gold-700)!important;}
+.htl .tlr{color:var(--tx);}
+.htl .tlrest .tln + .tln{border-top-color:color-mix(in srgb,var(--gold-600) 18%,transparent)!important;}
+.htl .tlrest .tln:not(:last-child)::after{border-left-color:var(--gold-600)!important;}
+.htl .tlrest .tln::before{background:var(--gold-600)!important;}
+.htl .st{background:color-mix(in srgb,var(--white) 92%,transparent)!important;box-shadow:0 1px 2px color-mix(in srgb,var(--gold-700) 12%,transparent);}
 </style>
 </head>
 <body>
@@ -820,6 +1655,7 @@ const IMG = {"local": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA
 
 /* ================= ICONS ================= */
 const P = {
+  copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/>',
   home:'<path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>',
   grid:'<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',
   card:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h4"/>',
@@ -871,7 +1707,7 @@ const SVC = {
   transfer:{n:'Xe đưa đón sân bay', d:'Sedan, SUV, van và xe VIP', from:380000, ic:'car'},
   mng:{n:'Meet & Greet', d:'Nhân viên đón tận cửa, đồng hành qua mọi thủ tục', from:450000, ic:'wave'},
   fasttrack:{n:'Fast Track', d:'An ninh · xuất nhập cảnh · làm thủ tục', from:750000, ic:'bolt'},
-  buggy:{n:'Xe điện trong nhà ga', d:'Cho khách lớn tuổi hoặc nối chuyến gấp', soon:1, ic:'buggy'},
+  buggy:{n:'Xe điện', d:'Cho khách lớn tuổi hoặc nối chuyến gấp', soon:1, ic:'buggy'},
   lounge:{n:'Phòng chờ thương gia', d:'SH Premium và phòng chờ đối tác', from:380000, ic:'sofa'},
   elite:{n:'SH Elite & Elite+', d:'Phòng khách riêng, đón tiếp cá nhân hoá', from:997500, ic:'star'},
   wellness:{n:'Lounge Wellness', d:'Foot care · neck & shoulder · gội đầu', from:250000, ic:'leaf'},
@@ -890,12 +1726,12 @@ const PROD = {
   'sh-han1':{svc:'lounge', n:'SH Premium Lounge Ha Noi 1', img:'lounge', gal:['lounge','buffet'], term:'T1 Quốc nội', loc:'Nội Bài · Ga đi quốc nội T1 · Tầng 3, gần cửa 4 và 9', rate:'5,0', rv:347, sold:'35k+', open:'04:30 – 23:00',
     intro:'Nơi hồn Hà Nội hoà giữa mây bay. Phòng chờ nằm sau khu kiểm tra an ninh nhà ga T1, phục vụ khách bay quốc nội mọi hãng, không phân biệt hạng vé.',
     incl:['Buffet ẩm thực Hà Thành','Món nóng theo mùa','Quầy đồ uống','Wifi tốc độ cao','Khu làm việc','Phòng tắm'],
-    opts:[['saver','Saver','Cố định ngày đã chọn',427500],['flex','Flex — 1 tháng','Đổi ngày tự do trong 30 ngày',450000]],
+    opts:[['saver','Saver','Cố định ngày đã chọn',427500],['flex','Flex · 1 tháng','Đổi ngày tự do trong 30 ngày',450000]],
     cond:['Xuất trình voucher cùng thẻ lên máy bay trong ngày','Trẻ em dưới 2 tuổi miễn phí, 2–12 tuổi giá trẻ em','Bản không định danh chuyển nhượng và tặng được, cộng phí 20.000đ'], cancel:1},
   'sh-han2':{svc:'lounge', n:'SH Premium Lounge Ha Noi 2', img:'lounge2', gal:['lounge2','fnb'], term:'T2 Quốc tế', loc:'Nội Bài · Ga đi quốc tế T2 · Tầng 3 khu cách ly', rate:'4,9', rv:512, sold:'28k+', open:'24/7',
     intro:'Phòng chờ cho khách bay quốc tế tại T2 với không gian mở nhìn ra đường băng.',
     incl:['Buffet Á – Âu','Quầy bar','Phòng tắm','Khu trẻ em','Wifi tốc độ cao'],
-    opts:[['saver','Saver','Cố định ngày đã chọn',650000],['flex','Flex — 1 tháng','Đổi ngày tự do trong 30 ngày',720000]],
+    opts:[['saver','Saver','Cố định ngày đã chọn',650000],['flex','Flex · 1 tháng','Đổi ngày tự do trong 30 ngày',720000]],
     cond:['Áp dụng cho khách bay quốc tế','Trẻ em 2–12 tuổi giá trẻ em'], cancel:1},
   'elite-han2':{svc:'elite', n:'SH Elite Ha Noi 2', img:'elite', gal:['elite','elite2'], term:'T2 Quốc tế', loc:'Nội Bài · Nhà ga quốc tế T2 · Tầng 4 cánh Tây, gần cửa 37 và 38', rate:'4,8', rv:41, sold:'1,2k+', open:'Theo lịch đặt',
     intro:'Một không gian không chia sẻ với ai, ở nơi mọi thứ đều đang chia sẻ. Thực đơn à la carte thay buffet, và đội ngũ đã biết chuyến bay của bạn trước khi bạn đến.',
@@ -903,7 +1739,7 @@ const PROD = {
     opts:[['elite','SH Elite','Phòng khách riêng cao cấp · tối đa 3 giờ trước giờ khởi hành',1995000],['eliteplus','SH Elite +','Toàn bộ quyền lợi SH Elite, thêm Fast Track qua an ninh và xuất cảnh',2600000]],
     cond:['Voucher định danh, tên trên thẻ lên máy bay phải trùng tên đã đăng ký','Trẻ em tính như người lớn','Chỉ phục vụ chuyến quốc tế khởi hành từ nhà ga T2','Huỷ miễn phí trước 24 giờ'], book:1},
   'ft-han':{svc:'fasttrack', img:'ft', gal:['ft','mg'], open:'Theo chuyến bay', incl:['Làm thủ tục ưu tiên','Làn an ninh riêng','Xuất nhập cảnh ưu tiên','Nhân viên đồng hành'], ter:'T1', dir:'DEP', n:'Fast Track Nội Bài T1 · Quốc nội · Tiễn', term:'T1 · Quốc nội', loc:'Nội Bài · Ga đi quốc nội T1', rate:'4,8', rv:268, sold:'12k+',
-    intro:'Làn ưu tiên check-in và soi chiếu ga quốc nội T1, có nhân viên đi cùng — tiết kiệm trung bình 25 phút vào giờ cao điểm.',
+    intro:'Làn ưu tiên check-in và soi chiếu ga quốc nội T1, có nhân viên đi cùng, tiết kiệm trung bình 25 phút vào giờ cao điểm.',
     opts:[['std','Tiêu Chuẩn','Làn ưu tiên check-in và soi chiếu',450000],['pre','Cao Cấp','Thêm xe điện trong nhà ga và hỗ trợ tận cửa tàu bay',650000]],
     cond:['Đặt trước tối thiểu 4 giờ','Cần khai chuyến bay và danh sách khách'], book:1},
   'ft-han1a':{svc:'fasttrack', img:'ft', gal:['ft','mg'], open:'Theo chuyến bay', incl:['Làm thủ tục ưu tiên','Làn an ninh riêng','Xuất nhập cảnh ưu tiên','Nhân viên đồng hành'], ter:'T1', dir:'ARR', n:'Fast Track Nội Bài T1 · Quốc nội · Đón', term:'T1 · Quốc nội', loc:'Nội Bài · Khu trả hành lý ga quốc nội T1', rate:'4,7', rv:38, sold:'900+',
@@ -919,22 +1755,22 @@ const PROD = {
     opts:[['std','Tiêu Chuẩn','Làn nhập cảnh dịch vụ',900000],['pre','Cao Cấp','Làn nhập cảnh linh hoạt, hỗ trợ khai báo y tế',1200000],['vip','VIP','Làn nhập cảnh ngắn nhất, xe điện đưa từ cửa tàu bay · chỉ khách hộ chiếu nước ngoài',2500000,'FOREIGN']],
     cond:['Đặt trước tối thiểu 24 giờ','Cần khai chuyến bay và danh sách khách'], book:1},
 
-  'mg-han':{svc:'mng', n:'Meet & Greet — Nội Bài', img:'mg', gal:['mg'], term:'T1 · T2', loc:'Nội Bài · đón tận cửa máy bay', rate:'4,9', rv:190, sold:'8k+', open:'Theo chuyến bay',
+  'mg-han':{svc:'mng', n:'Meet & Greet · Nội Bài', img:'mg', gal:['mg'], term:'T1 · T2', loc:'Nội Bài · đón tận cửa máy bay', rate:'4,9', rv:190, sold:'8k+', open:'Theo chuyến bay',
     intro:'Nhân viên đón tận cửa, đồng hành qua mọi thủ tục cho tới khi bạn ra xe.', incl:['Đón tại cửa máy bay','Hỗ trợ hành lý','Đồng hành thủ tục'],
     opts:[['std','Tiêu chuẩn','1 nhân viên đồng hành',450000]], cond:['Huỷ miễn phí trước 24 giờ so với giờ hạ cánh'], book:1, cancel:1},
   'car-han':{svc:'transfer', n:'Nội Bài → Trung tâm Hà Nội', img:'car', gal:['car'], term:'Trọn gói', loc:'Đón tận sảnh, chờ miễn phí 60 phút', rate:'4,8', rv:930, sold:'40k+', open:'24/7',
     intro:'Giá trọn gói theo tuyến, không tính theo km. Vận hành báo tài xế và biển số trước giờ đón.', incl:['Chờ miễn phí 60 phút','Nước uống','Hỗ trợ hành lý'],
     opts:[['sedan','Sedan 4 chỗ','Tối đa 3 khách · 2 vali',380000],['suv','SUV 7 chỗ','Tối đa 5 khách · 4 vali',520000],['van','Van 16 chỗ','Tối đa 12 khách',890000]],
     cond:['Đặt trước tối thiểu 3 giờ'], book:1, cancel:1},
-  'well-han':{svc:'wellness', img:'well', gal:['well'], term:'T2 Quốc tế', loc:'Trong khu vực SH Elite · đặt riêng hoặc kèm vé phòng chờ', rate:'4,7', rv:64, sold:'2k+', open:'06:00 – 22:00', n:'Lounge Wellness — Nội Bài T2', intro:'Foot care, neck & shoulder ngay trong phòng chờ. Không cần vé phòng chờ.', incl:['Foot care','Neck & shoulder','Neck & shoulder có dầu'], cond:['Đặt lịch trước 2 giờ so với giờ mong muốn'], book:1, treat:'Foot Care', opts:[['15','Foot Care · 15 phút','',250000],['30','Foot Care · 30 phút','',350000],['45','Foot Care · 45 phút','',480000]]},
-  'well-han-ns':{svc:'wellness', img:'well', gal:['well'], term:'T2 Quốc tế', loc:'Trong khu vực SH Elite · đặt riêng hoặc kèm vé phòng chờ', rate:'4,7', rv:64, sold:'2k+', open:'06:00 – 22:00', n:'Lounge Wellness — Nội Bài T2', intro:'Foot care, neck & shoulder ngay trong phòng chờ. Không cần vé phòng chờ.', incl:['Foot care','Neck & shoulder','Neck & shoulder có dầu'], cond:['Đặt lịch trước 2 giờ so với giờ mong muốn'], book:1, treat:'Neck & Shoulder', opts:[['15','Neck & Shoulder · 15 phút','',250000],['30','Neck & Shoulder · 30 phút','',380000],['45','Neck & Shoulder · 45 phút','',520000],['60','Neck & Shoulder · 60 phút','',750000]]},
-  'well-han-nso':{svc:'wellness', img:'well', gal:['well'], term:'T2 Quốc tế', loc:'Trong khu vực SH Elite · đặt riêng hoặc kèm vé phòng chờ', rate:'4,7', rv:64, sold:'2k+', open:'06:00 – 22:00', n:'Lounge Wellness — Nội Bài T2', intro:'Foot care, neck & shoulder ngay trong phòng chờ. Không cần vé phòng chờ.', incl:['Foot care','Neck & shoulder','Neck & shoulder có dầu'], cond:['Đặt lịch trước 2 giờ so với giờ mong muốn'], book:1, treat:'Neck & Shoulder có dầu', opts:[['30','Neck & Shoulder có dầu · 30 phút','',420000],['45','Neck & Shoulder có dầu · 45 phút','',568000],['60','Neck & Shoulder có dầu · 60 phút','',790000]]},
+  'well-han':{svc:'wellness', img:'well', gal:['well'], term:'T2 Quốc tế', loc:'Trong khu vực SH Elite · đặt riêng hoặc kèm vé phòng chờ', rate:'4,7', rv:64, sold:'2k+', open:'06:00 – 22:00', n:'Lounge Wellness · Nội Bài T2', intro:'Foot care, neck & shoulder ngay trong phòng chờ. Không cần vé phòng chờ.', incl:['Foot care','Neck & shoulder','Neck & shoulder có dầu'], cond:['Đặt lịch trước 2 giờ so với giờ mong muốn'], book:1, treat:'Foot Care', opts:[['15','Foot Care · 15 phút','',250000],['30','Foot Care · 30 phút','',350000],['45','Foot Care · 45 phút','',480000]]},
+  'well-han-ns':{svc:'wellness', img:'well', gal:['well'], term:'T2 Quốc tế', loc:'Trong khu vực SH Elite · đặt riêng hoặc kèm vé phòng chờ', rate:'4,7', rv:64, sold:'2k+', open:'06:00 – 22:00', n:'Lounge Wellness · Nội Bài T2', intro:'Foot care, neck & shoulder ngay trong phòng chờ. Không cần vé phòng chờ.', incl:['Foot care','Neck & shoulder','Neck & shoulder có dầu'], cond:['Đặt lịch trước 2 giờ so với giờ mong muốn'], book:1, treat:'Neck & Shoulder', opts:[['15','Neck & Shoulder · 15 phút','',250000],['30','Neck & Shoulder · 30 phút','',380000],['45','Neck & Shoulder · 45 phút','',520000],['60','Neck & Shoulder · 60 phút','',750000]]},
+  'well-han-nso':{svc:'wellness', img:'well', gal:['well'], term:'T2 Quốc tế', loc:'Trong khu vực SH Elite · đặt riêng hoặc kèm vé phòng chờ', rate:'4,7', rv:64, sold:'2k+', open:'06:00 – 22:00', n:'Lounge Wellness · Nội Bài T2', intro:'Foot care, neck & shoulder ngay trong phòng chờ. Không cần vé phòng chờ.', incl:['Foot care','Neck & shoulder','Neck & shoulder có dầu'], cond:['Đặt lịch trước 2 giờ so với giờ mong muốn'], book:1, treat:'Neck & Shoulder có dầu', opts:[['30','Neck & Shoulder có dầu · 30 phút','',420000],['45','Neck & Shoulder có dầu · 45 phút','',568000],['60','Neck & Shoulder có dầu · 60 phút','',790000]]},
 
-  'fnb-han':{svc:'fnb', n:'Phúc Long Coffee & Tea — Nội Bài T1', img:'fnb', gal:['fnb'], term:'T1 Quốc nội', loc:'Nội Bài · T1 Quốc nội', rate:'4,6', rv:120, sold:'5k+', open:'05:00 – 22:00', incl:['Voucher mệnh giá','Set ăn sáng','Combo đồ uống'], cond:['Dùng một lần, không hoàn tiền thừa'], kind:'Voucher mệnh giá', intro:'Voucher mệnh giá trừ thẳng vào hoá đơn, không phải xếp hàng chờ gọi món.',
+  'fnb-han':{svc:'fnb', n:'Phúc Long Coffee & Tea · Nội Bài T1', img:'fnb', gal:['fnb'], term:'T1 Quốc nội', loc:'Nội Bài · T1 Quốc nội', rate:'4,6', rv:120, sold:'5k+', open:'05:00 – 22:00', incl:['Voucher mệnh giá','Set ăn sáng','Combo đồ uống'], cond:['Dùng một lần, không hoàn tiền thừa'], kind:'Voucher mệnh giá', intro:'Voucher mệnh giá trừ thẳng vào hoá đơn, không phải xếp hàng chờ gọi món.',
     opts:[['200','Voucher 200.000đ','',200000],['300','Voucher 300.000đ','',300000],['500','Voucher 500.000đ','',500000]]},
-  'fnb-han-set':{svc:'fnb', n:'Phúc Long Coffee & Tea — Nội Bài T1', img:'fnb', gal:['fnb'], term:'T1 Quốc nội', loc:'Nội Bài · T1 Quốc nội', rate:'4,6', rv:120, sold:'5k+', open:'05:00 – 22:00', incl:['Voucher mệnh giá','Set ăn sáng','Combo đồ uống'], cond:['Dùng một lần, không hoàn tiền thừa'], kind:'Set ăn', intro:'Set ăn trọn bữa, đặt trước và nhận ngay tại quầy.',
+  'fnb-han-set':{svc:'fnb', n:'Phúc Long Coffee & Tea · Nội Bài T1', img:'fnb', gal:['fnb'], term:'T1 Quốc nội', loc:'Nội Bài · T1 Quốc nội', rate:'4,6', rv:120, sold:'5k+', open:'05:00 – 22:00', incl:['Voucher mệnh giá','Set ăn sáng','Combo đồ uống'], cond:['Dùng một lần, không hoàn tiền thừa'], kind:'Set ăn', intro:'Set ăn trọn bữa, đặt trước và nhận ngay tại quầy.',
     opts:[['s1','Set sáng Việt','Phở bò + cà phê sữa đá',185000],['s2','Set trưa Hà Thành','Bún chả + trà đá + tráng miệng',245000],['s3','Set chay','Cơm chay 4 món + nước ép',220000]]},
-  'fnb-han-drink':{svc:'fnb', n:'Phúc Long Coffee & Tea — Nội Bài T1', img:'fnb', gal:['fnb'], term:'T1 Quốc nội', loc:'Nội Bài · T1 Quốc nội', rate:'4,6', rv:120, sold:'5k+', open:'05:00 – 22:00', incl:['Voucher mệnh giá','Set ăn sáng','Combo đồ uống'], cond:['Dùng một lần, không hoàn tiền thừa'], kind:'Đồ uống', intro:'Combo đồ uống lấy nhanh tại quầy, không phải xếp hàng gọi món.',
+  'fnb-han-drink':{svc:'fnb', n:'Phúc Long Coffee & Tea · Nội Bài T1', img:'fnb', gal:['fnb'], term:'T1 Quốc nội', loc:'Nội Bài · T1 Quốc nội', rate:'4,6', rv:120, sold:'5k+', open:'05:00 – 22:00', incl:['Voucher mệnh giá','Set ăn sáng','Combo đồ uống'], cond:['Dùng một lần, không hoàn tiền thừa'], kind:'Đồ uống', intro:'Combo đồ uống lấy nhanh tại quầy, không phải xếp hàng gọi món.',
     opts:[['d1','Combo 2 đồ uống','Chọn 2 trong: trà sen vàng, cà phê sữa, nước ép',150000],['d2','Combo đồ uống + snack','1 đồ uống + 1 bánh ngọt',175000]]}
 
 };
@@ -958,15 +1794,15 @@ const TIER_BEN = [
   ['Giảm 12% mọi gói combo','Tặng 1 lượt SH Elite mỗi năm','Quản lý tài khoản riêng']
 ];
 const WALLET0 = [
-  {id:'w1', st:'ready', k:'Phòng chờ', n:'SH Premium Lounge Ha Noi 1', img:'lounge', sub:'Nội Bài · T1 Quốc nội · Saver', cells:[['Mã voucher','ACV-8820-MR'],['Hình thức','Không định danh'],['Số khách','Người lớn × 2'],['Hạn dùng','25/08/2027']], foot:'Chuyển nhượng được — gửi mã cho người khác dùng', acts:[['qr','Xem mã QR'],['share','Chia sẻ mã']]},
-  {id:'w2', st:'ready', k:'Fast Track', n:'Fast Track — an ninh nội địa T1', img:'ft', sub:'Nội Bài · T1 · đặt trước tối thiểu 4 giờ', cells:[['Mã voucher','ACF-2201-TX'],['Chặng','Khởi hành'],['Số lượt','1 lượt'],['Hạn dùng','25/08/2027']], foot:'Xuất trình mã tại quầy Fast Track cùng thẻ lên máy bay', acts:[['qr','Xem mã QR']]},
-  {id:'w3', st:'ready', k:'Gói combo', n:'Combo Connect — 4 lượt', img:'combo', sub:'HAN · SGN · CXR · PQC · VCS · quốc nội', cells:[['Mã combo','ACC-7714-LP'],['Lượt còn lại','2,5 / 4 lượt'],['Hình thức','Có định danh'],['Hạn dùng','12/08/2027']], use:62, foot:'Quốc tế trừ 2 lượt mỗi người lớn · quốc nội trừ 1 lượt · trẻ em 0,5 lượt', acts:[['qr','Dùng ngay']]},
+  {id:'w1', st:'ready', k:'Phòng chờ', n:'SH Premium Lounge Ha Noi 1', img:'lounge', sub:'Nội Bài · T1 Quốc nội · Saver', cells:[['Mã voucher','ACV-8820-MR'],['Hình thức','Không định danh'],['Số khách','Người lớn × 2'],['Hạn dùng','25/08/2027']], foot:'Chuyển nhượng được: gửi mã cho người khác dùng', acts:[['qr','Xem mã QR'],['share','Chia sẻ mã']]},
+  {id:'w2', st:'ready', k:'Fast Track', n:'Fast Track · Ga nội địa T1', img:'ft', sub:'Nội Bài · T1 · đặt trước tối thiểu 4 giờ', cells:[['Mã voucher','ACF-2201-TX'],['Chặng','Khởi hành'],['Số lượt','1 lượt'],['Hạn dùng','25/08/2027']], foot:'Xuất trình mã tại quầy Fast Track cùng thẻ lên máy bay', acts:[['qr','Xem mã QR']]},
+  {id:'w3', st:'ready', k:'Gói combo', n:'Combo Connect · 4 lượt', img:'combo', sub:'HAN · SGN · CXR · PQC · VCS · quốc nội', cells:[['Mã combo','ACC-7714-LP'],['Lượt còn lại','2,5 / 4 lượt'],['Hình thức','Có định danh'],['Hạn dùng','12/08/2027']], use:62, foot:'Quốc tế trừ 2 lượt mỗi người lớn · quốc nội trừ 1 lượt · trẻ em 0,5 lượt', acts:[['qr','Dùng ngay']]},
   {id:'w4', st:'wait', k:'SH Elite+', n:'SH Elite+ Ha Noi 2', img:'elite', sub:'Nội Bài · T2 Quốc tế · đặt lịch trước 2 ngày', cells:[['Mã voucher','ACE-4471-QK'],['Hình thức','Định danh'],['Lần đặt còn lại','2 / 3'],['Hạn dùng','25/08/2027']], foot:'Chưa dùng được cho tới khi AIPCON xác nhận lịch', acts:[['book','Đặt lịch sử dụng']]},
-  {id:'w5', st:'wait', k:'Wellness', n:'Foot Care 30 phút — Nội Bài T2', img:'well', sub:'Đặt riêng, không cần vé phòng chờ', cells:[['Mã voucher','ACW-9930-BB'],['Thời lượng','30 phút'],['Số lượt','1 lượt'],['Hạn dùng','30/06/2027']], foot:'Đặt lịch trước 2 giờ so với giờ mong muốn', acts:[['book','Đặt lịch sử dụng']]},
+  {id:'w5', st:'wait', k:'Wellness', n:'Foot Care 30 phút · Nội Bài T2', img:'well', sub:'Đặt riêng, không cần vé phòng chờ', cells:[['Mã voucher','ACW-9930-BB'],['Thời lượng','30 phút'],['Số lượt','1 lượt'],['Hạn dùng','30/06/2027']], foot:'Đặt lịch trước 2 giờ so với giờ mong muốn', acts:[['book','Đặt lịch sử dụng']]},
   {id:'w6', st:'used', k:'Phòng chờ', n:'SH Premium Lounge Ha Noi 2', img:'lounge2', sub:'Nội Bài · T2 Quốc tế · đã dùng 02/08/2026', cells:[['Mã voucher','ACV-7102-HN'],['Số khách','Người lớn × 1']], foot:'Đã cộng 20 điểm hạng thẻ ACP', acts:[]}
 ];
 const BOOKINGS = [
-  {id:'BE-260826-0093', st:'warn', stt:'Chờ AIPCON xác nhận', k:'SH Elite+', n:'SH Elite+ Ha Noi 2', img:'elite', when:'05/09/2026 · VN 417 · khởi hành 09:40',
+  {id:'BE-260826-0093', st:'warn', stt:'Chờ xác nhận', k:'SH Elite+', n:'SH Elite+ Ha Noi 2', img:'elite', when:'05/09/2026 · VN 417 · khởi hành 09:40',
    cells:[['Voucher dùng','ACE-4471-QK'],['Điểm đón','Sảnh E · T2'],['Lần đặt còn lại','2 / 3'],['Gửi lúc','26/08 09:34']], note:'Phản hồi chậm nhất trong 4 giờ làm việc', prog:1, acts:['Thay đổi booking','Huỷ booking']},
   {id:'BK-260826-2231', st:'ok', stt:'Đã có tài xế', k:'Xe đưa đón', n:'Nội Bài → Trung tâm Hà Nội', img:'car', when:'14/08/2026 · đón 20:30 · Sedan 4 chỗ',
    cells:[['Tài xế','Trần Văn Hùng'],['Biển số','30G-421.88'],['Đã thanh toán','380.000đ'],['Chờ miễn phí','60 phút']], note:'Chờ miễn phí 60 phút kể từ giờ hạ cánh thực tế', prog:2, acts:['Gọi tài xế','Thay đổi booking']},
@@ -990,20 +1826,21 @@ function vHome(){
   const ready=S.wallet.filter(w=>w.st==='ready').length, wait=S.wallet.filter(w=>w.st==='wait'&&!w.booked).length;
   const pct = nxt?Math.round((S.points-TIERS[ti][1])/(nxt[1]-TIERS[ti][1])*100):100;
   return `
-  <div class="appbar"><img class="logo logo-light" src="${IMG.logo_color}" alt="Airport Connects"><img class="logo logo-dark" src="${IMG.logo_rev}" alt="Airport Connects">
-    <div style="display:flex;gap:8px;align-items:center"><button class="iconbtn" data-go="search:" aria-label="Tìm kiếm">${ico('search')}</button>
-    <button class="iconbtn" data-go="notif" aria-label="Thông báo">${ico('bell')}${unread()?'<span class="dot"></span>':''}</button></div></div>
+  ${homeHero()}
 
-  ${S.logged?`<div class="acpbtn" role="button" tabindex="0" aria-label="Thẻ ACP. Chạm để xuất trình mã hội viên" data-sheet="qrz">${acpCard()}</div>
-    <button class="fltnote" data-go="trip:BE-260826-0093" aria-label="Chuyến bay sắp tới, xem chi tiết"><span class="ic">${ico('bell',22)}</span><span class="tx"><b>HAN → ICN | 09:40 | T7, 05/09</b><small>VN 417 · 3 dịch vụ · <span class="jwait">1 chờ xác nhận</span></small></span>${ico('chev',16)}</button>
+  ${S.logged?`
 
-    ${walletHome()}
+    ${homeTrack('BE-260826-0093')}${homeWallet()}
 
-  `:guestHome()}
+  `:homeForYou()}
   
 
   <div class="sec2"><b>Ưu đãi nổi bật</b><button data-go="news">Xem tất cả</button></div>
-  <div class="rail">${PROMOS.map(p=>`<button class="promo" data-go="${p.go[0]}:${esc(p.go[1])}"><div class="ph" style="background-image:url(${IMG[p.img]})"><span class="pill">${esc(p.tag)}</span><div class="ttl">${esc(p.t)}</div></div><div class="bd">${esc(p.d)}</div></button>`).join('')}</div>`;
+  <div class="hpx" aria-roledescription="carousel" aria-label="Ưu đãi nổi bật">
+    <div class="hpx-track">${PROMOS.map((p,i)=>`<button class="hpx-card" data-go="${p.go[0]}:${esc(p.go[1])}" aria-label="${i+1}/${PROMOS.length}: ${esc(p.t)}"><span class="hpxph" style="background-image:url(${IMG[p.img]})"></span><span class="pill">${esc(p.tag)}</span><span class="hpx-tx"><b>${esc(p.t)}</b><small>${esc(p.d)}</small></span></button>`).join('')}</div>
+    <button class="hpx-nav prev" data-hpx="-1" aria-label="Ưu đãi trước">${ico('chev',18)}</button><button class="hpx-nav next" data-hpx="1" aria-label="Ưu đãi sau">${ico('chev',18)}</button>
+    <div class="hpx-dots" aria-hidden="true">${PROMOS.map((_,i)=>`<i${i?'':' class="on"'}></i>`).join('')}</div>
+  </div>`;
 }
 function svcRow(k){
   const s = SVC[k], ids = CAT_PROD[k]||[];
@@ -1013,18 +1850,56 @@ function svcRow(k){
   return `<div class="li svc2"><button class="svcgo" data-go="${go}"><span class="ic">${ico(s.ic)}</span><span><b>${esc(s.n)}</b></span></button>${btn}</div>`;
 }
 function linkRow(ic,n,go,btn){ return `<div class="li svc2"><button class="svcgo" data-go="${go}"><span class="ic">${ico(ic)}</span><span><b>${n}</b></span></button>${btn}</div>`; }
+/* Tab Dịch vụ dạng lưới 2 cột: tên là chính (trên), icon nhỏ góc phải; nút Chọn rộng hết ô ở dưới. Chạm tên mở chi tiết/danh sách, nút mở bảng mua nhanh */
+const SVC_SHORT = {transfer:'Xe đưa đón', lounge:'Phòng chờ', elite:'SH Elite', wellness:'Wellness', fnb:'Ẩm thực', buggy:'Xe điện', sleep:'Phòng nghỉ'};
+const svShort = k => SVC_SHORT[k] || SVC[k].n;
+function svcTile(k){
+  const s = SVC[k], ids = CAT_PROD[k]||[];
+  if(s.soon) return `<div class="svt off"><div class="svgo"><span class="ic">${ico(s.ic)}</span><b>${esc(svShort(k))}</b></div><span class="soon">Sắp ra mắt</span></div>`;
+  const go = ids.length===1 ? `pdp:${ids[0]}` : `results:${k}`;
+  const btn = k==='transfer' ? `<button class="btn sm ghost" data-sheet="tfq">Đặt xe</button>` : `<button class="btn sm ghost" data-sheet="qb:${k}">Chọn</button>`;
+  return linkTile(s.ic,esc(svShort(k)),go,btn,s.n);
+}
+function linkTile(ic,n,go,btn,full){ return `<div class="svt"><button class="svgo" data-go="${go}"${full?` aria-label="${esc(full)}, xem chi tiết"`:''}><span class="ic">${ico(ic)}</span><b>${n}</b></button>${btn}</div>`; }
+/* Icon đặc (không viền) cho lưới trang Dịch vụ, khung 24×24; phần "lỗ" (cửa kính, đèn xe…) dùng fill-rule evenodd */
+const FICO = {
+  car:'<path fill-rule="evenodd" d="M7.4 5h9.2a2 2 0 0 1 1.9 1.5L19.6 11h.9A1.5 1.5 0 0 1 22 12.5V17a1 1 0 0 1-1 1h-1v1.5a1.5 1.5 0 0 1-3 0V18H7v1.5a1.5 1.5 0 0 1-3 0V18H3a1 1 0 0 1-1-1v-4.5A1.5 1.5 0 0 1 3.5 11h.9l1.1-4.5A2 2 0 0 1 7.4 5zm-1 6h11.2l-.9-3.6a.6.6 0 0 0-.6-.4H7.9a.6.6 0 0 0-.6.4zM6.5 13a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zm11 0a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/>',
+  wave:'<rect x="6.6" y="5.2" width="2.5" height="8.5" rx="1.25"/><rect x="9.4" y="3" width="2.5" height="10" rx="1.25"/><rect x="12.2" y="3.6" width="2.5" height="9.4" rx="1.25"/><rect x="15" y="5.8" width="2.5" height="7.6" rx="1.25"/><path d="M6.6 11.2h10.9v4.4A6.4 6.4 0 0 1 11.1 22h-.2a6.4 6.4 0 0 1-4.3-1.7l-3.4-3.6a1.6 1.6 0 0 1 2.3-2.2l1.1 1.1z"/>',
+  bolt:'<path d="M13.4 2 4.6 13.4a.6.6 0 0 0 .5 1H11l-1 7.1a.4.4 0 0 0 .7.3l8.7-11.3a.6.6 0 0 0-.5-1H13l1.1-7.2a.4.4 0 0 0-.7-.3z"/>',
+  sofa:'<path d="M5 9a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v2.2a2.6 2.6 0 0 0-2.4 2.6V15H7.4v-1.2A2.6 2.6 0 0 0 5 11.2z"/><path d="M2 13.6a2 2 0 0 1 4 0V16h12v-2.4a2 2 0 0 1 4 0V19a1 1 0 0 1-1 1h-1v1.4h-2V20H7v1.4H5V20H3a1 1 0 0 1-1-1z"/>',
+  star:'<path d="M12 2.6a.7.7 0 0 1 .6.4l2.4 5.2 5.7.6a.7.7 0 0 1 .4 1.2l-4.3 3.8 1.2 5.6a.7.7 0 0 1-1 .8L12 17.3l-5 2.9a.7.7 0 0 1-1-.8l1.2-5.6L2.9 10a.7.7 0 0 1 .4-1.2l5.7-.6L11.4 3a.7.7 0 0 1 .6-.4z"/>',
+  leaf:'<path fill-rule="evenodd" d="M20.3 3.2c.3 6.6-1 11.4-3.7 14.2-2.3 2.3-5.4 3-8.4 2l-2.7 2.7-1.4-1.4 2.7-2.7c-1-3-.3-6.1 2-8.4 2.8-2.8 7.4-4.2 11.5-6.4zM9.7 14.3l-1.4-1.4c1.9-2.4 4.4-4.4 7.4-5.8l.8 1.8c-2.6 1.2-4.9 3-6.8 5.4z"/>',
+  cup:'<rect x="7" y="2.6" width="1.6" height="3.4" rx=".8"/><rect x="10.2" y="2" width="1.6" height="4" rx=".8"/><rect x="13.4" y="2.6" width="1.6" height="3.4" rx=".8"/><path fill-rule="evenodd" d="M4 8h13v1h1.5a3.5 3.5 0 0 1 0 7h-1.8A6 6 0 0 1 11 20h-1a6 6 0 0 1-6-6zm13 3v3h1.5a1.5 1.5 0 0 0 0-3z"/><rect x="3" y="20.6" width="15" height="1.6" rx=".8"/>',
+  box:'<path d="M12 2.6 20.2 6.7 12 10.8 3.8 6.7z"/><path d="M3 8.2l8.3 4.1v9.2L3 17.4z"/><path d="M21 8.2v9.2l-8.3 4.1v-9.2z"/>',
+  gift:'<path d="M12 7.6C10 4 6.4 3.4 6.4 6c0 1.3 1.4 2 5.6 1.6zm0 0c2-3.6 5.6-4.2 5.6-1.6 0 1.3-1.4 2-5.6 1.6z"/><rect x="3" y="8.4" width="8.2" height="3.8" rx=".8"/><rect x="12.8" y="8.4" width="8.2" height="3.8" rx=".8"/><path d="M4 13.6h7.2V21H5a1 1 0 0 1-1-1zm8.8 0H20V20a1 1 0 0 1-1 1h-6.2z"/>',
+  buggy:'<path d="M4 6h10.5a1 1 0 0 1 .9.6L17.6 11h1.9a1.5 1.5 0 0 1 1.5 1.5V17h-1.6a2.9 2.9 0 0 0-5.6 0H9.6a2.9 2.9 0 0 0-5.6 0H3V7a1 1 0 0 1 1-1z"/><circle cx="6.8" cy="17.6" r="2"/><circle cx="16.6" cy="17.6" r="2"/>',
+  bed:'<path d="M3 5.5h2v6h16a1 1 0 0 1 1 1V19h-2v-2.2H5V19H3z"/><circle cx="8.2" cy="8.6" r="2.1"/><path d="M11.4 7h6.6a3 3 0 0 1 3 3v.4h-9.6z"/>',
+  bag:'<path fill-rule="evenodd" d="M8.2 7.2V6.6a3.8 3.8 0 0 1 7.6 0v.6h2.4a1 1 0 0 1 1 .9l.9 12.2a1 1 0 0 1-1 1.1H4.9a1 1 0 0 1-1-1.1l.9-12.2a1 1 0 0 1 1-.9zm1.8 0h4V6.6a2 2 0 0 0-4 0z"/>'
+};
+const fico = (n,s=24) => FICO[n] ? `<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="currentColor" aria-hidden="true">${FICO[n]}</svg>` : ico(n,s);
+/* Tab Dịch vụ dạng lưới 3 cột, không chia hạng mục (thứ tự theo hành trình). Chạm ô = mở bảng mua nhanh; trong bảng có "Xem thông tin chi tiết" để vào trang chi tiết */
+function svcGrid(){
+  const live = JR.flatMap(j=>j.s).filter(k=>!SVC[k].soon), soon = JR.flatMap(j=>j.s).filter(k=>SVC[k].soon);
+  const tile = (ic,n,attr,full) => `<button class="svc3" data-ic="${ic}" ${attr} aria-label="${esc(full||n)}"><span class="ic">${fico(ic)}</span><b>${esc(n)}</b></button>`;
+  return live.map(k=>tile(SVC[k].ic,SVC[k].n,k==='transfer'?'data-sheet="tfq"':`data-sheet="qb:${k}"`,SVC[k].n)).join('')
+    + tile('box','Gói combo','data-sheet="qb:combo"') + tile('gift','Gift Pass','data-sheet="qb:gift"')
+    + soon.map(k=>`<button class="svc3 off" data-toast="${esc(SVC[k].n)} sắp ra mắt" aria-label="${esc(SVC[k].n)}, sắp ra mắt"><span class="ic">${fico(SVC[k].ic)}</span><b>${esc(SVC[k].n)}</b></button>`).join('');
+}
+/* Trang Dịch vụ · cá nhân hoá: 2 booking sắp tới dạng tóm tắt; đầy đủ ở tab Đặt lịch */
+const BK_IC = {'SH Elite+':'star','SH Elite':'star','Xe đưa đón':'car','Fast Track':'bolt','Meet & Greet':'wave','Phòng chờ':'sofa','Wellness':'leaf'};
+/* Dòng booking dùng chung: ngày "T7, 05/09" · nơi dùng (khi tên = loại + nơi) */
+const bkDate = b => { const [d,m,y]=b.when.split(' · ')[0].split('/').map(Number); return ['CN','T2','T3','T4','T5','T6','T7'][new Date(y,m-1,d).getDay()]+', '+String(d).padStart(2,'0')+'/'+String(m).padStart(2,'0'); };
+const bkSub = b => [bkDate(b), b.n.startsWith(b.k+' ')?b.n.slice(b.k.length+1):''].filter(Boolean).join(' · ');
+function svMine(){ if(!S.logged||!BOOKINGS.length) return '';
+  return `<div class="sec2"><b>Booking của tôi</b><button data-go="bookings">Xem tất cả</button></div>
+  <div class="card list">${BOOKINGS.slice(0,2).map(bkRow).join('')}</div>`; }
 function vServices(){
   const ap = AIRPORTS[S.ap];
-  return `<div class="appbar"><h2 class="h2">Dịch vụ</h2><button class="apbtn" data-sheet="airport">${ico('pin')}${esc(ap[1])} · ${ap[0]}${ico('down',14)}</button></div>
-  <div class="search" role="search"><input type="search" data-sq placeholder="Tìm theo tên dịch vụ hoặc nhà ga" value="" aria-label="Tìm kiếm dịch vụ"><button class="go" data-dosearch aria-label="Tìm kiếm">${ico('search',19)}</button></div>
-  <div class="svl">${JR.map((j,i)=>`<div class="grp"><div class="gh"><span class="n">${i+1}</span><div><b>${esc(j.n)}</b></div></div>
-    <div class="card list" style="padding-block:2px">${j.s.map(k=>svcRow(k)).join('')}</div></div>`).join('')}
-  <div class="grp"><div class="gh"><span class="n ni" aria-hidden="true">${ico('vch',12)}</span><div><b>Mua trước, dùng dần</b></div></div>
-    <div class="card list" style="padding-block:2px">
-      ${linkRow('box','Gói combo','packages','<button class="btn sm ghost" data-sheet="qb:combo">Chọn</button>')}
-      ${linkRow('gift','Gift Pass','gift','<button class="btn sm ghost" data-sheet="qb:gift">Chọn</button>')}
-    </div></div></div>
-  <div class="svbiz"><div class="card list">${linkRow('brief','Giải pháp doanh nghiệp','business','<button class="btn sm ghost" data-go="contact:Khách doanh nghiệp">Liên hệ</button>')}</div></div>`;
+  /* Đầu trang navy (cùng tông thẻ ACP theo hạng) + khung trắng bo góc trên đè lên, chứa lưới dịch vụ và Giải pháp doanh nghiệp */
+  return `<div class="svhd acpx" data-t="${S.logged?tierIdx(S.points):0}"><span class="brush"></span><div class="svhdt"><h2 class="h2">Dịch vụ</h2><div class="apact"><button class="apbtn" data-sheet="airport">${ico('pin')}${esc(ap[1])} · ${ap[0]}${ico('down',14)}</button><button class="iconbtn" data-go="search:" aria-label="Tìm kiếm">${ico('search')}</button></div></div></div>
+  <div class="svsheet"><div class="svg3">${svcGrid()}</div>
+  <button class="svbiz2" data-go="business"><span class="ic">${ico('brief')}</span><b>Giải pháp doanh nghiệp</b>${ico('chev',16)}</button></div>
+  ${svMine()}`;
 }
 function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d'); }
 function vSearch(q){
@@ -1042,14 +1917,14 @@ function vResults(cat){
   const s = SVC[cat], ap = AIRPORTS[S.ap], ids = rIds(CAT_PROD[cat]||[]);
   return `<button class="back" data-back>${ico('back',16)}Dịch vụ</button>
   <div><h2 class="h2">${esc(s.n)}</h2><div class="small muted">Tại ${esc(ap[1])} (${ap[0]}) · ${ids.length} lựa chọn</div></div>
-  <div class="chips">${['Tất cả nhà ga','T1 Quốc nội','T2 Quốc tế'].map(c=>`<button class="chip" aria-pressed="${fv('rter','Tất cả nhà ga')===c}" data-pk="rter|${c}">${c}</button>`).join('')}<button class="chip" data-rsort>${ico('swap',14)} ${esc(fv('rsort',RSORT[0]))}</button></div>
+  <div class="rbar">${rDrop('rter','Nhà ga',['Tất cả nhà ga','T1 Quốc nội','T2 Quốc tế'],'pin')}${rDrop('rsort','Sắp xếp',RSORT,'swap')}</div>
   ${ids.length?'':`<div class="card center" style="padding:22px"><div class="small muted">Chưa có dịch vụ tại nhà ga này.</div><button class="btn sm" style="margin-top:12px" data-pk="rter|Tất cả nhà ga">Xem tất cả nhà ga</button></div>`}
   ${ids.map(id=>{const p=PROD[id];const min=Math.min(...p.opts.map(o=>o[3]));return `<button class="prod" data-go="pdp:${id}"><div class="ph" style="background-image:url(${IMG[p.img]})">${p.cancel?'<span class="st ok">Huỷ miễn phí</span>':p.book?'<span class="st info">Cần đặt lịch</span>':''}</div>
-    <div class="bd"><div class="nm">${esc(p.n)}</div><div class="loc">${esc(p.loc)}</div>
+    <div class="bd"><div class="nm">${esc(rName(id,ids))}</div><div class="loc">${esc(p.loc)}</div>
     <div class="ft"><span class="small"><span class="stars">★ ${p.rate}</span> <span class="muted">(${p.rv}) · Đã bán ${p.sold}</span></span><span class="p">${vnd(min)} <small>/khách</small></span></div></div></button>`}).join('')}`;
 }
 function vPdp(id){
-  const p = PROD[id]; const c = S.cart && S.cart.id===id ? S.cart : (S.cart = {id, opt:0, adult: ['transfer','combo','gift','elite'].includes(p.svc)?1:2, child:0}); if(p.opts[c.opt]&&vipLocked(p.opts[c.opt])) c.opt=0;
+  const p = PROD[id]; const c = S.cart && S.cart.id===id ? S.cart : (S.cart = {id, opt:0, adult: (isQty(p)||isFt(p)||['transfer','combo','gift','elite'].includes(p.svc))?1:2, child:0}); if(p.opts[c.opt]&&vipLocked(p.opts[c.opt])) c.opt=0;
   return `<div class="hero" style="background-image:url(${IMG[p.img]})"><button class="iconbtn" data-back aria-label="Quay lại">${ico('back')}</button><button class="iconbtn r" data-toast="Đã sao chép liên kết dịch vụ" aria-label="Chia sẻ">${ico('share')}</button></div>
   <div style="margin-top:-34px;position:relative;z-index:1"><div class="small" style="color:var(--acc)">${esc(SVC[p.svc].n)} · ${esc(p.term)}</div><h2 class="h2">${esc(p.n)}</h2></div>
   <div class="pmeta">
@@ -1064,23 +1939,23 @@ function vPdp(id){
   <div class="psec"><div class="sec2"><b>Điều kiện sử dụng</b></div>
     <ul class="condl">${p.cond.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${pdpFoot(p)}</div>
   <section class="pbuy" aria-label="Chọn dịch vụ"><h3>Chọn dịch vụ</h3>
-  ${pdpSw(p,id)}${ftModePick(p)}<div class="plab">${pdpOptTitle(p)}</div>
-  <div class="popts">${p.opts.map((o,i)=>`<button class="opt" aria-pressed="${i===c.opt}" data-opt="${i}"${vipLocked(o)?' disabled':''}><span class="rd"></span><span><b>${esc(optLabel(p,o))}</b>${o[2]?`<small>${esc(o[2])}</small>`:''}</span><span class="p">${vnd(o[3])}</span></button>`).join('')}</div>
+  ${p.svc==='transfer'?tfSheet(true):pdpSw(p,id)+ftModePick(p)+optPick(p,c.opt,'data-opt',pdpOptTitle(p))}
   ${p.svc==='combo'?pdpExtra(p,c):''}
-  ${p.svc==='lounge'?`<div class="plab">Hình thức voucher</div>${pk2('lvf',['Định danh','Không định danh · +20.000đ'],'Định danh')}<div class="cofields">${fld('ldate','Ngày sử dụng','2026-09-05',{t:'date'})}</div>`:''}
+  ${p.svc==='lounge'?`<div class="plab">Hình thức voucher</div>${pk2('lvf',['Định danh','Không định danh · +20.000đ'],'Định danh',['Định danh','Không định danh'])}<div class="fhint optd">Bản không định danh cộng phí 20.000đ, chuyển nhượng và tặng được.</div><div class="cofields">${fld('ldate','Ngày sử dụng','2026-09-05',{t:'date'})}</div>`:''}
   ${p.svc==='elite'?`<div class="plab">Đặt chỗ</div><div class="cofields">${fld('edate','Ngày bay','2026-09-05',{t:'date'})}${fld('eflt','Chuyến bay','',{ph:'VD: VN 417'})}</div>
   <div class="plab">Giờ vào phòng khách</div>${pkr('etime',['16:30','17:30','18:00'],'16:30')}
   <div class="plab">Số khách</div>${pk2('epax',['1 người lớn','2 người lớn'],'1 người lớn')}
   <div class="cofields">${fld('ename','Tên hành khách','',{ph:'Ghi đúng như trên hộ chiếu'})}<div class="fhint">Voucher SH Elite là voucher định danh.</div>${fld('ereq','Yêu cầu riêng','',{ph:'Không bắt buộc'})}</div>
   <div class="note">${ico('phone')}<span>Đội ngũ sẽ liên hệ trước chuyến bay để xác nhận.</span></div>`:''}
-  ${p.svc==='combo'||p.svc==='elite'?'':p.svc==='transfer'?tfPdpNote():`<div class="plab">${isQty(p)?'Số lượng':'Số khách'}</div>`+(isQty(p)?`<div class="card"><div class="step"><div><b>${qtyLabel(p)}</b><small>${qtyNote(p)}</small></div><div class="stepper"><button data-q="adult:-1" aria-label="Giảm">${ico('minus')}</button><b>${c.adult}</b><button data-q="adult:1" aria-label="Tăng">${ico('plus')}</button></div></div></div>`:
+  ${p.svc==='elite'?'':p.svc==='transfer'?'':(isQty(p)?'':`<div class="plab">Số khách</div>`)+(isQty(p)?`<div class="card"><div class="step"><div><b>${qtyLabel(p)}</b><small>${qtyNote(p)}</small></div><div class="stepper"><button data-q="adult:-1" aria-label="Giảm">${ico('minus')}</button><b>${c.adult}</b><button data-q="adult:1" aria-label="Tăng">${ico('plus')}</button></div></div></div>`:
   `<div class="card" style="padding-block:6px"><div class="step" style="border-bottom:1px solid var(--line)"><div><b>Người lớn</b><small>Từ 12 tuổi</small></div><div class="stepper"><button data-q="adult:-1" aria-label="Giảm người lớn">${ico('minus')}</button><b>${c.adult}</b><button data-q="adult:1" aria-label="Tăng người lớn">${ico('plus')}</button></div></div>
     <div class="step"><div><b>Trẻ em</b><small>2–12 tuổi · 50% giá người lớn</small></div><div class="stepper"><button data-q="child:-1" aria-label="Giảm trẻ em">${ico('minus')}</button><b>${c.child}</b><button data-q="child:1" aria-label="Tăng trẻ em">${ico('plus')}</button></div></div></div>`)}
   ${p.svc!=='combo'?pdpExtra(p,c):''}${bookNote(p)}</section>`;
 }
 function itemTotal(it){ const o=PROD[it.id].opts[it.opt]; return o[3]*it.adult + Math.round(o[3]*.5)*it.child + (it.anon?20000*(it.adult+it.child):0); }
 const sumItems = l => l.reduce((s,it)=>s+itemTotal(it),0);
-const coItems = () => S.co==='cart' ? S.cartItems.filter(it=>!it.out) : [S.cart];
+const coItemsCart = () => S.cartItems.filter(it=>!it.out&&it.sel!==false);
+const coItems = () => S.co==='cart' ? S.cartItems.filter(it=>!it.out&&it.sel!==false) : [S.cart]; /* giỏ: chỉ thanh toán dịch vụ được tích chọn */
 function cartTotal(){ return itemTotal(S.cart); }
 function vCheckout(){
   const items=coItems(), t=sumItems(items), pts=Math.round(t/10000);
@@ -1096,7 +1971,7 @@ function vCheckout(){
     ${fld('bp','Số điện thoại',S.logged?'0912 486 215':'',{ph:'0912 345 678',im:'tel',ac:'tel'})}
     ${fld('be','Email',S.logged?'quynhanh@example.com':'',{t:'email',ph:'ten@example.com',ac:'email'})}
     <div class="field"><label>Quốc tịch</label>${pk2('bq',['Việt Nam','Khác'],'Việt Nam')}</div>
-    ${fld('ba','Địa chỉ',S.logged?'Số 12 ngõ 45 Láng Hạ, Đống Đa, Hà Nội':'',{ph:'Số nhà, đường, phường, tỉnh/thành phố',ac:'street-address'})}<div class="fhint">Bắt buộc — dùng làm địa chỉ trên hoá đơn nếu không khai thông tin công ty.</div>
+    ${fld('ba','Địa chỉ',S.logged?'Số 12 ngõ 45 Láng Hạ, Đống Đa, Hà Nội':'',{ph:'Số nhà, đường, phường, tỉnh/thành phố',ac:'street-address'})}<div class="fhint">Bắt buộc, dùng làm địa chỉ trên hoá đơn nếu không khai thông tin công ty.</div>
     ${fld('bc','Số CCCD','',{ph:'Không bắt buộc',im:'numeric'})}<div class="fhint">Chỉ cần khi dịch vụ yêu cầu xác minh nhân thân.</div></div>
     <div class="note">${ico('chat')}<span>Voucher và hoá đơn gửi tới email này.<br>Địa chỉ dùng cho hoá đơn và giao hàng vật lý.</span></div></div>
   ${coBooking(items)}
@@ -1130,10 +2005,10 @@ document.addEventListener('keydown', e => {
 function walletCard(w){
   if(!w) return '';
   return `<div class="wal"><div class="hd" style="grid-template-columns:52px 1fr"><span class="th" style="background-image:url(${IMG[w.img]})"></span><div><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><span class="k">${esc(w.k)}</span><span class="st ${w.st==='ready'?'ok':w.st==='wait'?'warn':'mute'}">${walStatus(w)}</span></div><div class="n">${esc(w.n)}</div><div class="sub">${esc(w.sub)}</div></div></div>
-    <div class="cells">${w.cells.map(c=>`<div><small>${esc(c[0])}</small>${/^AC[A-Z]-/.test(c[1])?`<code>${esc(c[1])}</code>`:esc(c[1])}</div>`).join('')}</div>
+    <div class="cells">${w.cells.map(cellH).join('')}</div>
     ${w.use?`<div class="bar"><i style="width:${w.use}%"></i></div>`:''}
     ${w.foot?`<div class="foot">${esc(w.foot)}</div>`:''}
-    ${w.acts.length?`<div class="acts">${w.acts.map((a,i)=>`<button class="btn sm ${i?'ghost':''}" ${a[0]==='qr'?`data-sheet="qr:${w.id}"`:a[0]==='book'?`data-go="book:${w.id}"`:a[0]==='view'?`data-go="trip:${w.booked}"`:a[0]==='track'?`data-toast="${esc(a[1])} — mã vận đơn gửi qua email"`:`data-toast="Đã sao chép mã để chia sẻ"`}>${esc(a[1])}</button>`).join('')}</div>`:''}</div>`;
+    ${w.acts.length?`<div class="acts">${w.acts.map((a,i)=>`<button class="btn sm ${i?'ghost':''}" ${a[0]==='qr'?`data-sheet="qr:${w.id}"`:a[0]==='book'?`data-go="book:${w.id}"`:a[0]==='view'?`data-go="trip:${w.booked}"`:a[0]==='track'?`data-toast="${esc(a[1])}: mã vận đơn gửi qua email"`:`data-toast="Đã sao chép mã để chia sẻ"`}>${esc(a[1])}</button>`).join('')}</div>`:''}</div>`;
 }
 /* ================= V3 · Lịch sử điểm (theo web V10: cộng khi sử dụng, không cộng khi mua) ================= */
 const PTS = [
@@ -1181,7 +2056,8 @@ function vCart(){
   const nOut=l.filter(it=>it.out).length;
   return `<h2 class="h2">Giỏ hàng</h2>
   ${nOut?`<div class="note lkerr">${ico('x')}<span class="errtx">${nOut} dịch vụ đã hết suất và không được tính vào đơn.<br>Xoá dịch vụ đó hoặc mua lại vào ngày khác.</span></div>`:''}
-  ${l.map((it,i)=>{const p=PROD[it.id],o=p.opts[it.opt];return `<div class="card citem${it.out?' out':''}"><span class="th" style="background-image:url(${IMG[p.img]})"></span><div><div class="n">${esc(p.n)}</div><div class="o">${it.fb?esc(it.fb.split(' · ')[0])+' · ':''}${esc(o[1])} · ${isQty(p)?'Số lượng '+it.adult:`${it.adult} người lớn${it.child?`, ${it.child} trẻ em`:''}`}</div>
+  ${(l.filter(it=>!it.out).length>1)?`<button class="cselall" data-cselall role="checkbox" aria-checked="${l.filter(it=>!it.out).every(it=>it.sel!==false)}"><span class="csel">${ico('check',14)}</span>Chọn tất cả</button>`:''}
+  ${l.map((it,i)=>{const p=PROD[it.id],o=p.opts[it.opt];return `<div class="card citem${it.out?' out':''}"><button class="csel" role="checkbox" aria-checked="${!it.out&&it.sel!==false}" data-csel="${i}"${it.out?' disabled':''} aria-label="Chọn ${esc(p.n)}">${ico('check',14)}</button><span class="th" style="background-image:url(${IMG[p.img]})"></span><div><div class="n">${esc(p.n)}</div><div class="o">${it.fb?esc(it.fb.split(' · ')[0])+' · ':''}${esc(o[1])} · ${isQty(p)?'Số lượng '+it.adult:`${it.adult} người lớn${it.child?`, ${it.child} trẻ em`:''}`}</div>
     ${isQty(p)?'':`<div class="sku"><span>Người lớn × ${it.adult}</span><span>${vnd(o[3]*it.adult)}</span>${it.child?`<span>Trẻ em × ${it.child}</span><span>${vnd(Math.round(o[3]*.5)*it.child)}</span>`:''}</div>`}<div class="rw"><b class="cpr">${vnd(itemTotal(it))}</b><button class="rm" data-rm="${i}">Xoá</button></div>${it.out?`<div class="cout">${ico('x',13)}<span>${esc(it.out)} · không tính vào tổng</span></div>`:''}</div></div>`}).join('')}
   <div class="psec"><div class="sec2"><b>Tóm tắt đơn hàng</b></div><div class="field dfield${(S.err||{}).dcode?' err':''}"><label for="f_dcode">Mã giảm giá</label><div class="dinp"><input class="inp" id="f_dcode" data-f="dcode" type="text" value="${esc(fv('dcode',''))}" placeholder="VD: SUMMER20" autocapitalize="characters"><button class="btn sm ghost" data-dapply>Áp dụng</button></div>${(S.err||{}).dcode?`<div class="ferr">${esc(S.err.dcode)}</div>`:''}</div></div>
   <div class="note">${ico('shield')}<span>Voucher gửi qua email ngay sau khi thanh toán và tự động lưu vào ví thẻ ACP.<br>Huỷ miễn phí trước 24 giờ với dịch vụ có nhãn Huỷ miễn phí.</span></div>`;
@@ -1208,11 +2084,16 @@ function vTrips(){ if(!S.logged) return guestTrips();
   return `<h2 class="h2">Đặt lịch</h2>
   ${lkCard()}${lkResult()}
   ${wait.length?`<div class="sec sub"><b>Voucher chờ đặt lịch</b><span>${wait.length} voucher</span></div>
-  <div class="card list" style="padding-block:2px">${wait.map(w=>`<div class="li"><span class="ic">${ico('cal')}</span><div><b>${esc(w.n)}</b><small>${esc(w.cells[0][1])} · ${esc(w.cells[w.cells.length-1][1])}</small></div><button class="btn sm ghost" data-go="book:${w.id}">Đặt lịch</button></div>`).join('')}</div>`:''}
-  <div class="sec sub"><b>Booking của tôi</b></div>
-  <div class="wtabs" role="tablist">${segs.map(s=>`<button role="tab" aria-selected="${S.btab===s[0]}" data-btab="${s[0]}">${s[1]}${s[0]==='up'?`<span>${BOOKINGS.length}</span>`:''}</button>`).join('')}</div>
-  ${list.length?list.map(b=>`<button class="bk" data-go="trip:${b.id}"><div><div class="hd" style="align-items:center"><div class="k">${esc(b.k)}</div><span class="st ${b.st}">${esc(b.stt)}</span></div><div class="n" style="margin-top:4px">${esc(b.n)}</div><div class="when">${esc(b.when)}</div></div>
-    <div class="cells">${b.cells.map(c=>`<div><small>${esc(c[0])}</small>${esc(c[1])}</div>`).join('')}</div></button>`).join(''):
+  <div class="card list" style="padding-block:2px">${wait.map(w=>`<button class="li wrow wgo" data-go="book:${w.id}" aria-label="Đặt lịch ${esc(wName(w)[0])}"><span class="th" style="background-image:url(${IMG[w.img]})"></span><div><b>${esc(wName(w)[0])}</b><small class="wsub">${wName(w)[1]?`<span class="pl">${esc(wName(w)[1])}</span><span class="sep">·</span>`:''}<span class="wcd">${esc(w.cells[0][1])}</span></small></div><span class="r">${ico('chev',16)}</span></button>`).join('')}</div>`:''}
+  <div class="sec sub"><b>Booking của tôi</b><button data-go="bookings">Xem tất cả</button></div>
+  ${BOOKINGS.length?`<div class="card list">${BOOKINGS.slice(0,3).map(bkRow).join('')}</div>`:`<div class="card center" style="padding:20px"><div class="muted small">Chưa có booking sắp tới.</div></div>`}`;
+}
+/* Booking dạng tóm tắt (1 dòng: tên dịch vụ / ngày · nơi dùng / nhãn trạng thái) — dùng ở tab Đặt lịch và trang Dịch vụ */
+const bkRow = b => `<button class="li bkm" data-go="trip:${b.id}"><span class="ic">${ico(BK_IC[b.k]||'cal')}</span><div><b>${esc(b.k)}</b><small>${esc(bkSub(b))}</small></div><span class="st ${b.st}">${esc(b.stt)}</span></button>`;
+/* Màn "Booking của tôi" đầy đủ: 3 tab + thẻ booking chi tiết (mở từ "Xem tất cả" ở tab Đặt lịch) */
+function bkFull(){ const segs=[['up','Sắp tới'],['done','Đã hoàn thành'],['cancel','Đã huỷ']], list = S.btab==='up' ? BOOKINGS : [];
+  return `<div class="wtabs full" role="tablist">${segs.map(s=>`<button role="tab" aria-selected="${S.btab===s[0]}" data-btab="${s[0]}">${s[1]}${s[0]==='up'?`<span>${BOOKINGS.length}</span>`:''}</button>`).join('')}</div>
+  ${list.length?`<div class="card list">${list.map(b=>`<button class="li bkm bkl" data-go="trip:${b.id}"><span class="ic">${ico(BK_IC[b.k]||'cal')}</span><div><span class="bkt"><b>${esc(b.k)}</b><span class="st ${b.st}">${esc(b.stt)}</span></span><small class="wsub"><span class="pl">${esc(bkDate(b))}</span><span class="sep">·</span><span class="wcd">${esc(b.id)}</span></small></div><span class="r">${ico('chev',16)}</span></button>`).join('')}</div>`:
     `<div class="card center" style="padding:24px"><div class="muted small">${S.btab==='done'?'Booking đã hoàn thành sẽ hiện ở đây kèm hoá đơn.':'Chưa có booking nào bị huỷ.'}</div><button class="btn sm ghost" style="margin-top:12px" data-tab="services">Đặt dịch vụ</button></div>`}`;
 }
 function vTrip(id){
@@ -1237,12 +2118,67 @@ function vTrip(id){
 function walAct(w){ return w.booked?`data-go="trip:${w.booked}"`:w.st==='wait'?`data-go="book:${w.id}"`:`data-sheet="qr:${w.id}"`; }
 function walLbl(w){ return w.booked?'Xem booking':w.st==='wait'?'Đặt lịch':'Mã QR'; }
 function walletHome(){
+  // Dòng voucher: tiêu đề chỉ tên dịch vụ, nơi dùng xuống dòng phụ; trạng thái chỉ hiện khi khác tab (đã đặt chỗ / đã gửi yêu cầu)
   const live=S.wallet.filter(w=>w.st!=='used'&&w.k!=='Gift Pass'), rd=live.filter(w=>w.st==='ready'), wt=live.filter(w=>w.st==='wait');
   const tab=fv('hw', rd.length?'ready':'wait'), list=tab==='ready'?rd:wt;
   return `<div class="sec2"><b>Ví của tôi</b><button data-go="wallet">Xem chi tiết</button></div>
   <div class="card walbox"><div class="wtabs full" role="tablist">${[['ready','Sẵn sàng',rd.length],['wait','Chờ lịch',wt.length]].map(t=>`<button role="tab" aria-selected="${tab===t[0]}" data-pk="hw|${t[0]}">${t[1]}<span>${t[2]}</span></button>`).join('')}</div>
-  ${list.length?`<div class="card list" style="padding-block:2px">${list.slice(0,3).map(w=>`<div class="li wrow"><span class="th" style="background-image:url(${IMG[w.img]})"></span><div><b>${esc(w.n)}</b><small>${walStatus(w)} · ${esc(w.cells[0][1])}</small></div><button class="rb" ${walAct(w)} aria-label="${walLbl(w)}">${ico(w.booked?'chev':w.st==='wait'?'cal':'qr',18)}</button></div>`).join('')}</div>`
+  ${list.length?`<div class="card list" style="padding-block:2px">${list.slice(0,3).map(w=>`<div class="li wrow"><span class="th" style="background-image:url(${IMG[w.img]})"></span><div><b>${esc(wName(w)[0])}</b><small class="wsub">${w.booked?`<span class="st ${(BOOKINGS.find(b=>b.id===w.booked)||{}).st||'info'}">${esc(walStatus(w))}</span>`:`${wName(w)[1]?`<span class="pl">${esc(wName(w)[1])}</span><span class="sep">·</span>`:''}<span class="wcd">${esc(w.cells[0][1])}</span>`}</small></div><button class="rb" ${walAct(w)} aria-label="${walLbl(w)}">${ico(w.booked?'chev':w.st==='wait'?'cal':'qr',18)}</button></div>`).join('')}</div>`
   :`<div class="small muted wempty">Chưa có voucher ${tab==='ready'?'sẵn sàng':'chờ đặt lịch'}.</div>`}</div>`;
+}
+/* Trang chủ · khách chưa đăng nhập: "Dành cho bạn" = 4 dịch vụ chính của tab Dịch vụ (Phòng chờ thương gia đứng đầu), 4 ô chia đều trong một khay trắng, không trượt; chạm mở danh sách/trang chi tiết (không mở bảng mua nhanh, bảng đó chỉ mở từ trang Dịch vụ) */
+const HFY_PICK = ['lounge','transfer','mng','fasttrack','elite'];
+const HFY_NAME = {lounge:'Phòng chờ', transfer:'Xe đưa đón', mng:'Meet & Greet', fasttrack:'Fast Track', elite:'SH Elite'}; // tên ngắn 1 dòng cho khay trang chủ
+const HFY_IMG = {transfer:'car', mng:'mg', fasttrack:'ft', lounge:'lounge', elite:'elite'};
+function homeForYou(){
+  const go = k => { const ids=CAT_PROD[k]||[]; return ids.length===1?`pdp:${ids[0]}`:`results:${k}`; };
+  return `<div class="hfyw"><div class="sec2 hfyh"><b>Dành cho bạn</b><button data-tab="services">Xem tất cả</button></div>
+  <div class="hfy hfy4">${HFY_PICK.filter(k=>SVC[k]&&!SVC[k].soon).map(k=>`<button class="hfyc4" data-go="${go(k)}" aria-label="${esc(SVC[k].n)}"><span class="ph" style="background-image:url(${IMG[HFY_IMG[k]]})"></span><b>${esc(HFY_NAME[k]||SVC[k].n)}</b></button>`).join('')}</div></div>`;
+}
+/* Trang chủ · khối thẻ ACP tràn mép (thử): navy theo hạng, lên tới mép trên, bo 2 góc dưới; hàng trên: logo trắng + tìm kiếm + chuông; phần thông tin thẻ chạm mở Mã hội viên (qrz) */
+function homeHero(){
+  const ti = S.logged ? tierIdx(S.points) : 0, nx = TIERS[ti+1];
+  const w = nx ? Math.round((S.points-TIERS[ti][1])/(nx[1]-TIERS[ti][1])*100) : 100;
+  const top = `<div class="hhtop"><img src="${IMG.logo_rev}" alt="Airport Connects"><div class="hhic"><button class="iconbtn" data-go="search:" aria-label="Tìm kiếm">${ico('search')}</button><button class="iconbtn" data-go="notif" aria-label="Thông báo">${ico('bell')}${S.logged&&unread()?'<span class="dot"></span>':''}</button></div></div>`;
+  if(!S.logged) return `<div class="hhero acpx guest" data-t="0"><span class="brush"></span>${top}
+    <div class="hhg"><b>Đăng nhập để xem thẻ ACP và chuyến bay</b><small>Quản lý voucher, booking và điểm hạng.<br>Không cần tài khoản vẫn mua được.</small>
+    <div class="row2"><button class="btn sm" data-tab="account" data-lf="home">Đăng nhập</button><button class="btn sm ghost" data-go="lookup">Đặt lịch bằng mã</button></div></div></div>`;
+  return `<div class="hhero acpx" data-t="${ti}"><span class="brush"></span>${top}
+    <div class="acpbtn hhcard" role="button" tabindex="0" aria-label="Thẻ ACP. Chạm để xuất trình mã hội viên" data-sheet="qrz">
+      <div class="hhmid"><div><div class="tl">Hạng hội viên</div><div class="tier">${TIERS[ti][0]}</div></div><span class="qi qil" aria-hidden="true">${ico('qr',14)}Xuất trình</span></div>
+      <div class="ft"><div class="who"><div><div class="nm">Nguyễn Quỳnh Anh</div><div class="num">7021 •••• •••• 4472</div></div><div class="pt">Điểm<b>${S.points.toLocaleString('vi-VN')}</b></div></div>
+      <div class="prog"><div class="bar"><i style="width:${w}%"></i></div><span class="nx">${nx?`Còn ${(nx[1]-S.points).toLocaleString('vi-VN')} điểm lên ${nx[0]}`:'Hạng cao nhất'}</span></div></div></div></div>`;
+}
+/* Trang chủ · phương án A: thẻ "Lịch sắp tới" dạng dòng thời gian (booking đầu tiên là chuyến bay, hiện chặng bay lớn; các booking sau là mốc nhỏ, chạm mở booking) + thẻ Ví gọn (voucher sẵn sàng kèm nút QR, dòng tóm tắt mở Ví). Không có dữ liệu thì ẩn */
+function homeTrack(fid){
+  if(!BOOKINGS.length) return '';
+  const fb=BOOKINGS.find(x=>x.id===fid)||BOOKINGS[0], list=[fb,...BOOKINGS.filter(b=>b!==fb)].slice(0,2);
+  const tm=(fb.when.match(/\d\d:\d\d/)||[''])[0];
+  return `<div class="htl"><small class="tld">Chuyến bay sắp tới · ${bkDate(fb)}${tm?' · '+tm:''}</small>
+  <div class="tlhd"><button class="tlr" data-go="trip:${fb.id}" aria-label="Chuyến bay HAN đến ICN, xem booking">HAN → ICN</button><button class="tlall" data-go="bookings">Xem tất cả</button></div>
+  <div class="tlrest">${list.map(b=>`<button class="tln" data-go="trip:${b.id}" aria-label="${esc(b.k)}, ${esc(b.stt)}, xem booking"><span class="tlx"><b>${esc(b.k)}</b>${b===fb?"":`<small>${bkDate(b)}</small>`}</span><span class="st ${b.st}">${esc(b.stt)}</span></button>`).join('')}</div></div>`;
+}
+function homeWallet(){
+  const live=S.wallet.filter(w=>w.st!=='used'&&w.k!=='Gift Pass'), rd=live.filter(w=>w.st==='ready'), list=(rd.length?rd:live.filter(w=>w.st==='wait')).slice(0,3);
+  if(!live.length) return '';
+  return `<div class="sec2"><b>Ví của tôi</b><button data-go="wallet">Xem tất cả</button></div>
+  <div class="card list hwal" style="padding-block:2px">${list.map(w=>`<div class="li wrow"><span class="th" style="background-image:url(${IMG[w.img]})"></span><div><b>${esc(wName(w)[0])}</b><small class="wsub">${w.booked?`<span class="st ${(BOOKINGS.find(b=>b.id===w.booked)||{}).st||'info'}">${esc(walStatus(w))}</span>`:`${wName(w)[1]?`<span class="pl">${esc(wName(w)[1])}</span><span class="sep">·</span>`:''}<span class="wcd">${esc(w.cells[0][1])}</span>`}</small></div><button class="rb" ${walAct(w)} aria-label="${walLbl(w)}">${ico(w.booked?'chev':w.st==='wait'?'cal':'qr',18)}</button></div>`).join('')}
+  <button class="li hwsum" data-go="wallet"><span>${esc(walSum())}</span>${ico('chev',14)}</button></div>`;
+}
+/* Trang chủ · ô ghép (thử): 2 cột so le như ảnh tham khảo. Cột trái: chuyến bay sắp tới (kéo cao bằng cột phải). Cột phải: Sẵn sàng (cao, liệt kê voucher, chạm dòng mở QR) + Chờ lịch (thấp). Nhắc nhở mới nhất: hàng ngang dưới cùng. Ô nào không có dữ liệu thì ẩn; nhắc nhở bỏ qua thông báo trùng chuyến bay */
+function homeBento(fid){
+  const live=S.wallet.filter(w=>w.st!=='used'&&w.k!=='Gift Pass'), rd=live.filter(w=>w.st==='ready'), wt=live.filter(w=>w.st==='wait');
+  const fb=BOOKINGS.find(x=>x.id===fid), nt=NOTIFS.find(n=>!S.read.includes(n[0])&&n[5]!=='trip:'+fid);
+  const tm=fb?(fb.when.match(/\d\d:\d\d/)||[''])[0]:'';
+  const art=`<svg class="hbart" viewBox="0 0 40 56" preserveAspectRatio="none" aria-hidden="true"><path d="M8 2 C 34 16, 34 40, 8 54" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 4" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="8" cy="2" r="2" fill="currentColor"/><circle cx="8" cy="54" r="2" fill="currentColor"/></svg>`;
+  const F = fb?`<button class="hb hb-fl" data-go="trip:${fid}" aria-label="Chuyến bay sắp tới HAN đến ICN, xem chi tiết"><small>Chuyến bay sắp tới</small><span class="hbx">${bkDate(fb)}${tm?' · '+tm:''}</span><span class="hbrt"><b>HAN</b>${art}<b>ICN</b></span><span class="hbst"><span class="st ${fb.st}">${esc(fb.stt)}</span><span>${esc(fb.k)}</span></span></button>`:'';
+  const A = rd.length?`<div class="hb hb-rd"><button class="hbhd" data-wgo="ready" aria-label="${rd.length} voucher sẵn sàng, mở Ví"><small>Sẵn sàng</small><b class="hbn">${rd.length}</b><span class="hbch">${ico('chev',14)}</span></button>
+    ${rd.slice(0,3).map(w=>`<button class="hbi" data-sheet="qr:${w.id}" aria-label="Mã QR ${esc(wName(w)[0])}"><i style="background-image:url(${IMG[w.img]})"></i><span>${esc(wName(w)[0])}</span>${ico('qr',16)}</button>`).join('')}</div>`:'';
+  const B = wt.length?`<button class="hb hb-wt" data-wgo="wait" aria-label="${wt.length} voucher chờ lịch, mở Ví"><small>Chờ lịch</small><span class="hbrow"><b class="hbn">${wt.length}</b><span class="hbx">Cần đặt lịch</span></span></button>`:'';
+  const C = nt?`<button class="hb hb-nt" data-nt="${nt[0]}"><span class="hbic">${ico(nt[1],18)}</span><span class="hbtx"><b>${esc(nt[2])}</b><small>${esc(nt[3])}</small></span><small class="hbtm">${esc(nt[4])}</small></button>`:'';
+  const cols = F ? [F, A+B] : [A, B]; const nc=cols.filter(Boolean);
+  if(!nc.length&&!C) return '';
+  return `<div class="hbento">${nc.map(c=>`<div class="hbc">${c}</div>`).join('')}${C}</div>`;
 }
 // Tóm tắt Ví: đếm giống tab ở trang chủ và màn Ví
 function walSum(){
@@ -1252,7 +2188,8 @@ function walSum(){
 function walletAcc(){
   // Tài khoản: Ví thu gọn thành một dòng tóm tắt; danh sách đầy đủ ở màn Ví của tôi
   const sum=walSum();
-  return `<div class="card list" style="padding-block:2px"><button class="li" data-go="wallet"><span class="ic">${ico('vch')}</span><div><b>Ví của tôi</b><small>${sum}</small></div><span class="r">${ico('chev',16)}</span></button></div>`;
+  return `<div class="card list" style="padding-block:2px"><button class="li" data-go="wallet"><span class="ic">${ico('vch')}</span><div><b>Ví của tôi</b><small>${sum}</small></div><span class="r">${ico('chev',16)}</span></button>
+    <button class="li" data-go="bookings"><span class="ic">${ico('cal')}</span><div><b>Booking của tôi</b><small>${BOOKINGS.length?BOOKINGS.length+' sắp tới':'Chưa có booking'}</small></div><span class="r">${ico('chev',16)}</span></button></div>`; /* Booking của tôi: như tab Booking trong Tài khoản của web V10 */
 }
 const PAX = [{n:'Trần Minh Đức', r:'Chồng', d:'CCCD 001090xxxxxx'},{n:'Trần Bảo An', r:'Con · 8 tuổi', d:'Áp dụng giá trẻ em'}];
 function vPax(){ return `${back('Tài khoản')}<h2 class="h2">Hành khách thường đi cùng</h2><div class="small muted cnote">Lưu sẵn để không phải nhập lại tên mỗi lần mua voucher định danh hay đặt booking.</div>
@@ -1282,7 +2219,7 @@ function vAccount(){
     ${row('doc','Điều kiện & Chính sách','','policy')}</div>
   <button class="btn ghost" data-logout><span style="display:inline-block;vertical-align:-3px;margin-right:6px">${ico('out',16)}</span>Đăng xuất</button>`;
 }
-const NOTIFS=[['n1','bell','SH Elite+ đang chờ xác nhận','Booking BE-260826-0093 · 05/09','2 giờ','trip:BE-260826-0093'],['n2','car','Tài xế đã được xếp','Trần Văn Hùng · 30G-421.88','Hôm qua','trip:BK-260826-2231'],['n3','tag','Boarding to summer — giảm 40%','Vé phòng chờ chiều về, đơn từ 850.000đ','2 ngày','pdp:sh-han2'],['n4','card','Bạn đã lên hạng Sky Plus','Giảm 5% mọi gói combo','08/08','acp']];
+const NOTIFS=[['n1','bell','SH Elite+ · Chờ xác nhận','T7, 05/09 · Ha Noi 2','2 giờ','trip:BE-260826-0093'],['n2','car','Xe đưa đón · Đã có tài xế','Trần Văn Hùng · 30G-421.88','Hôm qua','trip:BK-260826-2231'],['n3','tag','Boarding to summer: giảm 40%','Vé phòng chờ chiều về, đơn từ 850.000đ','2 ngày','pdp:sh-han2'],['n4','card','Bạn đã lên hạng Sky Plus','Giảm 5% mọi gói combo','08/08','acp']];
 const unread=()=>NOTIFS.filter(n=>!S.read.includes(n[0])).length;
 function vNotif(){ if(!S.logged) return guestNotif();
   const u=unread();
@@ -1323,42 +2260,46 @@ function openSheet(kind){
   sh.innerHTML=h; sh.classList.toggle('pop',pop); qrTimer(pop); void sh.offsetWidth; sh.classList.add('on'); $('mask').classList.add('on');
 }
 function qbInit(k){ const ids=CAT_PROD[k]||[]; if(!S.qb||S.qb.k!==k){ const p=PROD[ids[0]]; S.qb={k,id:ids[0],opt:0,adult:(isQty(p)||isFt(p))?1:2,child:0}; } return S.qb; }
-const shortOpt = t => t.replace(' đổi ngày miễn phí',' đổi ngày').replace(' — khách bay đi',' · bay đi').replace(' — khách hạ cánh',' · hạ cánh');
+const shortOpt = t => t.replace(/^Voucher (\d)/,'$1').replace(' đổi ngày miễn phí',' đổi ngày').replace(' — khách bay đi',' · bay đi').replace(' — khách hạ cánh',' · hạ cánh');
 /* Mọi bảng trượt: ghim thanh kéo + tiêu đề khi cuộn (tự gom vào .qbhd mỗi lần nội dung bảng thay đổi) */
 (()=>{ const sh=document.getElementById('sheet'); if(!sh) return;
   const wrap=()=>{ const g=sh.firstElementChild; if(!g||!g.classList.contains('grab')) return; const h=g.nextElementSibling;
     const box=document.createElement('div'); box.className='qbhd'; sh.insertBefore(box,g); box.appendChild(g); if(h&&h.tagName==='H3') box.appendChild(h); };
   new MutationObserver(wrap).observe(sh,{childList:true});
   sh.addEventListener('scroll',()=>{ const h=sh.querySelector('.qbhd'); if(h) h.classList.toggle('sc',sh.scrollTop>4); },{passive:true}); })();
-function qbAxes(ax,p){ return ax.map(([l,list])=>`<div class="qbl">${l}</div>`+(list.length===2
-    ?`<div class="pku seg2" style="grid-template-columns:1fr 1fr">${list.map(([t,id])=>`<button aria-pressed="${id===p.__id}" data-qbp="${id}">${t}</button>`).join('')}</div>`
+/* Thanh chọn ngang trong popup mua nhanh: lưu vào S.f (dùng chung với trang chi tiết) rồi vẽ lại popup */
+function qbSeg(k,list,def,labels){ const v=fv(k,def); return `<div class="pku seg2" style="grid-template-columns:repeat(${list.length},1fr)">${list.map((x,i)=>`<button aria-pressed="${x===v}" data-qbf="${esc(k)}|${esc(x)}">${esc(labels?labels[i]:x)}</button>`).join('')}</div>`; }
+function qbAxes(ax,p){ return ax.map(([l,list])=>`<div class="qbl">${l}</div>`+(list.length<=4
+    ?`<div class="pku seg2" style="grid-template-columns:repeat(${list.length},1fr)">${list.map(([t,id])=>`<button aria-pressed="${id===p.__id}" data-qbp="${id}">${t}</button>`).join('')}</div>`
     :`<div class="popts">${list.map(([t,id])=>`<button class="opt" aria-pressed="${id===p.__id}" data-qbp="${id}"><span class="rd"></span><span><b>${t}</b></span><span></span></button>`).join('')}</div>`)).join('')
   + (p.svc==='fasttrack'&&p.ter==='T2'?`<div class="qbl">Hộ chiếu của khách</div><div class="pku seg2" style="grid-template-columns:1fr 1fr">${['Việt Nam','Nước ngoài'].map(v=>`<button aria-pressed="${fv('ftnat','Việt Nam')===v}" data-qbn="${v}">${v}</button>`).join('')}</div>`:''); }
 function qbSheet(k){
-  const q=qbInit(k), ids=CAT_PROD[k]||[], p=PROD[q.id]; p.__id=q.id; if(p.opts[q.opt]&&vipLocked(p.opts[q.opt])) q.opt=0; const o=p.opts[q.opt], tot=o[3]*q.adult+Math.round(o[3]*.5)*q.child;
+  const q=qbInit(k), ids=CAT_PROD[k]||[], p=PROD[q.id]; p.__id=q.id; if(p.opts[q.opt]&&vipLocked(p.opts[q.opt])) q.opt=0; const o=p.opts[q.opt], tot=o[3]*q.adult+Math.round(o[3]*.5)*q.child+(p.svc==='lounge'&&String(fv('lvf','Định danh'))!=='Định danh'?20000*(q.adult+q.child):0);
   const stepRow=(key,t,sub,v)=>`<div class="step"><div><b>${t}</b>${sub?`<small>${sub}</small>`:''}</div><div class="stepper"><button data-qbq="${key}:-1" aria-label="Giảm">${ico('minus')}</button><b>${v}</b><button data-qbq="${key}:1" aria-label="Tăng">${ico('plus')}</button></div></div>`;
   const ax = PSW[p.svc] && p.svc!=='gift' ? PSW[p.svc](p) : null;
   return `<div class="grab"></div><h3>${esc(SVC[k].n)}</h3>
-  ${ax ? qbAxes(ax,p) : ids.length>1?`<div class="qbl">${k==='combo'?'Chọn gói combo':k==='gift'?'Chọn quà tặng':'Chọn dịch vụ'}</div>${ids.map(id=>{const x=PROD[id];return `<button class="opt" aria-pressed="${id===q.id||(x.grp&&x.grp===p.grp)}" data-qbp="${id}"><span class="rd"></span><span><b>${esc(x.n)}</b><small>${esc(x.svc==='combo'?x.loc:x.svc==='gift'?x.ben:x.term)}</small></span><span class="p">${x.svc==='combo'?vnd(x.unit)+'<small style="display:block;font-weight:400;color:var(--tx3);text-align:right">/lượt</small>':vnd(Math.min(...x.opts.map(y=>y[3])))}</span></button>`}).join('')}`:`<div class="small muted" style="margin:-2px 0 4px">${esc(p.n)}</div>`}
+  ${ax ? qbAxes(ax,p) : ids.length>1?`<div class="qbl">${k==='combo'?'Chọn gói combo':k==='gift'?'Chọn quà tặng':'Chọn dịch vụ'}</div>${ids.map(id=>{const x=PROD[id];return `<button class="opt" aria-pressed="${id===q.id||(x.grp&&x.grp===p.grp)}" data-qbp="${id}"><span class="rd"></span><span><b>${esc(x.n.split(' · ')[0])}</b><small>${esc(x.svc==='combo'?x.loc:x.svc==='gift'?x.ben:x.term)}</small></span><span class="p">${x.svc==='combo'?vnd(x.unit)+'<small style="display:block;font-weight:400;color:var(--tx3);text-align:right">/lượt</small>':vnd(Math.min(...x.opts.map(y=>y[3])))}</span></button>`}).join('')}`:`<div class="small muted" style="margin:-2px 0 4px">${esc(p.n)}</div>`}
   ${p.svc==='gift'&&PSW.gift(p).length?qbAxes(PSW.gift(p),p):''}
-  ${ids.length>1?`<button class="qbinfo" data-qbinfo>${ico('help',16)}<span>Xem thông tin mục đang chọn</span>${ico('chev',14)}</button>`:''}
+  <button class="qbinfo" data-qbinfo>${ico('help',16)}<span>${ids.length>1?'Xem thông tin mục đang chọn':'Xem thông tin chi tiết'}</span>${ico('chev',14)}</button>
   ${isFt(p)?`<div class="qbl">Cách đặt</div><div class="pku seg2" style="grid-template-columns:1fr 1fr">${FTMODES.map(m=>`<button aria-pressed="${fv('ftmode',FTMODES[0])===m}" data-qbm="${m}">${m==='Đặt cho chuyến bay cụ thể'?'Đặt cho chuyến bay':'Mua voucher trước'}</button>`).join('')}</div>`:''}
-  <div class="qbl">${p.svc==='combo'?'Số lượt':p.svc==='gift'?'Hình thức quà':'Chọn gói'}</div>
-  <div class="pku" style="grid-template-columns:repeat(${Math.min(p.opts.length,3)},1fr)">${p.opts.map((x,j)=>`<button aria-pressed="${j===q.opt}" data-qbo="${j}"${vipLocked(x)?' disabled':''}>${esc(p.svc==='gift'?(x[0]==='phy'?'Thẻ vật lý':'Thẻ điện tử'):shortOpt(optLabel(p,x)))}<small>${vnd(x[3])}</small></button>`).join('')}</div>
-  ${isQty(p)?stepRow('adult',qtyLabel(p),'',q.adult):stepRow('adult','Người lớn','Từ 12 tuổi',q.adult)+stepRow('child','Trẻ em','2–12 tuổi · 50% giá',q.child)}
+  ${optPick(p,q.opt,'data-qbo',p.svc==='combo'?'Số lượt':p.svc==='gift'?'Hình thức quà':'Chọn gói')}
+  ${p.svc==='lounge'?`<div class="qbl">Hình thức voucher</div>${qbSeg('lvf',['Định danh','Không định danh · +20.000đ'],'Định danh',['Định danh','Không định danh'])}<div class="fhint optd">Bản không định danh cộng phí 20.000đ, chuyển nhượng và tặng được.</div><div class="cofields">${fld('ldate','Ngày sử dụng','2026-09-05',{t:'date'})}</div>`:''}
+  ${p.svc==='combo'?`<div class="qbl">Hình thức</div>${qbSeg('named',['Không định danh','Có định danh'],'Không định danh')}<div class="note">${ico('shield')}<span>${fv('named','Không định danh')==='Không định danh'?'Dùng bằng mã, chuyển nhượng được.':'Chỉ người được định danh sử dụng.<br>Đổi định danh 1 lần.'}</span></div>`:''}
+  ${p.svc==='elite'?'':isQty(p)?stepRow('adult',qtyLabel(p),'',q.adult):stepRow('adult','Người lớn','Từ 12 tuổi',q.adult)+stepRow('child','Trẻ em','2–12 tuổi · 50% giá',q.child)}
   ${p.svc==='gift'?`<div class="note">${ico('gift')}<span>Người nhận và địa chỉ giao khai ở bước thanh toán.</span></div>`:''}
   ${p.svc==='wellness'?`<div class="note">${ico('cal')}<span>Đặt lịch ngay ở bước thanh toán, hoặc sau tại mục Đặt lịch.</span></div>`:''}
   <div class="qbf"><div class="tot"><small>Tạm tính</small><b>${vnd(tot)}</b></div>${(isFt(p)&&fv('ftmode',FTMODES[0])===FTMODES[0])||p.svc==='elite'?`<button class="btn" data-qbbuy>Tiếp tục</button>`:`<div class="row2"><button class="btn ghost" data-qbcart>Thêm vào giỏ</button><button class="btn" data-qbbuy>Mua ngay</button></div>`}</div>`;
 }
 /* Bảng đặt xe nhanh: tuyến hay đặt + chọn xe; địa chỉ lẻ mở trang Đặt xe đầy đủ */
-function tfSheet(){
+/* Bảng đặt xe: dùng chung cho popup mua nhanh và vùng mua của trang chi tiết (inPdp: bỏ tiêu đề, link chi tiết và thanh giá; trang chi tiết dùng thanh dưới riêng) */
+function tfSheet(inPdp){
   if(S.f.tfaddr===undefined){ S.f.tfaddr=TFQUICK[0][0]; S.tf.zone=TFQUICK[0][1]; S.tf.out=false; }
   tfFix();
   const arr=tfArr(), addr=fv('tfaddr',''), z=tfZone(), quick=TFQUICK.some(q=>q[0]===addr);
   const seg=(k,list,def)=>`<div class="pku seg2" style="grid-template-columns:repeat(${list.length},1fr)">${list.map(x=>`<button aria-pressed="${fv(k,def)===x}" data-tfs="${k}|${x}">${x}</button>`).join('')}</div>`;
   const chips=(k,list,def)=>`<div class="chips">${list.map(x=>`<button class="chip" aria-pressed="${fv(k,def)===x}" data-tfs="${k}|${x}">${x}</button>`).join('')}</div>`;
   const ok=!S.tf.out && S.tf.car>=0;
-  return `<div class="grab"></div><h3>Xe đưa đón sân bay</h3>
+  return `${inPdp?'':`<div class="grab"></div><h3>Xe đưa đón sân bay</h3><button class="qbinfo" data-sgo="pdp:car-han">${ico('help',16)}<span>Xem thông tin chi tiết</span>${ico('chev',14)}</button>`}
   <div class="qbl">Chiều đi</div>${seg('tfdir',['Đón từ sân bay','Tiễn ra sân bay'],'Đón từ sân bay')}
   <div class="qbl">Nhà ga</div>${seg('tfter',['Nội Bài · T1','Nội Bài · T2'],'Nội Bài · T2')}
   <div class="qbl">${arr?'Điểm trả':'Điểm đón'}</div>
@@ -1370,9 +2311,9 @@ function tfSheet(){
   <div class="qbl">Số kiện hành lý</div>${chips('tfbag',['1','2','4','6'],'2')}
   ${S.tf.out?`<div class="note" style="margin-top:10px">${ico('pin')}<span class="errtx">Địa chỉ cần báo giá riêng.<br>Tổng đài phản hồi trong 30 phút.</span></div><button class="btn ghost" style="margin-top:8px" data-toast="Đã gửi yêu cầu báo giá. Tổng đài gọi lại trong 30 phút">Gửi yêu cầu báo giá</button>`
   :`<div class="qbl">Chọn xe <span style="font-weight:400;color:var(--tx3)">· giá trọn gói vùng ${z[0]}</span></div>
-  ${TFCARS.map((c,i)=>{const o=tfOk(i);return `<button class="opt" aria-pressed="${i===S.tf.car}" data-tfsc="${i}" ${o?'':'disabled'}><span class="rd"></span><span><b>${esc(c[0])}</b><small>${o?`Tối đa ${c[1]} khách · ${c[2]} kiện`:!c[4].includes(z[0])?'Không phục vụ vùng này':`Tối đa ${c[1]} khách`}</small></span><span class="p">${o?vnd(z[5][i]):'—'}</span></button>`}).join('')}
+  ${TFCARS.map((c,i)=>{const o=tfOk(i);return `<button class="opt" aria-pressed="${i===S.tf.car}" data-tfsc="${i}" ${o?'':'disabled'}><span class="rd"></span><span><b>${esc(c[0])}</b><small>${o?`Tối đa ${c[1]} khách · ${c[2]} kiện`:!c[4].includes(z[0])?'Không phục vụ vùng này':`Tối đa ${c[1]} khách`}</small></span><span class="p">${o?vnd(z[5][i]):''}</span></button>`}).join('')}
   <div class="note">${ico('shield')}<span>Gồm phí sân bay, cầu đường.<br>Chờ miễn phí 60 phút.<br>Huỷ miễn phí trước 4 giờ.</span></div>`}
-  <div class="qbf"><div class="tot"><small>Giá trọn gói</small><b>${ok?vnd(tfPrice()):'—'}</b></div><button class="btn" data-tfsgo>Tiếp tục</button></div>`;
+  ${inPdp?'':`<div class="qbf"><div class="tot"><small>Giá trọn gói</small><b>${ok?vnd(tfPrice()):'Chưa có giá'}</b></div><button class="btn" data-tfsgo>Tiếp tục</button></div>`}`;
 }
 /* Mã hội viên: làm mới mỗi 30 giây khi popup đang mở */
 function qrTimer(on){
@@ -1478,7 +2419,7 @@ const FAQS = [
    ['Hệ thống phòng khách có tại những sân bay nào?','Hiện có mặt tại 22 sân bay trên toàn quốc với hơn 30 phòng khách, gồm Nội Bài, Tân Sơn Nhất, Đà Nẵng, Cam Ranh, Phú Quốc và các sân bay địa phương.'],
    ['Một lượt lưu trú là bao lâu?','Ba giờ kể từ khi check-in. Riêng SH Premium Lounge Đà Nẵng là hai giờ. Quá giờ tính thêm theo bảng giá tại chỗ, không trừ lượt của gói.'],
    ['Trẻ em tính phí như thế nào?','Trẻ dưới 2 tuổi đi cùng người lớn được miễn phí, không trừ lượt. Trẻ 2–11 tuổi tính theo mức riêng của từng phòng khách.'],
-   ['Có cần đặt chỗ trước không?','Phòng khách SH Premium thì không — đến là dùng. SH Elite và Lounge Wellness thì phải đặt lịch trước.'],
+   ['Có cần đặt chỗ trước không?','Phòng khách SH Premium thì không, đến là dùng. SH Elite và Lounge Wellness thì phải đặt lịch trước.'],
    ['Cần xuất trình giấy tờ gì?','Thẻ lên máy bay và mã voucher. Voucher định danh cần thêm giấy tờ tuỳ thân khớp tên.']]},
  {g:'Fast Track', items:[
    ['Fast Track có rút ngắn quy trình của cơ quan chức năng không?','Không. Dịch vụ đưa anh/chị vào làn ưu tiên và có nhân viên đồng hành, nhưng không thay đổi quy trình kiểm tra của an ninh và xuất nhập cảnh.'],
@@ -1491,7 +2432,7 @@ const FAQS = [
    ['Chuyến bay trễ thì sao?','Hệ thống theo dõi giờ hạ cánh thực tế qua số hiệu chuyến bay. Bay trễ thì tài xế vẫn chờ, không tính thêm phí.'],
    ['Địa chỉ không thuộc vùng nào thì sao?','Hệ thống chuyển sang yêu cầu báo giá, tổng đài phản hồi trong 30 phút.']]},
  {g:'Voucher & thẻ ACP', items:[
-   ['Không có tài khoản thì đặt lịch được không?','Được. Vào Đặt lịch bằng mã, nhập mã voucher và email là đặt được — dành cho cả người được tặng voucher.'],
+   ['Không có tài khoản thì đặt lịch được không?','Được. Vào Đặt lịch bằng mã, nhập mã voucher và email là đặt được, dành cho cả người được tặng voucher.'],
    ['Voucher gửi về đâu sau khi thanh toán?','Gửi qua email ngay sau khi thanh toán thành công, đồng thời lưu vào ví thẻ ACP nếu anh/chị đã đăng nhập.'],
    ['Thẻ ACP dùng như thế nào?','Thẻ ACP vừa là ví vừa là thẻ hạng. Ra sân bay chỉ cần xuất trình thẻ, nhân viên quét một lần là thấy toàn bộ voucher và lượt combo.']]},
  {g:'Dữ liệu cá nhân', items:[
@@ -1517,7 +2458,7 @@ const POLDOCS = [
  {k:'elitevc',g:'Sản phẩm',n:'Voucher dịch vụ SH Elite',s:[
    ['Đặt lịch','Đặt lịch chậm nhất 2 ngày trước ngày sử dụng. AIPCON xác nhận lịch trong 4 giờ làm việc.'],
    ['Số lần đặt','Mỗi voucher có tối đa 3 lần đặt lịch. Huỷ muộn sau 20:00 ngày hôm trước sẽ trừ 1 lần đặt.'],
-   ['Khách sử dụng','Voucher SH Elite+ định danh — tên phải khớp giấy tờ khi làm thủ tục.']]},
+   ['Khách sử dụng','Voucher SH Elite+ định danh: tên phải khớp giấy tờ khi làm thủ tục.']]},
  {k:'acp',g:'Sản phẩm',n:'Thẻ thành viên ACP',s:[
    ['Thẻ ACP là gì','Thẻ nhận diện kiêm ví: lưu voucher và lượt combo, xuất trình một lần tại quầy.'],
    ['Hạng thẻ','Bốn hạng Sky, Sky Plus, Sky Stella, Sky Infinity, xét theo tổng điểm tích luỹ trong 12 tháng gần nhất. Lên hạng có hiệu lực ngay; xuống hạng có 3 tháng ân hạn.'],
@@ -1541,7 +2482,7 @@ const POLDOCS = [
 const POLICON = {voucher:'vch', combo:'box', elitevc:'star', acp:'card', cancel:'swap', booking:'bkc', terms:'doc', privacy:'shield'};
 const CTOPICS = ['Hỏi về dịch vụ','Đơn hàng & voucher','Khách doanh nghiệp','Đại lý / cộng tác viên','Quyền dữ liệu cá nhân','Khác'];
 
-Object.assign(S,{f:{}, open:{}, logged:true, tf:{zone:0, out:false, car:0}, lk:null, csent:false});
+Object.assign(S,{f:{}, open:{}, logged:false, tf:{zone:0, out:false, car:0}, lk:null, csent:false});
 
 /* ================= V2 · HELPERS ================= */
 const fv = (k,d) => S.f[k]!==undefined ? S.f[k] : d;
@@ -1559,8 +2500,8 @@ const PSW = {
   gift: p => { const g=GIFT_GROUPS[p.grp]; return g&&g.ids.length>1 ? [[g.ax,g.ids]] : []; }
 };
 function pdpSw(p,cur){ const f=PSW[p.svc]; if(!f) return '';
-  return f(p).map(([l,list])=>`<div class="plab">${l}</div>`+(list.length===2
-    ?`<div class="pku seg2" style="grid-template-columns:1fr 1fr">${list.map(([t,id])=>`<button aria-pressed="${id===cur}" data-psw="${id}">${t}</button>`).join('')}</div>`
+  return f(p).map(([l,list])=>`<div class="plab">${l}</div>`+(list.length<=4
+    ?`<div class="pku seg2" style="grid-template-columns:repeat(${list.length},1fr)">${list.map(([t,id])=>`<button aria-pressed="${id===cur}" data-psw="${id}">${t}</button>`).join('')}</div>`
     :`<div class="popts">${list.map(([t,id])=>`<button class="opt" aria-pressed="${id===cur}" data-psw="${id}"><span class="rd"></span><span><b>${t}</b></span><span></span></button>`).join('')}</div>`)).join('')
   + (p.svc==='fasttrack'&&p.ter==='T2'?`<div class="plab">Hộ chiếu của khách</div>${pk2('ftnat',['Việt Nam','Nước ngoài'],'Việt Nam')}`:''); }
 const optLabel = (p,o) => p.svc==='wellness' ? o[1].split(' · ').pop() : o[1];
@@ -1576,13 +2517,17 @@ const back = (t) => `<button class="back" data-back>${ico('back',16)}${esc(t||'Q
 const rnd4 = () => 1000+Math.floor(Math.random()*8999);
 
 /* ---------- Chi tiết dịch vụ: phần bổ sung cho combo và Gift Pass ---------- */
-function pdpOptTitle(p){ return p.svc==='combo'?'Chọn số lượt':p.svc==='gift'?'Hình thức quà':'Chọn gói'; }
+/* Chọn gói dùng chung (trang chi tiết + bảng mua nhanh): chọn ngang, không ghi giá (giá nhảy ở Tạm tính); 1 gói thì không hiện; mô tả gói đang chọn hiện dưới hàng nút */
+function optPick(p,cur,attr,title){ if(p.opts.length<2) return '';
+  const lab = x => p.svc==='gift'?(x[0]==='phy'?'Thẻ vật lý':'Thẻ điện tử'):shortOpt(optLabel(p,x)), o=p.opts[cur]||p.opts[0];
+  return `<div class="plab">${title}</div><div class="pku" style="grid-template-columns:repeat(${Math.min(p.opts.length,4)},1fr)">${p.opts.map((x,j)=>`<button aria-pressed="${j===cur}" ${attr}="${j}"${vipLocked(x)?' disabled':''}>${esc(lab(x))}</button>`).join('')}</div>${o[2]&&p.svc!=='combo'?`<div class="fhint optd">${esc(o[2])}</div>`:''}`; }
+function pdpOptTitle(p){ return p.svc==='combo'?'Số lượt':p.svc==='gift'?'Hình thức quà':'Chọn gói'; }
 function pdpBefore(p){ if(p.svc!=='combo') return '';
   return `<div class="psec"><div class="sec2"><b>Dùng được ở đâu</b></div><div class="note">${ico('pin')}<span>${esc(p.apts)}</span></div></div>
   <div class="psec"><div class="sec2"><b>Cách trừ lượt</b></div>
   <div class="card" style="padding-block:4px"><table class="tbl"><thead><tr><th>Nhóm phòng chờ</th><th>Người lớn</th><th>Trẻ 5–12</th><th>Thêm giờ</th></tr></thead><tbody>
     <tr><td>Quốc nội</td><td>1 lượt</td><td>0,5 lượt</td><td>0,5 lượt</td></tr>
-    <tr><td>SH Premium Đà Nẵng</td><td>1 lượt</td><td>1 lượt</td><td>—</td></tr>
+    <tr><td>SH Premium Đà Nẵng</td><td>1 lượt</td><td>1 lượt</td><td>Không</td></tr>
     <tr><td>ASG Sky Lounge</td><td>1 lượt</td><td>1 lượt</td><td>0,5 lượt</td></tr>
     <tr><td>Quốc tế</td><td>2 lượt</td><td>1 lượt</td><td>1 lượt</td></tr></tbody></table>
     <div class="small muted" style="padding:6px 0 8px">Trẻ dưới 5 tuổi đi cùng người lớn không trừ lượt.</div></div>`; }
@@ -1693,9 +2638,9 @@ function vTf(){
     <div class="row2">${fld('tfdate','Ngày đón','14/08/2026')}${fld('tftime',arr?'Giờ hạ cánh':'Giờ đón','20:30')}</div>
     <div class="field"><label>Số khách</label>${pk('tfpax',['1','2','3','5','7'],'2')}</div>
     <div class="field"><label>Số kiện hành lý</label>${pk('tfbag',['1','2','4','6'],'2')}</div></div>
-  ${S.tf.out?`<div class="card">${fld('tfqn','Họ tên','Nguyễn Quỳnh Anh')}${fld('tfqp','Số điện thoại','0912 486 215',{im:'tel'})}<button class="btn" style="margin-top:6px" data-toast="Đã gửi yêu cầu báo giá — tổng đài gọi lại trong 30 phút">Gửi yêu cầu báo giá</button></div>`
+  ${S.tf.out?`<div class="card">${fld('tfqn','Họ tên','Nguyễn Quỳnh Anh')}${fld('tfqp','Số điện thoại','0912 486 215',{im:'tel'})}<button class="btn" style="margin-top:6px" data-toast="Đã gửi yêu cầu báo giá. Tổng đài gọi lại trong 30 phút">Gửi yêu cầu báo giá</button></div>`
     :`<div class="sec"><b>Chọn xe</b></div><div class="small muted" style="margin-top:-6px">Giá trọn gói gồm phí sân bay, cầu đường.<br>Chờ miễn phí 60 phút.</div>
-  ${TFCARS.map((c,i)=>{const ok=tfOk(i);return `<button class="opt" aria-pressed="${i===S.tf.car}" data-tfcar="${i}" ${ok?'':'disabled'}><span class="rd"></span><span><b>${esc(c[0])}</b><small>${ok?`Tối đa ${c[1]} khách · ${c[2]} kiện · ${esc(c[3])}`:!c[4].includes(z[0])?'Không phục vụ vùng này':`Tối đa ${c[1]} khách`}</small></span><span class="p">${ok?vnd(z[5][i]):'—'}</span></button>`}).join('')}
+  ${TFCARS.map((c,i)=>{const ok=tfOk(i);return `<button class="opt" aria-pressed="${i===S.tf.car}" data-tfcar="${i}" ${ok?'':'disabled'}><span class="rd"></span><span><b>${esc(c[0])}</b><small>${ok?`Tối đa ${c[1]} khách · ${c[2]} kiện · ${esc(c[3])}`:!c[4].includes(z[0])?'Không phục vụ vùng này':`Tối đa ${c[1]} khách`}</small></span><span class="p">${ok?vnd(z[5][i]):''}</span></button>`}).join('')}
   <div class="note">${ico('clock')}<span>Chưa thanh toán ở bước này.<br>Huỷ miễn phí trước 4 giờ.</span></div>`}`;
 }
 function vTfco(){
@@ -1736,10 +2681,10 @@ function vTfdone(id){ const b=BOOKINGS.find(x=>x.id===id)||BOOKINGS[0];
 
 /* ---------- Thông tin đặt chỗ Fast Track / Meet & Greet (trước thanh toán) ---------- */
 const FT_MEET = {
-  'T1|DEP':['Sảnh E tầng 3 — cửa số 1 ga T1','Quầy thông tin tầng 1 ga T1','Điểm đỗ xe đón khách tầng 3'],
-  'T1|ARR':['Cửa ra ga đến T1 — băng chuyền số 3','Quầy thông tin sảnh đến T1'],
-  'T2|DEP':['Cột A2 tầng 3 — sảnh đi quốc tế T2','Quầy SH Premium tầng 3 ga T2','Điểm trả khách làn trong tầng 3'],
-  'T2|ARR':['Cửa tàu bay — nhân viên cầm biển tên','Đầu hành lang nhập cảnh T2']
+  'T1|DEP':['Sảnh E tầng 3, cửa số 1 ga T1','Quầy thông tin tầng 1 ga T1','Điểm đỗ xe đón khách tầng 3'],
+  'T1|ARR':['Cửa ra ga đến T1, băng chuyền số 3','Quầy thông tin sảnh đến T1'],
+  'T2|DEP':['Cột A2 tầng 3, sảnh đi quốc tế T2','Quầy SH Premium tầng 3 ga T2','Điểm trả khách làn trong tầng 3'],
+  'T2|ARR':['Cửa tàu bay, nhân viên cầm biển tên','Đầu hành lang nhập cảnh T2']
 };
 const ftCtx = () => { const p=PROD[S.cart.id], ter=p.ter||fv('fter','T2'), dir=p.dir||'ARR'; return {p, ter, arr:dir==='ARR', t2:ter==='T2', key:ter+'|'+dir}; };
 function vFtInfo(){
@@ -1754,7 +2699,7 @@ function vFtInfo(){
     <div class="row2">${fld('ftime',arr?'Giờ hạ cánh dự kiến':'Giờ khởi hành','09:40',{t:'time'})}${arr?`<div class="field"><label>Số kiện hành lý ký gửi</label>${pk2('fbag',['0','2','4','6'],'0')}</div>`:fsel('fair','Hãng bay',['Vietnam Airlines','Vietjet Air','Bamboo Airways','Hãng nước ngoài'],'Vietnam Airlines')}</div>
     ${t2?fld('fdest',arr?'Điểm đến cuối sau khi nhập cảnh':'Điểm đến của chuyến bay','',{ph:arr?'VD: Hà Nội':'VD: Seoul (ICN)'}):''}</div>
   <div class="psec"><div class="sec2"><b>Danh sách khách sử dụng</b></div><div class="small muted cnote">${t2?'Ga quốc tế bắt buộc khai đúng tên và số hộ chiếu để đăng ký trước với an ninh sân bay.<br>Ảnh hộ chiếu gửi chậm nhất 24 giờ trước giờ bay.':'Ga quốc nội chỉ cần họ tên và số CCCD,<br>khớp với giấy tờ khách mang đi làm thủ tục.'}</div>
-    ${Array.from({length:n},(_,i)=>`<div class="sub3">Khách ${i+1}${i===0?' — người liên hệ chính':i>=c.adult?' · trẻ em':''}</div>${fld('fgn'+i,'Họ tên như trên giấy tờ',i?'':'Nguyễn Quỳnh Anh',{ac:'name'})}
+    ${Array.from({length:n},(_,i)=>`<div class="sub3">Khách ${i+1}${i===0?' · người liên hệ chính':i>=c.adult?' · trẻ em':''}</div>${fld('fgn'+i,'Họ tên như trên giấy tờ',i?'':'Nguyễn Quỳnh Anh',{ac:'name'})}
     <div class="row2">${fsel('fgq'+i,'Quốc tịch',['Việt Nam','Hàn Quốc','Nhật Bản','Quốc tịch khác'],'Việt Nam')}${fld('fgp'+i,t2?'Số hộ chiếu':'Số CCCD',i?'':(t2?'C1234567':'001195012345'))}</div>
     ${fld('fgb'+i,'Ngày sinh','',{t:'date'})}${fup('fgi'+i,'Ảnh chụp '+(t2?'hộ chiếu':'CCCD'))}`).join('')}</div>
   <div class="psec"><div class="sec2"><b>Điểm hẹn</b></div><div class="small muted cnote">Nhân viên cầm biển tên riêng chờ tại đây.<br>Đổi điểm hẹn sau khi xác nhận cần báo trước 4 giờ.</div>
@@ -1796,7 +2741,7 @@ function bookReq(){
   const id=cur().a, w=S.wallet.find(x=>x.id===id); if(!w) return;
   const kind=bookKind(w), bid=(kind==='ft'?'FT':kind==='well'?'WL':'BE')+'-290926-'+rnd4();
   const place = kind==='elite'?fv('bkpick','Sảnh E · ga đi quốc tế'):kind==='ft'?fv('bkmeet','Cửa số 3 · sảnh đi'):kind==='well'?'Khung '+fv('bkslot','07:30'):fv('bkter','T2 · Quốc tế');
-  BOOKINGS.unshift({id:bid, st:'warn', stt:'Chờ AIPCON xác nhận', k:w.k, n:w.n, img:w.img,
+  BOOKINGS.unshift({id:bid, st:'warn', stt:'Chờ xác nhận', k:w.k, n:w.n, img:w.img,
     when:`${fv('bkdate','05/09/2026')} · ${fv('bkfl','VN 417')} · ${kind==='ft'&&fv('bkdir','Khởi hành')==='Hạ cánh'?'hạ cánh':'khởi hành'} ${fv('bktime','09:40')}`,
     cells:[['Voucher dùng',w.cells[0][1]],[kind==='well'?'Khung giờ':'Điểm đón',place],['Khách',kind==='elite'&&fv('bkcomp','Không')!=='Không'?'1 + '+fv('bkcomp',''):'1 người'],['Gửi lúc','29/09 10:15']],
     note:'Phản hồi chậm nhất trong 4 giờ làm việc', prog:1, acts:['Thay đổi booking','Huỷ booking']});
@@ -1886,7 +2831,7 @@ function vAuth(){
   const head=`${S.stack.length?back():''}<div class="center"><img class="logo-light authlogo" src="${IMG.logo_color}" alt="Airport Connects"><img class="logo-dark authlogo" src="${IMG.logo_rev}" alt="Airport Connects"></div>`;
   if(m==='Quên mật khẩu') return `${head}
   <div><h2 class="h2">Quên mật khẩu</h2></div>
-  <div class="card">${fld('fpm','Email','quynhanh@example.com',{t:'email',ac:'email'})}<button class="btn" style="margin-top:8px" data-toast="Đã gửi mã đăng nhập tới email — mã có hiệu lực 10 phút">Gửi mã đăng nhập</button></div>
+  <div class="card">${fld('fpm','Email','quynhanh@example.com',{t:'email',ac:'email'})}<button class="btn" style="margin-top:8px" data-toast="Đã gửi mã đăng nhập tới email. Mã có hiệu lực 10 phút">Gửi mã đăng nhập</button></div>
   <button class="btn ghost" data-pk="am|Đăng nhập">Quay lại đăng nhập</button>`;
   return `${head}
   <div class="center"><h2 class="h2">${m==='Đăng ký'?'Tạo tài khoản':'Chào mừng trở lại'}</h2></div>
@@ -1972,11 +2917,16 @@ const liveNews = n => !n.end || n.end >= TODAY;
 })();
 S.pend = null;
 S.olist = [
-  {id:'AC-250826-4011', dt:'25/08/2026', total:1610000, st:'Hoàn tất', items:['SH Premium Lounge Ha Noi 1 · 2 người lớn','Fast Track — an ninh nội địa T1']},
-  {id:'AC-120826-3987', dt:'12/08/2026', total:1620000, st:'Hoàn tất', items:['Combo Connect — 4 lượt']}
+  {id:'AC-250826-4011', dt:'25/08/2026', total:1610000, st:'Hoàn tất', items:['SH Premium Lounge Ha Noi 1 · 2 người lớn','Fast Track · Ga nội địa T1']},
+  {id:'AC-120826-3987', dt:'12/08/2026', total:1620000, st:'Hoàn tất', items:['Combo Connect · 4 lượt']}
 ];
 function notify(id,ic,t,sub,go){ NOTIFS.unshift(['x'+id,ic,t,sub,'Vừa xong',go]); }
-const walStatus = w => w.booked ? (w.st==='ready'?'Đã đặt chỗ':'Đã gửi yêu cầu') : w.st==='ready'?'Sẵn sàng':w.st==='wait'?'Chờ đặt lịch':'Đã dùng';
+/* Ô thông tin trong thẻ voucher/booking: ô chứa mã voucher có icon copy, chạm vào ô để sao chép mã */
+const isCode = v => /^AC[A-Z]-\d{4}-[A-Z]{2}$/.test(String(v));
+const cellH = c => isCode(c[1]) ? `<div class="vcode" role="button" tabindex="0" data-copy="${esc(c[1])}" aria-label="${esc(c[0])} ${esc(c[1])}, chạm để sao chép"><small>${esc(c[0])}${ico('copy',12)}</small><code>${esc(c[1])}</code></div>` : `<div><small>${esc(c[0])}</small>${esc(c[1])}</div>`;
+const walStatus = w => w.booked ? ((BOOKINGS.find(b=>b.id===w.booked)||{}).stt || (w.st==='ready'?'Đã đặt chỗ':'Đã gửi yêu cầu')) : w.st==='ready'?'Sẵn sàng':w.st==='wait'?'Chờ đặt lịch':'Đã dùng';
+/* Tên voucher 2 tầng: [tên dịch vụ, nơi dùng/số lượt]. Tách tại " · ", hoặc tách tên chi nhánh khỏi tên phòng chờ SH */
+const wName = w => { const n=w.n, i=n.indexOf(' · '); if(i>0) return [n.slice(0,i),n.slice(i+3)]; const m=n.match(/^(SH (?:Premium Lounge|Elite\+?))\s+(.+)$/); return m?[m[1],m[2]]:[n,'']; };
 
 /* Fast Track / Meet & Greet: hai cách đặt như web */
 const FTMODES = ['Đặt cho chuyến bay cụ thể','Mua voucher, đặt lịch sau'];
@@ -2038,7 +2988,7 @@ function vOrders(){
 
 /* Trạng thái chưa đăng nhập */
 function guestCard(t){ return `<div class="card"><b style="font-size:var(--fs-lg)">${t}</b><div class="small muted" style="margin:2px 0 10px">Quản lý voucher, booking và điểm hạng.<br>Không cần tài khoản vẫn mua được.</div>
-  <div class="row2"><button class="btn sm" data-tab="account">Đăng nhập</button><button class="btn sm ghost" data-go="lookup">Đặt lịch bằng mã</button></div></div>`; }
+  <div class="row2"><button class="btn sm" data-tab="account" data-lf="${S.tab}">Đăng nhập</button><button class="btn sm ghost" data-go="lookup">Đặt lịch bằng mã</button></div></div>`; }
 const guestHome = () => guestCard('Đăng nhập để xem thẻ ACP và chuyến bay');
 function guestTrips(){ return `<h2 class="h2">Đặt lịch</h2>${lkCard()}${lkResult()}
   <div class="sec sub"><b>Booking của tôi</b></div>
@@ -2106,7 +3056,7 @@ const V2 = {profile:vProfile, pax:vPax, invinfo:vInvInfo, mydata:vMyData, orders
 const V2DOCK = {
   vietqr:()=>`<div class="bottombar"><div class="tot"><small>Số tiền</small><b>${vnd(sumItems(coItems()))}</b></div><div class="qwait" role="status"><span class="spin" aria-hidden="true"></span>Đang chờ thanh toán</div></div>`,
   payfail:()=>'',
-  tf:()=>`<div class="bottombar"><div class="tot"><small>${S.tf.out?'Ngoài vùng phục vụ':'Giá trọn gói'}</small><b>${S.tf.out||S.tf.car<0?'—':vnd(tfPrice())}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-go="tfco" ${S.tf.out||S.tf.car<0?'disabled':''}>Tiếp tục</button></div>`,
+  tf:()=>`<div class="bottombar"><div class="tot"><small>${S.tf.out?'Ngoài vùng phục vụ':'Giá trọn gói'}</small><b>${S.tf.out||S.tf.car<0?'Chưa có giá':vnd(tfPrice())}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-go="tfco" ${S.tf.out||S.tf.car<0?'disabled':''}>Tiếp tục</button></div>`,
   tfco:()=>`<div class="bottombar"><div class="tot"><small>Tổng thanh toán</small><b>${vnd(tfPrice())}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-tfpay>Thanh toán</button></div>`,
   ftinfo:()=>`<div class="bottombar dock2"><div class="tot"><small>Tạm tính</small><b>${vnd(cartTotal())}</b></div><div class="row2"><button class="btn ghost" data-ftcart>Thêm vào giỏ</button><button class="btn" data-ftgo>Mua ngay</button></div></div>`,
   book:(id)=>{ const w=S.wallet.find(x=>x.id===id); return w&&w.booked?tabbar():`<div class="bottombar"><button class="btn" data-bookreq>Gửi yêu cầu đặt lịch</button></div>`; }
@@ -2114,7 +3064,14 @@ const V2DOCK = {
 
 /* ================= V2a · Tìm kiếm toàn app ================= */
 const SQUICK=['Phòng chờ','Fast Track','Xe đưa đón','Gift Pass','Đặt lịch bằng mã','Hoàn tiền'];
-const SPAGES=[['Đặt lịch bằng mã','cal','lookup:','dat lich ma voucher tang'],['Gift Pass','gift','gift:','qua tang the'],['Gói combo','box','packages:','combo luot'],['Giải pháp doanh nghiệp','brief','business:','doanh nghiep cong ty dai ly'],['Liên hệ','chat','contact:','lien he hotline tong dai email'],['Câu hỏi thường gặp','help','faq:','hoi dap faq'],['Tin tức & Ưu đãi','news','news:','khuyen mai uu dai tin tuc'],['Thẻ ACP & hạng thẻ','card','acp:','the acp hang diem'],['Đơn hàng & hoá đơn','doc','orders:','don hang hoa don']];
+const SPAGES=[['Đặt lịch bằng mã','cal','lookup:','dat lich ma voucher tang'],['Gift Pass','gift','gift:','qua tang the'],['Gói combo','box','packages:','combo luot'],['Giải pháp doanh nghiệp','brief','business:','doanh nghiep cong ty dai ly'],['Liên hệ','chat','contact:','lien he hotline tong dai email'],['Câu hỏi thường gặp','help','faq:','hoi dap faq'],['Tin tức & Ưu đãi','news','news:','khuyen mai uu dai tin tuc'],['Thẻ ACP & hạng thẻ','card','acp:','the acp hang diem'],['Đơn hàng & hoá đơn','doc','orders:','don hang hoa don'],['Booking của tôi','cal','bookings:','booking lich dat cho lich su dat lich']];
+/* Tên trong danh sách/tìm kiếm: nếu nhiều dịch vụ trùng tên (Wellness, F&B), kèm phần phân biệt lấy từ bộ chọn PSW (liệu trình, loại) */
+function rName(id,ids){ const p=PROD[id];
+  if(!ids.some(x=>x!==id&&PROD[x]&&PROD[x].n===p.n)) return p.n;
+  const f=PSW[p.svc], hit=f?f(p).flatMap(a=>a[1]).find(x=>x[1]===id):null;
+  return hit?`${p.n} · ${hit[0]}`:p.n; }
+/* Danh sách theo loại: lọc nhà ga và sắp xếp dạng nút xổ xuống (mở bảng chọn chung của app) */
+function rDrop(k,l,list,ic){ return `<button class="apbtn" data-pick="sel|${k}" data-pl="${esc(l)}" data-pd="${esc(list[0])}" data-po="${esc(JSON.stringify(list))}" aria-label="${esc(l)}: ${esc(fv(k,list[0]))}">${ico(ic)}${esc(fv(k,list[0]))}${ico('down',14)}</button>`; }
 function srow(ic,t,sub,go,img){ return `<button class="li" data-go="${go}">${img?`<span class="sth" style="background-image:url(${IMG[img]})"></span>`:`<span class="ic">${ico(ic)}</span>`}<div><b>${esc(t)}</b>${sub?`<small>${esc(sub)}</small>`:''}</div><span class="r">${ico('chev',16)}</span></button>`; }
 function vSearch2(q){
   const k=norm(q||'').trim();
@@ -2135,7 +3092,7 @@ function vSearch2(q){
   return `${back()}${box}
   <div class="small muted">${total} kết quả cho “${esc(q)}”</div>
   ${sec('Lối tắt',pages.length,pages.map(p=>srow(p[1],p[0],'',p[2])).join(''))}
-  ${sec('Dịch vụ',prods.length,prods.slice(0,8).map(id=>{const p=PROD[id];return srow('',p.n,`${SVC[p.svc].n} · từ ${vnd(Math.min(...p.opts.map(o=>o[3])))}`,'pdp:'+id,p.img)}).join(''))}
+  ${sec('Dịch vụ',prods.length,prods.slice(0,8).map(id=>{const p=PROD[id];return srow(SVC[p.svc].ic,rName(id,prods),`${SVC[p.svc].n} · từ ${vnd(Math.min(...p.opts.map(o=>o[3])))}`,'pdp:'+id)}).join(''))}
   ${sec('Voucher của tôi',wal.length,wal.map(w=>srow('ticket',w.n,`${walStatus(w)} · ${w.cells[0][1]}`,w.booked?'trip:'+w.booked:w.st==='wait'?'book:'+w.id:'wallet:')).join(''))}
   ${sec('Booking',bks.length,bks.map(b=>srow('cal',b.n,`${b.stt} · ${b.id}`,'trip:'+b.id)).join(''))}
   ${sec('Tin tức & Ưu đãi',news.length,news.slice(0,5).map(([n,i])=>srow('',n.t,n.k+' · '+n.dt,'article:'+i,n.img)).join(''))}
@@ -2159,6 +3116,7 @@ function vWallet(){
   <div class="lnks"><button data-go="orders">Quà tặng đã mua xem ở Đơn hàng</button></div>`;
 }
 V2.wallet = () => S.logged ? vWallet() : vAuth();
+V2.bookings = () => S.logged ? `${back({account:'Tài khoản',trips:'Đặt lịch',services:'Dịch vụ',home:'Trang chủ'}[S.tab]||'Quay lại')}<h2 class="h2">Booking của tôi</h2>${bkFull()}` : vAuth();
 V2.points = () => S.logged ? vPoints() : vAuth();
 
 /* ================= RENDER ================= */
@@ -2174,15 +3132,15 @@ function renderPhone(){
   scr.innerHTML = html; scr.scrollTop = 0;
   // dock: tabbar hoặc thanh hành động
   let dock='';
-  if(v==='pdp' && PROD[c.a].svc==='transfer'){ dock=`<div class="bottombar"><div class="tot"><small>Từ</small><b>${vnd(PROD[c.a].opts[S.cart.opt][3])}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-tfstart>Đặt chuyến</button></div>`; }
+  if(v==='pdp' && PROD[c.a].svc==='transfer'){ dock=`<div class="bottombar"><div class="tot"><small>Giá trọn gói</small><b>${!S.tf.out&&S.tf.car>=0?vnd(tfPrice()):'Chưa có giá'}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-tfsgo>Đặt chuyến</button></div>`; }
   else if(v==='pdp' && PROD[c.a] && PROD[c.a].svc==='elite'){ dock=`<div class="bottombar"><div class="tot"><small>Tổng</small><b>${vnd(cartTotal())}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-elbook>Xác nhận đặt chỗ</button></div>`; }
   else if(v==='pdp' && ftBooking()){ dock=`<div class="bottombar"><div class="tot"><small>Tạm tính</small><b>${vnd(cartTotal())}</b></div><button class="btn" style="width:auto;padding-inline:26px" data-buynow>Tiếp tục</button></div>`; }
   else if(v==='pdp'){ const t=cartTotal(); dock=`<div class="bottombar dock2"><div class="tot"><small>Tạm tính</small><b>${vnd(t)}</b></div><div class="row2"><button class="btn ghost" data-addcart>Thêm vào giỏ</button><button class="btn" data-buynow>Mua ngay</button></div></div>`; }
   else if(v==='checkout'){ dock=`<div class="bottombar"><div class="tot"><small>Tổng thanh toán</small><b>${vnd(sumItems(coItems()))}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-paynow>Thanh toán</button></div>`; }
-  else if(v==='cart' && S.cartItems.length){ dock=`<div class="bottombar"><div class="tot"><small>Tổng ${S.cartItems.filter(it=>!it.out).length} dịch vụ</small><b>${vnd(sumItems(S.cartItems.filter(it=>!it.out)))}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-cocart>Tiến hành thanh toán</button></div>`+tabbar(); }
+  else if(v==='cart' && S.cartItems.length){ dock=`<div class="bottombar"><div class="tot"><small>Tổng ${S.cartItems.filter(it=>!it.out&&it.sel!==false).length} dịch vụ</small><b>${vnd(sumItems(S.cartItems.filter(it=>!it.out&&it.sel!==false)))}</b></div><button class="btn" style="width:auto;padding-inline:22px" data-cocart>Tiến hành thanh toán</button></div>`+tabbar(); }
   else if(V2DOCK[v]) dock=V2DOCK[v](c.a);
   else dock=tabbar();
-  $('dock').innerHTML = dock;
+  $('dock').innerHTML = dock; $('dock').dataset.v = v; scr.dataset.v = v; /* để CSS áp riêng theo màn (vd. trang chủ) */
   renderSide();
 }
 function renderSide(){}
@@ -2223,7 +3181,7 @@ function payDone(){
     v2Wallet(w,p,o); S.wallet.unshift(w); made.push(w); });
   if(S.pend&&S.pend.id===order){ S.olist=S.olist.filter(x=>x.id!==order); S.pend=null; }
   S.olist.unshift({id:order, dt:'29/09/2026', total:t, st:gifts.length?'Đang giao quà':'Đã thanh toán', items:items.filter(it=>PROD[it.id].svc!=='gift').map(it=>PROD[it.id].n+' · '+PROD[it.id].opts[it.opt][1]), gifts:gifts.length?gifts:null});
-  if(S.co==='cart') S.cartItems=[];
+  if(S.co==='cart') S.cartItems=S.cartItems.filter(it=>it.out||it.sel===false); /* giữ lại dịch vụ chưa chọn */
   S.lastVouchers=made; S.lastGifts=gifts; S.lastTotal=t; S.lastOrder=order; S.orders++; if(made.length) S.wtab=made[0].st;
   S.stack=[{v:'done'}]; renderPhone();
 }
@@ -2304,13 +3262,14 @@ document.addEventListener('click', e => {
   if(d.close!==undefined){ closeSheet(); return; }
   if(d.themeSet){ setTheme(d.themeSet); return; }
   if(d.fillSet){ document.documentElement.dataset.fill=d.fillSet; try{localStorage.setItem('ac-fill',d.fillSet)}catch(e){} renderPhone(); return; }
-  if(d.tab){ S.tab=d.tab; S.stack=[]; closeSheet(); renderPhone(); return; }
+  if(d.tab){ S.lf=d.lf||null; S.tab=d.tab; S.stack=[]; closeSheet(); renderPhone(); return; }
   if(d.back!==undefined){ const top=S.stack.pop(); renderPhone(); if(top&&top.from) openSheet(top.from); return; }
   if(d.sheet){ openSheet(d.sheet); return; }
   if(d.ap){ S.ap=+d.ap; closeSheet(); renderPhone(); return; }
   if(d.jr){ S.jr=+d.jr; renderPhone(); return; }
+  if(d.wgo){ S.f.wt=d.wgo; go('wallet'); return; }
   if(d.wtab){ S.wtab=d.wtab; const y=$('scr').scrollTop; renderPhone(); $('scr').scrollTop=y; return; }
-  if(d.btab){ S.btab=d.btab; renderPhone(); return; }
+  if(d.btab){ S.btab=d.btab; rr(); return; } /* giữ vị trí cuộn khi đổi tab */
   if(d.opt){ S.cart.opt=+d.opt; const y=$('scr').scrollTop; renderPhone(); $('scr').scrollTop=y; return; }
   if(d.q){ const [k,n]=d.q.split(':'); S.cart[k]=Math.max(k==='adult'?1:0, Math.min(9, S.cart[k]+(+n))); const y=$('scr').scrollTop; renderPhone(); $('scr').scrollTop=y; return; }
   if(d.pay){ S.pay=d.pay; const y=$('scr').scrollTop; renderPhone(); $('scr').scrollTop=y; return; }
@@ -2323,9 +3282,11 @@ document.addEventListener('click', e => {
   if((d.addcart!==undefined||d.buynow!==undefined)&&S.cart&&PROD[S.cart.id].svc==='lounge'){ S.cart.date=fv('ldate','2026-09-05'); S.cart.anon=String(fv('lvf','Định danh'))!=='Định danh'; }
   if(d.addcart!==undefined){ if(ftBooking()){ S.ftnext='cart'; go('ftinfo'); return; } delete S.cart.fb; S.cartItems.push({...S.cart}); toast('Đã thêm vào giỏ hàng'); renderPhone(); return; }
   if(d.buynow!==undefined){ S.co='buy'; if(ftBooking()){ S.ftnext='buy'; go('ftinfo'); } else { delete S.cart.fb; go('checkout'); } return; }
-  if(d.cocart!==undefined){ S.co='cart'; go('checkout'); return; }
+  if(d.cocart!==undefined){ if(!coItemsCart().length){ toast('Chọn ít nhất 1 dịch vụ để thanh toán'); return; } S.co='cart'; go('checkout'); return; }
+  if(d.csel){ const it=S.cartItems[+d.csel]; if(it&&!it.out){ it.sel=it.sel===false; rr(); } return; }
+  if(d.cselall!==undefined){ const l=S.cartItems.filter(it=>!it.out), all=l.every(it=>it.sel!==false); l.forEach(it=>it.sel=!all); rr(); return; }
   if(d.rm){ S.cartItems.splice(+d.rm,1); renderPhone(); return; }
-  if(d.tfstart!==undefined){ S.tf.car=S.cart.opt; openSheet('tfq'); return; }
+  if(d.tfstart!==undefined){ S.tf.car=S.cart.opt; go('tf'); return; } /* từ trang chi tiết: chuyển thẳng màn Đặt xe, không popup (popup chỉ cho mua nhanh ở trang Dịch vụ) */
   if(d.ftgo!==undefined||d.ftcart!==undefined){ { const t2=ftCtx().t2, L=[['ffl','VN 417','flt']]; for(let i=0;i<S.cart.adult+S.cart.child;i++) L.push(['fgn'+i,i?'':'Nguyễn Quỳnh Anh','name'],['fgp'+i,i?'':(t2?'C1234567':'001195012345'),'doc'],['fgi'+i,'','img']); L.push(['fcn',S.logged?'Nguyễn Quỳnh Anh':'','name'],['fcp',S.logged?'0912 486 215':'','phone'],['fce',S.logged?'quynhanh@example.com':'','email']); if(!checkFields(L)) return; }
     S.cart.fb=ftSummary(); S.cart.meet=fv('fmeet',FT_MEET[ftCtx().key][0]);
     S.cart.guests=Array.from({length:S.cart.adult+S.cart.child},(_,i)=>String(fv('fgn'+i,i?'':'Nguyễn Quỳnh Anh')).trim());
@@ -2337,21 +3298,24 @@ document.addEventListener('click', e => {
   if(d.invsave!==undefined){ if(!checkFields([['ivt',INV.t,'tax'],['ivn',INV.n,'org'],['iva',INV.a,'addr']])) return; INV.t=String(fv('ivt','')).trim(); INV.n=String(fv('ivn','')).trim(); INV.a=String(fv('iva','')).trim(); toast('Đã lưu thông tin xuất hoá đơn'); S.stack.pop(); renderPhone(); return; }
   if(d.dapply!==undefined){ const c=String(fv('dcode','')).trim(); S.err=S.err||{}; S.err.dcode=c?`Mã ${c.toUpperCase()} không áp dụng cho đơn này`:'Nhập mã giảm giá trước khi áp dụng'; rr(); return; }
   if(d.tfnew!==undefined){ S.tf.car=0; S.tf.out=false; tfFix(); go('tf'); return; }
-  if(d.tfs){ const i=d.tfs.indexOf('|'); S.f[d.tfs.slice(0,i)]=d.tfs.slice(i+1); tfFix(); openSheet('tfq'); return; }
-  if(d.tfsq){ const q=TFQUICK[+d.tfsq]; S.f.tfaddr=q[0]; S.tf.zone=q[1]; S.tf.out=false; tfFix(); openSheet('tfq'); return; }
-  if(d.tfsc){ S.tf.car=+d.tfsc; openSheet('tfq'); return; }
-  if(d.tfslook!==undefined){ tfLookup(); openSheet('tfq'); return; }
+  if(d.tfs){ const i=d.tfs.indexOf('|'); S.f[d.tfs.slice(0,i)]=d.tfs.slice(i+1); tfFix(); tfRerender(); return; }
+  if(d.tfsq){ const q=TFQUICK[+d.tfsq]; S.f.tfaddr=q[0]; S.tf.zone=q[1]; S.tf.out=false; tfFix(); tfRerender(); return; }
+  if(d.tfsc){ S.tf.car=+d.tfsc; tfRerender(); return; }
+  if(d.tfslook!==undefined){ tfLookup(); tfRerender(); return; }
   if(d.tfinfo!==undefined){ closeSheet(); go('pdp','car-han'); return; }
   if(d.tfsgo!==undefined){ if(S.tf.out||S.tf.car<0){ toast('Chọn tuyến và loại xe phù hợp trước khi tiếp tục'); return; } closeSheet(); go('tfco'); return; }
   if(d.ftchange!==undefined){ const pv=S.stack[S.stack.length-2]; if(pv&&pv.v==='pdp'){ S.stack.pop(); renderPhone(); return; } const p=PROD[S.cart.id]; S.qb={k:p.svc,id:S.cart.id,opt:S.cart.opt,adult:S.cart.adult,child:S.cart.child}; S.stack.pop(); renderPhone(); openSheet('qb:'+p.svc); return; }
   if(d.qbinfo!==undefined){ const id=S.qb.id; closeSheet(); go('pdp', id); return; }
+  if(d.sgo){ const [v,a]=d.sgo.split(':'); closeSheet(); go(v,a); return; }
   if(d.qbp){ const p=PROD[d.qbp], same=PROD[S.qb.id]&&PROD[S.qb.id].svc===p.svc&&p.svc!=='lounge'&&p.svc!=='combo'&&p.svc!=='gift';
     S.qb={...S.qb,id:d.qbp,opt:same?Math.min(S.qb.opt,p.opts.length-1):0,adult:same?S.qb.adult:(isQty(p)||isFt(p))?1:Math.max(1,S.qb.adult),child:isQty(p)?0:S.qb.child}; openSheet('qb:'+S.qb.k); return; }
   if(d.qbn){ S.f.ftnat=d.qbn; openSheet('qb:'+S.qb.k); return; }
+  if(d.qbf){ const i=d.qbf.indexOf('|'); S.f[d.qbf.slice(0,i)]=d.qbf.slice(i+1); openSheet('qb:'+S.qb.k); return; }
   if(d.qbo){ S.qb.opt=+d.qbo; openSheet('qb:'+S.qb.k); return; }
   if(d.qbm){ S.f.ftmode=d.qbm; openSheet('qb:'+S.qb.k); return; }
   if(d.qbq){ const [k,n]=d.qbq.split(':'); S.qb[k]=Math.max(k==='adult'?1:0, Math.min(9, S.qb[k]+(+n))); openSheet('qb:'+S.qb.k); return; }
   if(d.qbcart!==undefined||d.qbbuy!==undefined){ const q=S.qb; S.cart={id:q.id,opt:q.opt,adult:q.adult,child:q.child}; closeSheet();
+    { const sv=PROD[q.id].svc; if(sv==='lounge'){ S.cart.date=fv('ldate','2026-09-05'); S.cart.anon=String(fv('lvf','Định danh'))!=='Định danh'; } if(sv==='combo') S.cart.named=fv('named','Không định danh'); } /* popup thu đủ thông tin như trang chi tiết */
     if(PROD[q.id].svc==='elite'){ S.cart.adult=1; S.cart.child=0; go('pdp',q.id); return; }
     const from='qb:'+q.k; // quay lại thì mở lại bảng mua nhanh với lựa chọn cũ
     if(ftBooking()){ S.ftnext=d.qbbuy!==undefined?'buy':'cart'; go('ftinfo'); S.stack[S.stack.length-1].from=from; return; }
@@ -2375,8 +3339,8 @@ document.addEventListener('click', e => {
   if(d.bookreq!==undefined){ bookReq(); return; }
   if(d.lookup!==undefined){ lookupGo(); return; }
   if(d.fqs!==undefined){ rr(); return; }
-  if(d.login!==undefined){ S.logged=true; S.tab='account'; S.stack=[]; renderPhone(); toast('Đã đăng nhập'); return; }
-  if(d.signup!==undefined){ if(!S.f.c1){ toast('Cần đồng ý Điều kiện sử dụng để tạo tài khoản'); return; } S.logged=true; S.tab='account'; S.stack=[]; renderPhone(); toast('Đã tạo tài khoản'); return; }
+  if(d.login!==undefined){ S.logged=true; S.tab=S.lf||'account'; S.lf=null; S.stack=[]; renderPhone(); toast('Đã đăng nhập'); return; }
+  if(d.signup!==undefined){ if(!S.f.c1){ toast('Cần đồng ý Điều kiện sử dụng để tạo tài khoản'); return; } S.logged=true; S.tab=S.lf||'account'; S.lf=null; S.stack=[]; renderPhone(); toast('Đã tạo tài khoản'); return; }
   if(d.logout!==undefined){ S.logged=false; S.f.am='Đăng nhập'; S.tab='account'; S.stack=[]; renderPhone(); toast('Đã đăng xuất'); return; }
   if(d.csend!==undefined){ if(!S.f.cc1){ toast('Cần đồng ý xử lý thông tin để gửi tin nhắn'); return; } S.csent=true; rr(); return; }
   if(d.creset!==undefined){ S.csent=false; S.f.cmsg=''; rr(); return; }
@@ -2389,7 +3353,7 @@ document.addEventListener('input', e => { const k=e.target.dataset&&e.target.dat
 function fsel(k,l,list,def){ return fpick('sel',k,l,def,{list}); }
 /* Bảng chọn của app: danh sách (ô nút tròn), lịch tiếng Việt (tuần bắt đầu thứ Hai), giờ (2 cột giờ · phút) */
 const PK = {};
-function openPick(kind,k,l,def,list){ Object.assign(PK,{kind,k,l,def,list}); const v=fv(k,def);
+function openPick(kind,k,l,def,list){ Object.assign(PK,{kind,k,l,def,list}); { const sh=$('sheet'); PK.back=sh.classList.contains('on')&&sh.querySelector('[data-qbbuy]')&&S.qb?'qb:'+S.qb.k:null; } /* mở lịch từ popup mua nhanh: chọn xong quay lại popup */ const v=fv(k,def);
   if(kind==='date'){ const birth=/^(fgb|pxb)/.test(k); const b=(v||(birth?'1990-01-01':TODAY)).split('-').map(Number); PK.y=b[0]; PK.m=b[1]-1; PK.ym=birth&&!v; PK.yp=PK.y-(PK.y%12); }
   if(kind==='time'){ const t=(v||'09:00').split(':'); PK.h=t[0]; PK.mi=String(Math.round(+t[1]/5)*5%60).padStart(2,'0'); }
   renderPick(); }
@@ -2409,7 +3373,7 @@ function renderPick(){ const sh=$('sheet'), v=fv(PK.k,PK.def); let body='';
     <button class="btn" data-pkok>Chọn ${PK.h}:${PK.mi}</button>`; }
   sh.innerHTML=`<div class="grab"></div><h3>${esc(PK.l)}</h3>${body}`; sh.classList.remove('pop'); sh.classList.add('on'); $('mask').classList.add('on');
   if(PK.kind==='time') requestAnimationFrame(()=>sh.querySelectorAll('.tmv.on').forEach(e=>{ const col=e.parentElement; col.scrollTop=e.offsetTop-col.clientHeight/2+e.offsetHeight/2; })); }
-function setPick(v){ S.f[PK.k]=v; if(S.err&&S.err[PK.k]) delete S.err[PK.k]; closeSheet(); rr(); setTimeout(()=>{ const b=$('f_'+PK.k); if(b) b.focus({preventScroll:true}); },60); }
+function setPick(v){ S.f[PK.k]=v; if(S.err&&S.err[PK.k]) delete S.err[PK.k]; if(PK.back){ const b=PK.back; PK.back=null; openSheet(b); return; } closeSheet(); rr(); setTimeout(()=>{ const b=$('f_'+PK.k); if(b) b.focus({preventScroll:true}); },60); }
 document.addEventListener('click', e => { const t=e.target.closest('[data-pick],[data-pkv],[data-pkm],[data-pkh],[data-pkmi],[data-pkok],[data-pkyr],[data-pky],[data-pkyp]'); if(!t) return; const d=t.dataset;
   if(d.pick){ const [kind,k]=d.pick.split('|'); openPick(kind,k,d.pl,d.pd||'',d.po?JSON.parse(d.po):null); return; }
   if(d.pkm){ PK.m+=+d.pkm; while(PK.m<0){PK.m+=12;PK.y--;} while(PK.m>11){PK.m-=12;PK.y++;} renderPick(); return; }
@@ -2443,5 +3407,65 @@ document.addEventListener('pointerup',()=>{ if(dg){ dg.r.classList.remove('dragg
 document.addEventListener('click',e=>{ if(dragMoved){ e.stopPropagation(); e.preventDefault(); dragMoved=false; } },true);
 document.addEventListener('wheel',e=>{ const r=e.target.closest('.rail,.jr,.chips'); if(!r||r.scrollWidth<=r.clientWidth) return; const d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:(e.shiftKey?e.deltaY:0); if(!d) return; e.preventDefault(); r.scrollLeft+=d; },{passive:false});
 renderPhone();
+</script>
+<script>
+/* V3 · Ô lựa chọn: không rớt chữ, không nháy.
+   - Chữ dài hơn ô thì thu một bậc; vẫn không vừa thì xếp mỗi phương án một hàng (kiểu danh sách).
+   - Quyết định ngang/dọc một lần cho mỗi bộ lựa chọn rồi ghi nhớ, nên bấm chọn không làm nhóm nhảy qua lại.
+   - Chạy trong MutationObserver (trước khi màn vẽ) nên không thấy trạng thái sai thoáng qua. */
+(()=>{ const over=b=>b.scrollWidth>b.clientWidth+1, memo=new Map();
+  /* Gom các .opt đứng liền nhau trong bảng chọn vào một khối .popts */
+  const group=()=>document.querySelectorAll('#sheet > .opt:not(.opt + .opt)').forEach(a=>{ const w=document.createElement('div'); w.className='popts'; a.before(w); let n=a; while(n&&n.classList&&n.classList.contains('opt')){ const nx=n.nextElementSibling; w.appendChild(n); n=nx; } });
+  const fitOne=g=>{ const bs=[...g.querySelectorAll('button')]; if(!bs.length) return; if(!g.clientWidth) return; const key=bs.map(b=>b.textContent).join('|')+'#'+g.style.gridTemplateColumns+'#'+g.clientWidth;
+    let m=memo.get(key);
+    if(!m){ if(!g.offsetParent||!g.clientWidth) return; m={fit:false,stack:false}; if(bs.some(over)){ bs.forEach(b=>b.classList.add('fit')); m.fit=true; if(bs.some(over)) m.stack=true; } memo.set(key,m); }
+    bs.forEach(b=>b.classList.toggle('fit',m.fit)); g.classList.toggle('stack',m.stack); g.dataset.fitted='1'; };
+  const fit=()=>{ group(); document.querySelectorAll('.pku:not([data-fitted])').forEach(fitOne); };
+  new MutationObserver(fit).observe(document.body,{childList:true,subtree:true});
+  addEventListener('load',fit); })();
+/* Trang chủ · slide Ưu đãi nổi bật: 1 thẻ, mũi tên trái/phải, chấm vị trí, tự trượt mỗi 4 giây; tạm dừng 6 giây khi người dùng chạm/vuốt/bấm; tắt tự trượt nếu máy bật giảm chuyển động */
+(()=>{ let paused=0; const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const step=dir=>{ const t=document.querySelector('.hpx-track'); if(!t||!t.clientWidth) return; const w=t.clientWidth, n=t.children.length; let j=Math.round(t.scrollLeft/w)+dir; if(j>=n) j=0; if(j<0) j=n-1; t.scrollTo({left:j*w,behavior:reduce?'auto':'smooth'}); t.parentNode.querySelectorAll('.hpx-dots i').forEach((d,k)=>d.classList.toggle('on',k===j)); };
+  document.addEventListener('click',e=>{ const b=e.target.closest('[data-hpx]'); if(!b) return; e.stopPropagation(); e.preventDefault(); paused=Date.now(); step(+b.dataset.hpx); },true);
+  document.addEventListener('scroll',e=>{ const t=e.target; if(!t.classList||!t.classList.contains('hpx-track')) return; const i=Math.round(t.scrollLeft/t.clientWidth); t.parentNode.querySelectorAll('.hpx-dots i').forEach((d,k)=>d.classList.toggle('on',k===i)); },true);
+  ['pointerdown','touchstart','wheel'].forEach(ev=>document.addEventListener(ev,e=>{ if(e.target.closest&&e.target.closest('.hpx')) paused=Date.now(); },{capture:true,passive:true}));
+  setInterval(()=>{ if(reduce||document.hidden||Date.now()-paused<6000) return; step(1); },4000); })();
+/* Ô mã voucher: chạm (hoặc Enter/Space) để sao chép mã; không kích hoạt thẻ bao ngoài */
+(()=>{ const copy=code=>{ const done=()=>{ try{ toast('Đã sao chép mã '+code.replace(/-/g,'‑')); }catch(e){} };
+    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(done,()=>{ fb(); done(); }); else { fb(); done(); }
+    function fb(){ const t=document.createElement('textarea'); t.value=code; t.style.position='fixed'; t.style.opacity='0'; document.body.appendChild(t); t.select(); try{ document.execCommand('copy'); }catch(e){} t.remove(); } };
+  document.addEventListener('click',e=>{ const c=e.target.closest('[data-copy]'); if(!c) return; e.preventDefault(); e.stopPropagation(); copy(c.dataset.copy); },true);
+  document.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.dataset&&e.target.dataset.copy){ e.preventDefault(); e.stopPropagation(); copy(e.target.dataset.copy); } },true); })();
+/* Trang chủ · khối navy tràn mép: đo chiều cao thanh trạng thái để chừa chỗ; cuộn qua khối thì thanh trạng thái chuyển nền kem */
+(()=>{ const sync=()=>{ const sc=document.querySelector('.screen'), st=sc&&sc.querySelector(':scope > .status'), scr=document.getElementById('scr'), h=scr&&scr.querySelector('.hhero, .svhd'); if(!st) return;
+    sc.style.setProperty('--sbh',(h?st.offsetHeight:0)+'px'); st.classList.toggle('solid',!!h&&scr.scrollTop>h.offsetHeight-st.offsetHeight); };
+  document.addEventListener('scroll',e=>{ if(e.target.id==='scr') sync(); },true);
+  new MutationObserver(sync).observe(document.body,{childList:true,subtree:true}); addEventListener('load',sync); addEventListener('resize',sync); })();
+/* Dải thẻ trượt ngang (Dành cho bạn): kéo bằng chuột như vuốt trên điện thoại; kéo xong không tính là chạm mở thẻ */
+(()=>{ let d=null;
+  document.addEventListener('pointerdown',e=>{ if(e.pointerType!=='mouse'||e.button!==0) return; const t=e.target.closest('.hfy'); if(!t) return; d={t,x:e.clientX,l:t.scrollLeft,moved:false}; },true);
+  document.addEventListener('pointermove',e=>{ if(!d) return; const dx=e.clientX-d.x; if(Math.abs(dx)>4){ if(!d.moved){ d.moved=true; d.t.style.scrollSnapType='none'; d.t.style.cursor='grabbing'; } d.t.scrollLeft=d.l-dx; e.preventDefault(); } },true);
+  const end=()=>{ if(!d) return; const t=d.t, m=d.moved; t.style.cursor=''; if(m){ const c=t.firstElementChild, w=c?c.offsetWidth+8:1; t.scrollTo({left:Math.round(t.scrollLeft/w)*w,behavior:'smooth'}); setTimeout(()=>{ t.style.scrollSnapType=''; },350); t.dataset.drag='1'; setTimeout(()=>{ delete t.dataset.drag; },0); } d=null; };
+  document.addEventListener('pointerup',end,true); document.addEventListener('pointercancel',end,true);
+  document.addEventListener('click',e=>{ const t=e.target.closest('.hfy'); if(t&&t.dataset.drag){ e.preventDefault(); e.stopPropagation(); } },true);
+  document.addEventListener('dragstart',e=>{ if(e.target.closest&&e.target.closest('.hfy')) e.preventDefault(); },true); })();
+/* Thanh tab trang chủ lấy màu đậm của khối thẻ (theo hạng) */
+(()=>{ let probe=null; const sync=()=>{ const sc=document.querySelector('.screen'); if(!sc) return; let h=document.querySelector('#scr .hhero, #scr .svhd'); if(!h){ if(!probe){ probe=document.createElement('div'); probe.className='acpx'; probe.style.cssText='position:absolute;visibility:hidden;width:0;height:0;pointer-events:none'; probe.setAttribute('aria-hidden','true'); document.body.appendChild(probe); } probe.dataset.t=(typeof S!=='undefined'&&S.logged)?tierIdx(S.points):0; h=probe; } const cs=getComputedStyle(h); sc.style.setProperty('--hb1',cs.getPropertyValue('--b1').trim()); sc.style.setProperty('--hb2',cs.getPropertyValue('--b2').trim()); };
+  new MutationObserver(sync).observe(document.body,{childList:true,subtree:true}); addEventListener('load',sync); })();
+/* Thanh tab: viên chọn trượt sang tab mới, các tab dịch chỗ mượt, tên tab hiện dần (tắt khi bật giảm chuyển động) */
+(()=>{ let prev=null; const ease='cubic-bezier(.2,.8,.2,1)';
+  const run=()=>{ const bar=document.querySelector('#dock .tabbar'); if(!bar||bar.dataset.tbi) return; bar.dataset.tbi='1';
+    bar.querySelectorAll('.tab').forEach(t=>[...t.childNodes].forEach(n=>{ if(n.nodeType===3&&n.textContent.trim()){ const s=document.createElement('span'); s.className='tbl'; s.textContent=n.textContent; n.replaceWith(s); } }));
+    const ind=document.createElement('i'); ind.className='tbi'; ind.setAttribute('aria-hidden','true'); bar.prepend(ind);
+    const br=bar.getBoundingClientRect(), sel=bar.querySelector('.tab[aria-selected="true"]'), rects={};
+    bar.querySelectorAll('.tab').forEach(t=>{ rects[t.dataset.tab]=t.getBoundingClientRect().left-br.left; });
+    let ir=null; if(sel){ const r=sel.getBoundingClientRect(); ir={l:r.left-br.left,w:r.width}; ind.style.left=ir.l+'px'; ind.style.width=ir.w+'px'; } else ind.style.display='none';
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prev&&sel&&!reduce&&prev.sel!==sel.dataset.tab){
+      bar.querySelectorAll('.tab').forEach(t=>{ const o=prev.rects[t.dataset.tab]; if(o==null) return; const dx=o-rects[t.dataset.tab]; if(Math.abs(dx)>.5) t.animate([{transform:`translateX(${dx}px)`},{transform:'none'}],{duration:340,easing:ease}); });
+      if(prev.ind) ind.animate([{left:prev.ind.l+'px',width:prev.ind.w+'px'},{left:ir.l+'px',width:ir.w+'px'}],{duration:340,easing:ease});
+      const l=sel.querySelector('.tbl'); if(l) l.animate([{opacity:0,transform:'translateX(-6px)'},{opacity:1,transform:'none'}],{duration:240,delay:120,easing:'ease-out',fill:'backwards'}); }
+    prev={sel:sel&&sel.dataset.tab,rects,ind:ir}; };
+  new MutationObserver(run).observe(document.body,{childList:true,subtree:true}); addEventListener('load',run); })();
 </script>
 </body></html>

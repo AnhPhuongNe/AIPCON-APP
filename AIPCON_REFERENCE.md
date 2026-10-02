@@ -142,6 +142,7 @@ Giả định cần bên yêu cầu xác nhận: combo có định danh thu họ
 - Token đã gom ở V3; còn thiếu file `AIPCON_DESIGN_SYSTEM_V3.html` (V3 có nhắc tới nhưng chưa có trong thư mục)
 
 ## Changelog
+- 02/10/2026 · Áp bản nháp tinh giản vào V3: ô lựa chọn phương án A (token `--trk`, `--sel-stroke`), thanh tab nổi navy có chuyển động, trang chủ phong cách mới (khối thẻ ACP tràn mép, Dành cho bạn, khu theo dõi chuyến bay + Ví, Ưu đãi kính mờ), đầu trang Dịch vụ navy với icon đặc theo nhóm.
 - 02/10/2026 · Thêm `CLAUDE.md` (hướng dẫn làm việc, token V3); cập nhật file tham chiếu lên V3.
 - 01/10/2026 · V3 (chỉnh tiếp, lưu bằng git commit):
   - Nền màn hình đổi sang kem #F9F7F0
