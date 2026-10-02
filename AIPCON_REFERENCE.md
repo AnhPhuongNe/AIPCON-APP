@@ -1,7 +1,7 @@
 # AIPCON · Tài liệu tham chiếu (Web V10 ↔ App V1a)
 
 > File tham chiếu gọn để dùng trong Project. Bản đầy đủ có ảnh: `AIPCON_Design_V10.html` (web) và `AIPCON_APP_DESIGN_V1a.html` (app).
-> **File làm việc hiện tại: `AIPCON_APP_DESIGN_V2a.html` — chỉ phát triển nền trắng.** V2 (có nền navy) giữ lại để đối chiếu, không chỉnh tiếp. V2a chỉ gồm màn hình điện thoại, không còn cột điều hướng hay ghi chú thiết kế — mọi thao tác đi như app thật.
+> **File làm việc hiện tại: `AIPCON_APP_DESIGN_V3.html`** (từ 01/10/2026). V2a giữ lại để đối chiếu, không chỉnh tiếp. Chỉ phát triển nền sáng; chỉ gồm màn hình điện thoại, không cột điều hướng hay ghi chú thiết kế — mọi thao tác đi như app thật. Hướng dẫn làm việc và token V3 tóm tắt ở `CLAUDE.md`.
 > **Quy tắc đã chốt (30/09/2026):** giữ nguyên toàn bộ design của App V1a. Web V10 chỉ dùng để tham chiếu **flow và nội dung**, không dùng để thay đổi giao diện app.
 
 ## 1. Sitemap Web V10 (36 màn)
@@ -55,6 +55,8 @@ Giả định cần bên yêu cầu xác nhận: combo có định danh thu họ
 
 ## 3. Hệ thống UI của App V1a (nguồn chuẩn cho app, giữ nguyên)
 
+> **Từ V3:** giá trị đã gom thành token ở khối `V3 · DESIGN TOKENS` đầu file V3 (màu gốc, chuyển sắc nút, 10 cỡ chữ, 5 bo góc). Nền màn hình đổi sang kem #F9F7F0; SVN-Aptima đã nhúng. Các mục dưới là ghi chép từ V1a.
+
 - **Chế độ:** từ V2a chỉ còn nền trắng (đã gỡ nút đổi nền và toàn bộ CSS nền navy). Bảng màu dark bên dưới chỉ để tham khảo lịch sử.
 - **Font:** display `SVN-Aptima` (fallback Be Vietnam Pro, Georgia) · body `Be Vietnam Pro`. File app **chưa nhúng** SVN-Aptima; web V10 có nhúng.
 - **Màu (light / dark):**
@@ -90,23 +92,35 @@ Giả định cần bên yêu cầu xác nhận: combo có định danh thu họ
 - **Câu chữ:** ngắn, không văn nói, mỗi ý một dòng; không có câu sub dưới tiêu đề trừ khi là note.
 - **Điều kiện sử dụng:** danh sách chữ có chấm đầu dòng, không đóng khung.
 
+## 6b. Quy ước UI bổ sung trên V3 (01/10/2026)
+
+- **Phân cấp nền:** nền trang kem #F9F7F0 › khung nội dung trắng (chuyển sắc rất nhẹ xuống xám) › icon trong khung nền vàng nhạt.
+- **Luôn nền trắng:** ô nhập, popup (bảng chọn mua, QR phóng to, gợi ý), nút phụ.
+- **Đổ bóng thống nhất:** `0 1px 2px` navy 5% cho mọi khung nội dung và thẻ ACP (thẻ ACP giữ thêm viền kim loại 0.5px). Danh sách nằm trong thẻ nhóm không đổ bóng riêng.
+- **Trang Dịch vụ:** mỗi nhóm là một thẻ trắng; tiêu đề nhóm kiểu `.sec2`, có vòng số bước.
+- **Trang chủ:** thẻ "Chuyến bay sắp tới" thay bằng thông báo 2 dòng ngay dưới thẻ ACP (icon chuông nét; `HAN → ICN | 09:40 | T7, 05/09` / `VN 417 · 3 dịch vụ · trạng thái`).
+- **Khối Ví trang chủ:** tab Sẵn sàng / Chờ lịch và danh sách chung một khung; nút đầu mục là "Xem chi tiết".
+- **Trang chi tiết dịch vụ:** nội dung để đọc ở trên, vùng chọn để mua ở dưới.
+- **Lựa chọn loại trừ từ 3 phương án:** ô có nút tròn (2 phương án vẫn dùng ô chia đôi).
+- **Kiểm tra dữ liệu form:** báo lỗi dưới từng ô, cuộn tới ô lỗi đầu tiên; ghi chú dưới ô cách ô 6px.
+- **Bảng chọn ngày / giờ / danh sách:** cùng một kiểu bảng chọn của app.
+
 ## 7. Hạng mục chưa làm (tính đến 01/10/2026)
+
+> **Đã làm trong V3** (đã gỡ khỏi danh sách dưới): Lịch sử điểm hạng thẻ ACP · màn VietQR (hiệu lực 15 phút, hết giờ sang màn thất bại) · Thanh toán thất bại · Giỏ có dịch vụ hết suất · Kiểm tra dữ liệu nhập form · màn Thông tin hành khách, Thông tin hoá đơn · ô thả, tải ảnh, dòng SKU trong giỏ theo web. Cần kiểm tra lại mức độ đã làm: OTP, hoá đơn điện tử.
 
 **Web có, app chưa có**
 - Mua làm quà cho mọi dịch vụ (Cho tôi / Tặng điện tử / Tặng vật lý ngay ở trang chi tiết)
 - Gợi ý mua kèm ("Đừng quên Xe Đưa Đón!", ưu đãi Combo Trọn chuyến)
 - Phòng chờ quốc tế Plaza Premium; Điểm tham quan (Ba Na Hills); danh sách F&B đầy đủ
 - Fast Track chi tiết hơn (gói VIP)
-- Lịch sử điểm hạng thẻ ACP
 - Thay đổi / huỷ booking thao tác trong app (hiện hướng gọi tổng đài)
 - Tải hoá đơn điện tử
 - Đa ngôn ngữ (để sau cùng)
 
 **Trạng thái lỗi / trường hợp biên**
-- Thanh toán thất bại, hết thời gian, màn cổng thanh toán / VietQR
 - Nhập OTP khi đăng nhập / quên mật khẩu
-- Voucher hết hạn, dịch vụ hết suất trong giỏ
-- Kiểm tra dữ liệu nhập form (bỏ trống, sai định dạng)
+- Voucher hết hạn
 
 **Đề xuất đã đưa, chờ anh/chị quyết**
 - Điểm hạng đang hiện ở cả mặt trước thẻ ACP và box điểm bên dưới (trùng thông tin) — cân nhắc giữ một chỗ
@@ -125,8 +139,15 @@ Giả định cần bên yêu cầu xác nhận: combo có định danh thu họ
 **Round chuẩn hoá hệ thống UI (chưa làm)**
 - Gom cỡ chữ, bo góc, màu lẻ thành token; xuất trang Design System cho dev
 - Màu thương hiệu đối tác trong màn Doanh nghiệp đang nằm ngoài guideline
+- Token đã gom ở V3; còn thiếu file `AIPCON_DESIGN_SYSTEM_V3.html` (V3 có nhắc tới nhưng chưa có trong thư mục)
 
 ## Changelog
+- 02/10/2026 · Thêm `CLAUDE.md` (hướng dẫn làm việc, token V3); cập nhật file tham chiếu lên V3.
+- 01/10/2026 · V3 (chỉnh tiếp, lưu bằng git commit):
+  - Nền màn hình đổi sang kem #F9F7F0
+  - Nút phụ, ô nhập, popup luôn nền trắng; trang Dịch vụ phân cấp nền (kem › thẻ nhóm trắng › icon vàng nhạt); thống nhất đổ bóng khung nội dung
+  - Thẻ ACP đổ bóng nhẹ như khung nội dung; khối Ví trang chủ gom tab + danh sách chung khung, nút "Xem chi tiết"; thẻ Chuyến bay sắp tới đổi thành thông báo 2 dòng dưới thẻ ACP
+- 01/10/2026 · Tạo V3 từ V2a: gom design token, nhúng SVN-Aptima; thêm Lịch sử điểm, VietQR, Thanh toán thất bại, giỏ hết suất, kiểm tra dữ liệu form, Thông tin hành khách / hoá đơn; trang chi tiết dịch vụ đọc trên – mua dưới; tab Dịch vụ tiêu đề nhóm có vòng số bước.
 - 01/10/2026 · V2a chỉnh tay bằng code (anh/chị), đã đối chiếu và chạy kiểm tra 38/38 đạt:
   - **Thẻ ACP mới** (trang chủ + trang Thẻ ACP): chất liệu kim loại đổi màu theo hạng (Sky / Sky Plus / Sky Stella / Sky Infinity), viền trong, vân xước, ánh sáng; mặt trước có "Hạng hội viên", tên, số thẻ, điểm, thanh tiến độ mảnh và "Chạm để xuất trình"
   - **Chạm thẻ = lật thẻ**: mặt sau hiện QR, mã tự làm mới mỗi 30 giây (vòng đếm ngược), tự lật về sau 60 giây; nút "Phóng to" mở QR lớn dạng popup giữa màn hình; hỗ trợ phím Enter/Space
