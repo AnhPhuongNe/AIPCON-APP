@@ -14,6 +14,7 @@
 - **Chọn gói / lựa chọn (trang chi tiết + bảng mua nhanh, dùng chung `optPick`):** tối đa 4 lựa chọn dàn ngang (thanh trượt), không ghi giá trên nút (giá nhảy ở Tạm tính); mô tả gói đang chọn hiện dưới hàng nút; chỉ 1 gói thì không hiện. Nền kem + ô trắng nổi chỉ dùng cho chọn ngang; khi phải xếp dọc thì dùng kiểu danh sách (ô trắng, viền `--sel-stroke` khi chọn). Chọn ngang không đổi độ đậm chữ khi chọn (tránh nút đổi độ rộng làm nhóm nhảy); quyết định ngang/dọc ghi nhớ theo bộ lựa chọn + độ rộng khung. Không ghi chú giá dưới hàng nút (vd. "340.000đ mỗi lượt"). Nhãn lặp tiền tố thì rút gọn ("Voucher 200.000đ" → "200.000đ").
 - **Trang chi tiết:** vùng thông tin (nền trơn, các phần tách bằng line xám mảnh, "Dịch vụ gồm" 1 cột) tách biệt với vùng mua "Chọn dịch vụ" (giữ nền riêng như V3, tràn hết chiều ngang). Không tự thêm icon, hỏi trước.
 - **Mọi vùng cuộn (màn chính, popup) ẩn thanh cuộn** để độ rộng khung không đổi khi nội dung dài/ngắn.
+- **Trang chủ · Ưu đãi nổi bật:** slide 1 thẻ rộng hết khung (`.hpx`), chữ trên ảnh, cặp mũi tên góc trên phải, chấm vị trí, tự trượt mỗi 4 giây (tạm dừng 6 giây khi người dùng chạm/vuốt/bấm; tắt khi bật giảm chuyển động).
 - **Không rớt chữ** trên mọi nút, chip, tab, ô lựa chọn: chữ một dòng; quá dài thì thu một bậc, vẫn không vừa thì xếp mỗi phương án một hàng.
 - `_preview/`: server xem trước (`serve.ps1`, cổng 5173, cấu hình trong `.claude/launch.json` tên `preview`) và bản nháp (`V3_draft.html`, `patch.css`).
 
