@@ -83,7 +83,7 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--tx2);
 .tabs{display:flex;gap:18px;border-bottom:1px solid color-mix(in srgb,var(--navy-900) 6%,transparent);max-width:360px}
 .tabs button{position:relative;border:0;background:none;font:500 var(--fs-sm) var(--f-body);color:var(--tx3);padding:10px 0 12px;display:flex;gap:6px;align-items:center}
 .tabs button.on{color:var(--tx)}
-.tabs button.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:var(--r-xs);background:var(--gold-600)}
+.tabs button.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;border-radius:var(--r-xs);background:var(--gold-400)}
 .tabs button span{font-size:var(--fs-2xs);font-weight:500;min-width:20px;padding:1px 6px;border-radius:var(--r-pill);background:var(--fill-soft);color:var(--tx3);text-align:center}
 .tabs button.on span{background:var(--tx);color:var(--white)}
 .chk{width:22px;height:22px;border-radius:6px;border:1.5px solid color-mix(in srgb,var(--tx) 28%,transparent);background:var(--white);display:grid;place-items:center;color:transparent}
@@ -220,7 +220,7 @@ svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke
 <tr><td>Viền đang chọn / focus</td><td><code>--sel-stroke</code> 2px #9C6D2A · cách mép <code>--sel-offset</code> 2px</td><td><div style="width:160px;height:28px;border:1px solid var(--line);border-radius:9px;outline:var(--sel-stroke);outline-offset:2px"></div></td></tr>
 <tr><td>Viền lỗi</td><td>cùng độ dày, màu #8C3232</td><td><div style="width:160px;height:28px;border:1px solid var(--red-700);border-radius:9px"></div></td></tr>
 <tr><td>Nút phụ</td><td>1px · vàng 60%</td><td><button class="btn sm ghost">Chọn</button></td></tr>
-<tr><td>Gạch chân tab</td><td>2px · #9C6D2A · nằm trong khung tab</td><td><div style="width:60px;height:2px;background:var(--gold-600);border-radius:4px"></div></td></tr>
+<tr><td>Gạch chân tab</td><td>1.5px · --gold-400 #B8904A · nằm trong khung tab</td><td><div style="width:60px;height:1.5px;background:var(--gold-400);border-radius:4px"></div></td></tr>
 </table></section>
 
 <section id="bong"><h2>Đổ bóng</h2><div class="row" style="background:var(--bg);padding:20px;border-radius:13px">
