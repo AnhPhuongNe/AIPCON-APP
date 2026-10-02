@@ -17,6 +17,8 @@
 - Chỉ phát triển nền sáng. Không thêm lại chế độ nền navy (còn sót vài selector `data-theme="dark"` trong CSS, không cần dùng).
 - Chỉ màn hình điện thoại, không cột điều hướng, không ghi chú thiết kế trong file; mọi thao tác chạy như app thật.
 - Câu chữ: tiếng Việt, ngắn, không văn nói, mỗi ý một dòng; không thêm câu phụ dưới tiêu đề trừ khi là ghi chú.
+- **Không dùng dấu "—"** trong nội dung hiển thị: tên và dòng phụ dùng " · ", câu văn dùng ":" hoặc "," hoặc tách câu, ô trống thì bỏ trống hoặc ghi bằng chữ. Dấu "–" chỉ dùng cho khoảng (06:00 – 22:00).
+- Tiêu đề dòng (voucher, thông báo) giữ 1 dòng: chỉ tên dịch vụ; nơi dùng, mã, trạng thái xuống dòng phụ; không lặp thông tin màn hình đã thể hiện (vd. trạng thái trùng tab). Mã voucher luôn hiện đủ.
 - Dự án này là app của khách hàng (Airport Connects), dùng bộ nhận diện AIPCON bên dưới, không dùng màu/font iHouzz.
 
 ## Hệ thống thiết kế V3 (nguồn duy nhất: khối `V3 · DESIGN TOKENS` đầu file)
