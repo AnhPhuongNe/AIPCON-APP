@@ -15,6 +15,8 @@
 - **Trang chi tiết:** vùng thông tin (nền trơn, các phần tách bằng line xám mảnh, "Dịch vụ gồm" 1 cột) tách biệt với vùng mua "Chọn dịch vụ" (giữ nền riêng như V3, tràn hết chiều ngang). Không tự thêm icon, hỏi trước.
 - **Mọi vùng cuộn (màn chính, popup) ẩn thanh cuộn** để độ rộng khung không đổi khi nội dung dài/ngắn.
 - **Trang chủ · Ưu đãi nổi bật:** slide 1 thẻ rộng hết khung (`.hpx`), chữ trên ảnh, cặp mũi tên góc trên phải, chấm vị trí, tự trượt mỗi 4 giây (tạm dừng 6 giây khi người dùng chạm/vuốt/bấm; tắt khi bật giảm chuyển động).
+- **Ô mã voucher** (Mã voucher, Mã combo, Mã quà tặng, Voucher dùng — giá trị dạng `ACx-0000-XX`): dùng `cellH`, icon copy góc phải, chạm vào ô để sao chép mã và hiện thông báo; không kích hoạt thẻ bao ngoài.
+- **Chữ trên ảnh** luôn có lớp tối phủ đủ đậm (kiểm tra ở màn hẹp 360px, tên 2 dòng).
 - **Không rớt chữ** trên mọi nút, chip, tab, ô lựa chọn: chữ một dòng; quá dài thì thu một bậc, vẫn không vừa thì xếp mỗi phương án một hàng.
 - `_preview/`: server xem trước (`serve.ps1`, cổng 5173, cấu hình trong `.claude/launch.json` tên `preview`) và bản nháp (`V3_draft.html`, `patch.css`).
 
