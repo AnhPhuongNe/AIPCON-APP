@@ -6,7 +6,7 @@
 - Tài liệu tham chiếu: `AIPCON_REFERENCE.md` (sitemap, quy tắc luồng, quy ước UI, việc còn mở, changelog). Đọc file này trước khi chỉnh luồng hoặc thêm màn.
 - Chỉ để đối chiếu, **không chỉnh**: `AIPCON_Design_V10.html` (web, nguồn flow và nội dung), `AIPCON_APP_DESIGN_V1a.html` (nguồn design gốc), `AIPCON_APP_DESIGN_V2a*.html` (bản trước), `MOCKUP_THE_ACP*.html` (mockup thẻ ACP).
 - Bản nháp đang chờ duyệt: `_preview/V3_tinhgian.html`, dựng bằng `sh _preview/build.sh` từ V3 + `_preview/tinhgian.css` + `_preview/tinhgian.js`. Khi duyệt: chép 2 khối này vào V3 (CSS trước `</style>` đầu tiên, script trước `</body>`). Thư mục `_preview/` bị `.gitignore`.
-- **Ô lựa chọn (chốt 02/10/2026, phương án A):** thanh trượt không viền, một khối nền kem, mục đang chọn nổi nền trắng. Danh sách từ 3 lựa chọn cũng gom vào một khối kem chung, giữ nút tròn.
+- **Ô lựa chọn (chốt 02/10/2026, phương án A):** thanh trượt không viền, một khối nền kem, mục đang chọn nổi nền trắng. Danh sách lựa chọn (chọn xe, quà, liệu trình…) và chip theo một quy tắc: **ô trắng nổi = bấm được · viền vàng 1.5px + nền vàng rất nhạt = đang chọn · nền xám phẳng, chữ xám = không chọn được**. Không dùng chấm tròn radio. Chip xuống dòng, không trượt ngang.
 - **Không rớt chữ** trên mọi nút, chip, tab, ô lựa chọn: chữ một dòng; quá dài thì thu một bậc, vẫn không vừa thì xếp mỗi phương án một hàng.
 - `_preview/`: server xem trước (`serve.ps1`, cổng 5173, cấu hình trong `.claude/launch.json` tên `preview`) và bản nháp (`V3_draft.html`, `patch.css`).
 
