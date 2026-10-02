@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIPCON Design System V3</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Token lấy đúng từ AIPCON_APP_DESIGN_V3.html (khối V3 · DESIGN TOKENS + bản tinh giản 02/10/2026) */
+:root{
+  --navy-950:#0F1642;--navy-900:#232360;--ink-700:#454973;--ink-500:#6A6D92;--ink-400:#8E91AB;
+  --white:#FFFFFF;--bg:#F9F7F0;--grey-50:#F4F5F8;
+  --gold-200:#E2C68A;--gold-300:#D2AE62;--gold-400:#B8904A;--gold-500:#A57D3B;--gold-600:#9C6D2A;--gold-700:#7A5A26;
+  --green-700:#2F6B4F;--red-700:#8C3232;--blue-600:#3F4C9A;
+  --tx:var(--navy-900);--tx2:var(--ink-700);--tx3:var(--ink-500);--tx-meta:var(--ink-400);
+  --acc:var(--gold-600);
+  --line:color-mix(in srgb,var(--navy-900) 9%,transparent);
+  --trk:color-mix(in srgb,var(--gold-600) 9%,var(--white));
+  --sel-stroke:2px solid var(--gold-600);--sel-offset:2px;
+  --grad-btn:linear-gradient(180deg,var(--gold-300) 0%,var(--gold-400) 52%,var(--gold-600) 100%);
+  --grad-btn-press:linear-gradient(180deg,var(--gold-400) 0%,var(--gold-500) 52%,var(--gold-700) 100%);
+  --sh-card:0 1px 3px color-mix(in srgb,var(--navy-900) 4%,transparent);
+  --sh-tile:0 2px 8px -2px color-mix(in srgb,var(--navy-900) 10%,transparent),0 1px 2px color-mix(in srgb,var(--navy-900) 4%,transparent);
+  --sh-opt:0 0 0 1px color-mix(in srgb,var(--navy-900) 8%,transparent),0 1px 3px color-mix(in srgb,var(--navy-900) 6%,transparent);
+  --sh-seg:0 1px 2px color-mix(in srgb,var(--navy-900) 12%,transparent),0 0 0 .5px color-mix(in srgb,var(--navy-900) 4%,transparent);
+  --r-xs:4px;--r-sm:9px;--r-md:13px;--r-lg:18px;--r-pill:999px;
+  --pad-x:16px;--gap-sec:16px;--gap-in:8px;
+  --fs-2xs:11px;--fs-sub:12px;--fs-xs:12.5px;--fs-sm:13px;--fs-md:14px;--fs-lg:15px;--fs-xl:17px;--fs-2xl:19px;--fs-4xl:26px;
+  --f-disp:"SVN-Aptima","Be Vietnam Pro",Georgia,serif;--f-body:"Be Vietnam Pro",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--f-body);font-size:var(--fs-md);line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;padding:32px 20px 64px}
+h1{font-family:var(--f-disp);font-weight:400;font-size:32px;margin:0 0 4px}
+.lead{color:var(--tx3);font-size:var(--fs-sm);margin:0 0 24px}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 28px}
+nav a{font-size:var(--fs-xs);color:var(--tx2);text-decoration:none;background:var(--white);padding:5px 10px;border-radius:var(--r-pill);box-shadow:var(--sh-opt)}
+section{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--sh-card);padding:20px;margin:0 0 16px}
+h2{font-size:var(--fs-xl);font-weight:600;margin:0 0 4px}
+.sub{color:var(--tx3);font-size:var(--fs-sub);margin:0 0 16px}
+h3{font-size:var(--fs-sm);font-weight:600;margin:18px 0 8px;color:var(--tx2)}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-xs)}
+th{text-align:left;font-weight:500;color:var(--tx3);padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--tx2);background:var(--grey-50);padding:1px 5px;border-radius:var(--r-xs)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sw{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-opt);font-size:var(--fs-2xs)}
+.sw i{display:block;height:56px}
+.sw div{padding:8px 10px;background:var(--white)}
+.sw b{display:block;font-size:var(--fs-sub);font-weight:600}
+.sw span{color:var(--tx3)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.demo{background:var(--bg);border-radius:var(--r-md);padding:16px}
+.phone{max-width:360px}
+.note{font-size:var(--fs-sub);color:var(--tx3);margin:8px 0 0}
+.do{color:var(--green-700);font-weight:500}.dont{color:var(--red-700);font-weight:500}
+/* —— Thành phần app (bản sao rút gọn của CSS V3) —— */
+.btn{border:0;border-radius:var(--r-pill);padding:14px 20px;font:600 var(--fs-md)/1 var(--f-body);color:var(--white);background:var(--grad-btn);text-shadow:0 1px 0 rgba(90,62,20,.35);
+  box-shadow:inset 0 1px 0 color-mix(in srgb,#FFF5E4 60%,transparent),inset 0 -1px 0 color-mix(in srgb,var(--gold-700) 50%,transparent),0 0 0 1px color-mix(in srgb,var(--gold-600) 38%,transparent),0 6px 14px -8px rgba(122,90,38,.55);white-space:nowrap}
+.btn.press{background:var(--grad-btn-press)}
+.btn.ghost{background:var(--white);color:var(--acc);text-shadow:none;box-shadow:none;border:1px solid color-mix(in srgb,var(--acc) 60%,transparent)}
+.btn.sm{padding:8px 14px;font-size:var(--fs-xs)}
+.btn[disabled]{opacity:.45}
+.lnk{background:none;border:0;color:var(--acc);font:500 var(--fs-sm) var(--f-body);padding:0}
+.rm{background:none;border:0;color:var(--tx2);font:500 var(--fs-xs) var(--f-body);padding:0}
+.rb{width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);background:none;color:var(--acc);display:grid;place-items:center}
+.sgo{width:40px;height:40px;border-radius:50%;background:var(--white);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--acc) 45%,transparent);border:0;color:var(--acc);display:grid;place-items:center}
+.pku{display:grid;background:var(--trk);box-shadow:inset 0 0 0 1px var(--line);border-radius:var(--r-md);padding:3px;gap:3px;max-width:360px}
+.pku button{border:0;background:none;border-radius:10px;padding:10px 4px;font:500 var(--fs-sm) var(--f-body);color:var(--tx3);white-space:nowrap}
+.pku button.on{background:var(--white);color:var(--tx);box-shadow:var(--sh-seg)}
+.pku button:disabled{color:color-mix(in srgb,var(--tx3) 60%,transparent)}
+.opts{display:flex;flex-direction:column;gap:10px;max-width:360px}
+.opt{display:flex;justify-content:space-between;align-items:center;text-align:left;border:0;background:var(--white);border-radius:var(--r-md);padding:14px 16px;box-shadow:var(--sh-opt);font:500 var(--fs-md) var(--f-body);color:var(--tx)}
+.opt small{display:block;font-size:var(--fs-sub);color:var(--tx3);font-weight:400}
+.opt.on{outline:var(--sel-stroke);outline-offset:var(--sel-offset)}
+.opt.off{background:color-mix(in srgb,var(--navy-900) 4%,var(--bg));box-shadow:none;color:var(--ink-400)}
+.opt.off small{color:var(--ink-400)}
+.chip{border:0;background:var(--white);border-radius:var(--r-pill);padding:9px 14px;font:500 var(--fs-sm) var(--f-body);color:var(--tx2);box-shadow:var(--sh-opt)}
+.chip.on{color:var(--tx);outline:var(--sel-stroke);outline-offset:var(--sel-offset)}
+.chip.sq{padding:4px 10px;font-size:var(--fs-2xs);font-weight:400;color:var(--tx3);box-shadow:0 1px 2px color-mix(in srgb,var(--navy-900) 6%,transparent)}
+.tabs{display:flex;gap:18px;border-bottom:1px solid var(--line);max-width:360px}
+.tabs button{position:relative;border:0;background:none;font:500 var(--fs-sm) var(--f-body);color:var(--tx3);padding:10px 0 12px;display:flex;gap:6px;align-items:center}
+.tabs button.on{color:var(--tx)}
+.tabs button.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:var(--r-xs);background:var(--gold-600)}
+.tabs button span{font-size:var(--fs-2xs);min-width:20px;padding:1px 6px;border-radius:var(--r-pill);background:var(--grey-50);color:var(--tx3);text-align:center}
+.tabs button.on span{background:var(--tx);color:var(--white)}
+.chk{width:22px;height:22px;border-radius:6px;border:1.5px solid color-mix(in srgb,var(--tx) 28%,transparent);background:var(--white);display:grid;place-items:center;color:transparent}
+.chk.on{background:var(--gold-600);border-color:var(--gold-600);color:var(--white)}
+.step{width:32px;height:32px;border-radius:50%;border:0;background:var(--trk);color:var(--tx);font:500 16px var(--f-body)}
+.inp{width:100%;max-width:360px;border:1px solid var(--line);background:var(--white);border-radius:var(--r-sm);padding:10px 12px;font:400 var(--fs-md) var(--f-body);color:var(--tx)}
+.inp.focus{outline:var(--sel-stroke);outline-offset:var(--sel-offset)}
+.inp.err{border-color:var(--red-700);background:color-mix(in srgb,var(--red-700) 4%,var(--white))}
+.lab{display:block;font-size:var(--fs-xs);color:var(--tx2);margin:0 0 6px}
+.hint{font-size:var(--fs-2xs);color:var(--tx-meta);margin:6px 0 0}
+.st{display:inline-block;font-size:var(--fs-2xs);font-weight:500;border-radius:var(--r-pill);padding:3px 9px;white-space:nowrap}
+.st.ok{background:color-mix(in srgb,var(--green-700) 9%,var(--white));color:var(--green-700)}
+.st.warn{background:color-mix(in srgb,var(--gold-600) 10%,var(--white));color:var(--gold-600)}
+.st.info{background:color-mix(in srgb,var(--blue-600) 12%,var(--white));color:var(--blue-600)}
+.st.err{background:color-mix(in srgb,var(--red-700) 9%,var(--white));color:var(--red-700)}
+.list{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--sh-card);padding:2px 16px;max-width:360px}
+.li{display:grid;grid-template-columns:22px 1fr auto;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid color-mix(in srgb,var(--navy-900) 6%,transparent)}
+.li:last-child{border-bottom:0}
+.li.th{grid-template-columns:40px 1fr auto;gap:12px}
+.li .t{width:40px;height:40px;border-radius:var(--r-sm);background:linear-gradient(135deg,#5b5f86,#232360)}
+.li b{display:block;font-size:var(--fs-md);font-weight:500}
+.li small{display:block;font-size:var(--fs-sub);color:var(--tx3);margin-top:2px;white-space:nowrap}
+.li .r{color:var(--tx-meta);font-size:16px}
+.ic{color:var(--tx3);display:grid;place-items:center}
+.vcode{background:var(--grey-50);border-radius:var(--r-sm);padding:8px 10px;max-width:170px}
+.vcode small{display:flex;align-items:center;gap:4px;font-size:var(--fs-2xs);color:var(--tx3)}
+.vcode code{display:block;background:none;padding:0;font:600 var(--fs-xs) var(--f-body);color:var(--tx);letter-spacing:.3px}
+.tile{width:74px;background:var(--white);border-radius:var(--r-md);box-shadow:var(--sh-tile);padding:14px 6px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.tile b{font-size:var(--fs-2xs);font-weight:500;line-height:1.3;min-height:2.6em}
+.tile.off{background:color-mix(in srgb,var(--navy-900) 4%,var(--bg));box-shadow:none;color:var(--ink-400)}
+.tile.off .ic{color:var(--ink-400)}
+.ov{width:240px;height:120px;border-radius:var(--r-lg);background:linear-gradient(135deg,#7a6a52,#c9b48a);position:relative;overflow:hidden;color:#FFF5E4}
+.ov::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,22,66,.38) 0%,rgba(15,22,66,.42) 30%,rgba(15,22,66,.80) 62%,rgba(15,22,66,.94) 100%)}
+.ov span{position:absolute;left:14px;bottom:14px;z-index:1;font-family:var(--f-disp);font-size:var(--fs-2xl)}
+.box{width:110px;height:64px;border-radius:var(--r-md);background:var(--white);display:grid;place-items:center;font-size:var(--fs-2xs);color:var(--tx3);text-align:center}
+.sp{display:flex;align-items:center;gap:10px;font-size:var(--fs-xs)}
+.sp i{display:block;height:14px;background:color-mix(in srgb,var(--gold-600) 35%,var(--white));border-radius:3px}
+svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body><div class="wrap">
+<h1>AIPCON Design System V3</h1>
+<p class="lead">Bản chốt 02/10/2026 · nguồn token: <code>AIPCON_APP_DESIGN_V3.html</code> (khối <code>V3 · DESIGN TOKENS</code> + khối tinh giản). Ví dụ dưới đây dùng đúng giá trị trong app.</p>
+<nav><a href="#mau">Màu</a><a href="#chu">Chữ & phân cấp</a><a href="#kc">Khoảng cách</a><a href="#bo">Bo góc</a><a href="#line">Line & stroke</a><a href="#bong">Đổ bóng</a><a href="#grad">Gradient</a><a href="#nut">Nút</a><a href="#chon">Ô chọn & tab</a><a href="#form">Ô nhập</a><a href="#dong">Dòng & thẻ</a><a href="#icon">Icon</a><a href="#quytac">Quy tắc chung</a></nav>
+
+<section id="mau"><h2>Màu sử dụng</h2><p class="sub">Vàng chỉ dành cho hành động chính và trạng thái đang chọn. Chữ dùng 3 tông navy theo cấp thông tin.</p>
+<h3>Nền & chữ</h3><div class="grid">
+<div class="sw"><i style="background:var(--bg)"></i><div><b>Nền màn hình</b><span>--bg #F9F7F0</span></div></div>
+<div class="sw"><i style="background:#fff"></i><div><b>Thẻ, ô nhập, popup</b><span>--white #FFFFFF</span></div></div>
+<div class="sw"><i style="background:var(--navy-900)"></i><div><b>Chữ chính</b><span>--tx #232360</span></div></div>
+<div class="sw"><i style="background:var(--ink-700)"></i><div><b>Chữ phụ (nhãn form, ghi chú)</b><span>--tx2 #454973</span></div></div>
+<div class="sw"><i style="background:var(--ink-500)"></i><div><b>Dòng phụ, icon</b><span>--tx3 #6A6D92</span></div></div>
+<div class="sw"><i style="background:var(--ink-400)"></i><div><b>Thông tin kèm, không chọn được</b><span>--ink-400 #8E91AB</span></div></div>
+</div>
+<h3>Nhấn & trạng thái</h3><div class="grid">
+<div class="sw"><i style="background:var(--gold-600)"></i><div><b>Nhấn / đang chọn</b><span>--gold-600 #9C6D2A</span></div></div>
+<div class="sw"><i style="background:var(--trk)"></i><div><b>Nền thanh trượt, nút ±</b><span>--trk · gold 9% trên trắng</span></div></div>
+<div class="sw"><i style="background:var(--green-700)"></i><div><b>Thành công</b><span>#2F6B4F</span></div></div>
+<div class="sw"><i style="background:var(--gold-600)"></i><div><b>Chờ / cảnh báo</b><span>#9C6D2A</span></div></div>
+<div class="sw"><i style="background:var(--red-700)"></i><div><b>Lỗi</b><span>#8C3232</span></div></div>
+<div class="sw"><i style="background:var(--blue-600)"></i><div><b>Thông tin</b><span>#3F4C9A</span></div></div>
+</div></section>
+
+<section id="chu"><h2>Chữ & phân cấp thông tin</h2><p class="sub">Thông tin chính rõ ràng. Thông tin phụ nhỏ hơn (chỉ cần đủ đọc) và nhạt hơn. Cấp dưới không bao giờ to hơn cấp trên trên cùng một màn.</p>
+<table><tr><th>Cấp</th><th>Dùng cho</th><th>Cỡ / đậm / màu</th><th>Mẫu</th></tr>
+<tr><td>1 · Tiêu đề trang</td><td>Dịch vụ, Giỏ hàng</td><td>26 · 400 · SVN-Aptima · --tx</td><td style="font-family:var(--f-disp);font-size:26px">Dịch vụ</td></tr>
+<tr><td>2 · Tiêu đề nhóm</td><td>Ví của tôi, Booking của tôi</td><td>15 · 600 · --tx</td><td style="font-size:15px;font-weight:600">Booking của tôi</td></tr>
+<tr><td>3 · Nội dung chính</td><td>Tên dòng, tên thẻ, giá trị</td><td>14 · 500 · --tx</td><td style="font-size:14px;font-weight:500">SH Premium Lounge</td></tr>
+<tr><td>3b · Chính trong ô hẹp</td><td>Tên trong lưới dịch vụ</td><td>11 · 500 · --tx</td><td style="font-size:11px;font-weight:500">Fast Track</td></tr>
+<tr><td>4 · Phụ</td><td>Dòng phụ dưới tên, nơi dùng · mã</td><td><b>12 · 400 · --tx3</b></td><td style="font-size:12px;color:var(--tx3)">Ha Noi 1 · ACV-8820-MR</td></tr>
+<tr><td>4b · Nhãn form, ghi chú</td><td>Họ và tên, ghi chú chính sách</td><td>12.5 · 400 · --tx2</td><td style="font-size:12.5px;color:var(--tx2)">Họ và tên</td></tr>
+<tr><td>5 · Thông tin kèm</td><td>Giờ thông báo, số đếm cạnh tiêu đề, gợi ý dưới ô nhập, đơn vị giá</td><td><b>11 · 400 · --ink-400</b></td><td style="font-size:11px;color:var(--ink-400)">2 giờ · /khách</td></tr>
+<tr><td>5b · Gợi ý</td><td>Chip tìm nhanh</td><td>11 · 400 · --tx3</td><td><button class="chip sq">Fast Track</button></td></tr>
+<tr><td>Số tiền</td><td>Giá, Tạm tính, Tổng</td><td>theo cấp · 600</td><td style="font-weight:600">855.000đ</td></tr>
+<tr><td>Nhãn trạng thái</td><td>Chờ xác nhận, Sẵn sàng</td><td>11 · 500 · màu trạng thái</td><td><span class="st warn">Chờ xác nhận</span></td></tr>
+</table>
+<p class="note">Độ đậm: <b>600</b> chỉ cho tiêu đề nhóm, số tiền, nút bấm, mã voucher/đơn, số đếm tab. Mọi chữ khác 500 hoặc 400. Không dùng 700.</p></section>
+
+<section id="kc"><h2>Khoảng cách</h2><p class="sub">Chỉ 2 nhịp trong một khung: 8px trong cùng nhóm, 16px giữa các nhóm.</p>
+<table><tr><th>Token</th><th>Giá trị</th><th>Dùng cho</th><th></th></tr>
+<tr><td><code>--pad-x</code></td><td>16px</td><td>Lề 2 bên màn hình, đệm popup</td><td class="sp"><i style="width:16px"></i></td></tr>
+<tr><td><code>--gap-sec</code></td><td>16px</td><td>Giữa các nhóm (ô tìm kiếm ↔ lưới, lưới ↔ Booking)</td><td class="sp"><i style="width:16px"></i></td></tr>
+<tr><td><code>--gap-in</code></td><td>8px</td><td>Trong cùng nhóm: tiêu đề → nội dung, ô lưới, chip, ô tìm kiếm ↔ chip</td><td class="sp"><i style="width:8px"></i></td></tr>
+<tr><td>Đệm thẻ</td><td>16px · 14px</td><td>Thẻ nội dung · thẻ voucher / booking / giỏ</td><td class="sp"><i style="width:16px"></i></td></tr>
+<tr><td>Dòng danh sách</td><td>13px trên/dưới</td><td>Tài khoản, Ví, booking</td><td class="sp"><i style="width:13px"></i></td></tr>
+<tr><td>Vùng chạm</td><td>tối thiểu 44px</td><td>Nút nhỏ dùng vùng chạm vô hình mở rộng</td><td class="sp"><i style="width:44px"></i></td></tr>
+</table></section>
+
+<section id="bo"><h2>Bo góc</h2><div class="row">
+<div class="box" style="border-radius:4px;box-shadow:var(--sh-opt)">--r-xs 4<br>gạch chân tab</div>
+<div class="box" style="border-radius:9px;box-shadow:var(--sh-opt)">--r-sm 9<br>ô nhập, ảnh nhỏ</div>
+<div class="box" style="border-radius:13px;box-shadow:var(--sh-opt)">--r-md 13<br>ô lưới, lựa chọn</div>
+<div class="box" style="border-radius:18px;box-shadow:var(--sh-opt)">--r-lg 18<br>thẻ, popup, slide</div>
+<div class="box" style="border-radius:999px;box-shadow:var(--sh-opt)">--r-pill<br>nút, chip, nhãn</div>
+</div></section>
+
+<section id="line"><h2>Line & stroke</h2><table><tr><th>Loại</th><th>Thông số</th><th>Mẫu</th></tr>
+<tr><td>Line ngăn dòng</td><td>1px · navy 6%</td><td><div style="height:1px;background:color-mix(in srgb,var(--navy-900) 6%,transparent);width:160px"></div></td></tr>
+<tr><td>Viền mảnh (<code>--line</code>)</td><td>1px · navy 9% · ô nhập, thanh trượt, dưới tab</td><td><div style="width:160px;height:28px;border:1px solid var(--line);border-radius:9px"></div></td></tr>
+<tr><td>Viền đang chọn / focus</td><td><code>--sel-stroke</code> 2px #9C6D2A · cách mép <code>--sel-offset</code> 2px</td><td><div style="width:160px;height:28px;border:1px solid var(--line);border-radius:9px;outline:var(--sel-stroke);outline-offset:2px"></div></td></tr>
+<tr><td>Viền lỗi</td><td>cùng độ dày, màu #8C3232</td><td><div style="width:160px;height:28px;border:1px solid var(--red-700);border-radius:9px"></div></td></tr>
+<tr><td>Nút phụ</td><td>1px · vàng 60%</td><td><button class="btn sm ghost">Chọn</button></td></tr>
+<tr><td>Gạch chân tab</td><td>2px · #9C6D2A · nằm trong khung tab</td><td><div style="width:60px;height:2px;background:var(--gold-600);border-radius:4px"></div></td></tr>
+</table></section>
+
+<section id="bong"><h2>Đổ bóng</h2><div class="row" style="background:var(--bg);padding:20px;border-radius:13px">
+<div class="box" style="box-shadow:var(--sh-card)">Thẻ nội dung<br><code>--sh-card</code></div>
+<div class="box" style="box-shadow:var(--sh-tile)">Ô lưới<br><code>--sh-tile</code></div>
+<div class="box" style="box-shadow:var(--sh-opt)">Lựa chọn, chip<br><code>--sh-opt</code></div>
+<div class="box" style="background:var(--trk)"><span style="background:#fff;padding:8px 12px;border-radius:10px;box-shadow:var(--sh-seg)">Ô chọn nổi</span></div>
+</div><p class="note">Nền xám phẳng không bóng = không chọn được. Thanh tab dưới cùng: không bóng, chỉ line trên.</p></section>
+
+<section id="grad"><h2>Gradient</h2><div class="row">
+<button class="btn">Nút chính</button><button class="btn press">Đang nhấn</button>
+<div class="ov"><span>Chữ trên ảnh</span></div></div>
+<p class="note"><code>--grad-btn</code> #D2AE62 → #B8904A → #9C6D2A (chỉ nút chính). Lớp tối trên ảnh: navy 38% → 94% từ trên xuống, kiểm tra ở màn 360px với tên 2 dòng. Thẻ ACP dùng chất liệu kim loại riêng theo hạng.</p></section>
+
+<section id="nut"><h2>Nút</h2><p class="sub">Mỗi màn chỉ một nút chính. Dòng dẫn sang màn khác thì bấm cả dòng + mũi tên, không đặt nút chữ trên dòng.</p>
+<table><tr><th>Loại</th><th>Khi dùng</th><th>Mẫu</th></tr>
+<tr><td>Chính</td><td>Hành động chính của màn (Mua ngay, Thanh toán)</td><td><button class="btn">Mua ngay</button></td></tr>
+<tr><td>Phụ</td><td>Hành động thứ hai (Thêm vào giỏ, Chọn từ Ví)</td><td><button class="btn ghost">Thêm vào giỏ</button></td></tr>
+<tr><td>Nhỏ</td><td>Trong thẻ (Xem mã QR, Liên hệ)</td><td><button class="btn sm">Xem mã QR</button> <button class="btn sm ghost">Liên hệ</button></td></tr>
+<tr><td>Link chữ</td><td>Xem tất cả, Xem chi tiết, Xem thông tin chi tiết</td><td><button class="lnk">Xem tất cả</button></td></tr>
+<tr><td>Xoá</td><td>Xoá khỏi giỏ, xoá hành khách</td><td><button class="rm">Xoá</button></td></tr>
+<tr><td>Icon tròn</td><td>Thao tác nhanh trên dòng voucher (QR, đặt lịch)</td><td><button class="rb"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2z"/></svg></button></td></tr>
+<tr><td>Tìm kiếm</td><td>Nút phụ trong ô tìm kiếm</td><td><button class="sgo"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button></td></tr>
+<tr><td>Không bấm được</td><td>Thiếu thông tin bắt buộc</td><td><button class="btn" disabled>Tiếp tục</button></td></tr>
+</table></section>
+
+<section id="chon"><h2>Ô chọn & tab</h2><p class="sub">Ô trắng nổi = bấm được · viền vàng = đang chọn · nền xám phẳng = không chọn được. Không dùng chấm tròn radio.</p>
+<h3>Thanh trượt (chọn ngang, tối đa 4, không ghi giá)</h3>
+<div class="pku" style="grid-template-columns:repeat(3,1fr)"><button class="on">Tiêu Chuẩn</button><button>Cao Cấp</button><button disabled>VIP</button></div>
+<p class="note">Mô tả gói đang chọn đặt ngay dưới hàng nút. Chữ không đổi độ đậm khi chọn. Tên dài không vừa thì chuyển sang danh sách.</p>
+<h3>Danh sách lựa chọn (xếp dọc)</h3>
+<div class="opts"><button class="opt on"><span>Sedan 4 chỗ<small>Tối đa 3 khách · 2 kiện</small></span><b>380.000đ</b></button><button class="opt"><span>SUV 7 chỗ<small>Tối đa 6 khách · 4 kiện</small></span><b>480.000đ</b></button><button class="opt off"><span>Van 9 chỗ<small>Không phục vụ vùng này</small></span></button></div>
+<h3>Chip (xuống dòng, không trượt ngang)</h3>
+<div class="row"><button class="chip on">Hoàn Kiếm</button><button class="chip">Cầu Giấy</button><button class="chip">Hà Đông</button></div>
+<h3>Tab (chuyển nhóm nội dung)</h3>
+<div class="tabs"><button class="on">Sắp tới<span>3</span></button><button>Đã hoàn thành</button><button>Đã huỷ</button></div>
+<h3>Ô tích & nút cộng trừ</h3>
+<div class="row"><span class="chk on"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:2.4"><path d="M5 12l5 5 9-10"/></svg></span><span class="chk"></span><span style="display:flex;align-items:center;gap:12px"><button class="step">−</button><b>2</b><button class="step">+</button></span></div>
+</section>
+
+<section id="form"><h2>Ô nhập</h2><div style="display:grid;gap:14px;max-width:360px">
+<div><label class="lab">Họ và tên</label><input class="inp" value="Nguyễn Quỳnh Anh"></div>
+<div><label class="lab">Email</label><input class="inp focus" value="quynhanh@example.com"><p class="hint">Voucher và hoá đơn gửi tới email này.</p></div>
+<div><label class="lab">Số điện thoại</label><input class="inp err" value="0912"><p class="hint" style="color:var(--red-700)">Số điện thoại chưa đúng định dạng.</p></div>
+</div></section>
+
+<section id="dong"><h2>Dòng danh sách & thẻ</h2><p class="sub">Tiêu đề dòng 1 dòng, chỉ tên dịch vụ. Nơi dùng, mã, trạng thái xuống dòng phụ. Mã voucher luôn hiện đủ.</p>
+<div class="list">
+<div class="li th"><span class="t"></span><div><b>Fast Track</b><small>Ga nội địa T1 · ACF-2201-TX</small></div><button class="rb" style="width:36px;height:36px"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/></svg></button></div>
+<div class="li"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></span><div><b>SH Elite+</b><small>T7, 05/09 · Ha Noi 2</small></div><span class="st warn">Chờ xác nhận</span></div>
+<div class="li"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Booking của tôi</b><small>3 sắp tới</small></div><span class="r">›</span></div>
+</div>
+<h3>Ô mã voucher (chạm để sao chép)</h3>
+<div class="vcode"><small>Mã voucher <svg viewBox="0 0 24 24" style="width:12px;height:12px"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg></small><code>ACV-8820-MR</code></div>
+<h3>Ô lưới dịch vụ (4 cột)</h3>
+<div class="row" style="background:var(--bg);padding:12px;border-radius:13px;gap:8px">
+<div class="tile"><span class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><b>Fast Track</b></div>
+<div class="tile"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="2"/><path d="M6 18v2M18 18v2"/></svg></span><b>Phòng chờ thương gia</b></div>
+<div class="tile off"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 14h18v4H3zM5 14V9h14v5"/></svg></span><b>Xe điện</b></div>
+</div>
+<h3>Nhãn trạng thái</h3><div class="row"><span class="st ok">Sẵn sàng</span><span class="st warn">Chờ xác nhận</span><span class="st info">Cần đặt lịch</span><span class="st err">Hết suất</span></div>
+</section>
+
+<section id="icon"><h2>Icon</h2><p class="sub">Nét mảnh 1.4–1.5px, không ô nền, màu --tx3. Ô không chọn được dùng --ink-400. Không tự thêm icon khi không cần.</p>
+<div class="row" style="color:var(--tx3)"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1112 0v5l1.5 2h-15zM10 20a2 2 0 004 0"/></svg><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div></section>
+
+<section id="quytac"><h2>Quy tắc chung</h2><table>
+<tr><td class="do">Nên</td><td>Chữ trên nút, chip, tab, ô chọn giữ 1 dòng. Quá dài thì thu một bậc, vẫn không vừa thì xếp mỗi phương án một hàng.</td></tr>
+<tr><td class="do">Nên</td><td>Trong một khung chỉ dùng 2 nhịp khoảng cách: 8px và 16px.</td></tr>
+<tr><td class="do">Nên</td><td>Tên và dòng phụ ngăn bằng " · ". Câu văn dùng ":" hoặc ",". Khoảng thời gian dùng "–" (06:00 – 22:00).</td></tr>
+<tr><td class="do">Nên</td><td>Trạng thái booking lấy một nguồn duy nhất, hiện bằng nhãn ở mọi trang. Ngày trong dòng dạng "T7, 05/09".</td></tr>
+<tr><td class="dont">Không</td><td>Dùng dấu "—" trong nội dung hiển thị. Ghi giá trên nút chọn gói. Lặp thông tin màn hình đã thể hiện (vd. trạng thái trùng tab).</td></tr>
+<tr><td class="dont">Không</td><td>Đặt nhiều nút chữ trên từng dòng. Dùng chữ 700. Để chữ phụ to hơn chữ chính.</td></tr>
+</table></section>
+</div></body></html>
