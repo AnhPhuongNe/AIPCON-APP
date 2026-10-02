@@ -12,7 +12,8 @@
   --white:#FFFFFF;--bg:#F9F7F0;--grey-50:#F4F5F8;
   --gold-200:#E2C68A;--gold-300:#D2AE62;--gold-400:#B8904A;--gold-500:#A57D3B;--gold-600:#9C6D2A;--gold-700:#7A5A26;
   --green-700:#2F6B4F;--red-700:#8C3232;--blue-600:#3F4C9A;
-  --tx:var(--navy-900);--tx2:var(--ink-700);--tx3:var(--ink-500);--tx-meta:var(--ink-400);
+  --tx:var(--navy-900);--tx2:var(--ink-700);--tx3:var(--ink-500);--tx-meta:var(--ink-500);--tx-off:var(--ink-400);
+  --acc-tx:var(--gold-700);--fill-soft:color-mix(in srgb,var(--navy-900) 4%,var(--bg));
   --acc:var(--gold-600);
   --line:color-mix(in srgb,var(--navy-900) 9%,transparent);
   --trk:color-mix(in srgb,var(--gold-600) 9%,var(--white));
@@ -62,7 +63,7 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--tx2);
 .btn.ghost{background:var(--white);color:var(--acc);text-shadow:none;box-shadow:none;border:1px solid color-mix(in srgb,var(--acc) 60%,transparent)}
 .btn.sm{padding:8px 14px;font-size:var(--fs-xs)}
 .btn[disabled]{opacity:.45}
-.lnk{background:none;border:0;color:var(--acc);font:500 var(--fs-sm) var(--f-body);padding:0}
+.lnk{background:none;border:0;color:var(--acc-tx);font:500 var(--fs-sm) var(--f-body);padding:0}
 .rm{background:none;border:0;color:var(--tx2);font:500 var(--fs-xs) var(--f-body);padding:0}
 .rb{width:40px;height:40px;border-radius:50%;border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);background:none;color:var(--acc);display:grid;place-items:center}
 .sgo{width:40px;height:40px;border-radius:50%;background:var(--white);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--acc) 45%,transparent);border:0;color:var(--acc);display:grid;place-items:center}
@@ -83,7 +84,7 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--tx2);
 .tabs button{position:relative;border:0;background:none;font:500 var(--fs-sm) var(--f-body);color:var(--tx3);padding:10px 0 12px;display:flex;gap:6px;align-items:center}
 .tabs button.on{color:var(--tx)}
 .tabs button.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:var(--r-xs);background:var(--gold-600)}
-.tabs button span{font-size:var(--fs-2xs);min-width:20px;padding:1px 6px;border-radius:var(--r-pill);background:var(--grey-50);color:var(--tx3);text-align:center}
+.tabs button span{font-size:var(--fs-2xs);font-weight:500;min-width:20px;padding:1px 6px;border-radius:var(--r-pill);background:var(--fill-soft);color:var(--tx3);text-align:center}
 .tabs button.on span{background:var(--tx);color:var(--white)}
 .chk{width:22px;height:22px;border-radius:6px;border:1.5px solid color-mix(in srgb,var(--tx) 28%,transparent);background:var(--white);display:grid;place-items:center;color:transparent}
 .chk.on{background:var(--gold-600);border-color:var(--gold-600);color:var(--white)}
@@ -92,10 +93,10 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--tx2);
 .inp.focus{outline:var(--sel-stroke);outline-offset:var(--sel-offset)}
 .inp.err{border-color:var(--red-700);background:color-mix(in srgb,var(--red-700) 4%,var(--white))}
 .lab{display:block;font-size:var(--fs-xs);color:var(--tx2);margin:0 0 6px}
-.hint{font-size:var(--fs-2xs);color:var(--tx-meta);margin:6px 0 0}
+.hint{font-size:var(--fs-2xs);color:var(--tx3);margin:6px 0 0}
 .st{display:inline-block;font-size:var(--fs-2xs);font-weight:500;border-radius:var(--r-pill);padding:3px 9px;white-space:nowrap}
 .st.ok{background:color-mix(in srgb,var(--green-700) 9%,var(--white));color:var(--green-700)}
-.st.warn{background:color-mix(in srgb,var(--gold-600) 10%,var(--white));color:var(--gold-600)}
+.st.warn{background:color-mix(in srgb,var(--gold-600) 10%,var(--white));color:var(--acc-tx)}
 .st.info{background:color-mix(in srgb,var(--blue-600) 12%,var(--white));color:var(--blue-600)}
 .st.err{background:color-mix(in srgb,var(--red-700) 9%,var(--white));color:var(--red-700)}
 .list{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--sh-card);padding:2px 16px;max-width:360px}
@@ -107,8 +108,8 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--tx2);
 .li small{display:block;font-size:var(--fs-sub);color:var(--tx3);margin-top:2px;white-space:nowrap}
 .li .r{color:var(--tx-meta);font-size:16px}
 .ic{color:var(--tx3);display:grid;place-items:center}
-.vcode{background:var(--grey-50);border-radius:var(--r-sm);padding:8px 10px;max-width:170px}
-.vcode small{display:flex;align-items:center;gap:4px;font-size:var(--fs-2xs);color:var(--tx3)}
+.vcode{background:var(--fill-soft);border-radius:var(--r-sm);padding:8px 10px;max-width:170px}
+.vcode small{display:flex;align-items:center;gap:4px;font-size:var(--fs-2xs);color:var(--tx2)}
 .vcode code{display:block;background:none;padding:0;font:600 var(--fs-xs) var(--f-body);color:var(--tx);letter-spacing:.3px}
 .tile{width:74px;background:var(--white);border-radius:var(--r-md);box-shadow:var(--sh-tile);padding:14px 6px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
 .tile b{font-size:var(--fs-2xs);font-weight:500;line-height:1.3;min-height:2.6em}
@@ -121,56 +122,90 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--tx2);
 .sp{display:flex;align-items:center;gap:10px;font-size:var(--fs-xs)}
 .sp i{display:block;height:14px;background:color-mix(in srgb,var(--gold-600) 35%,var(--white));border-radius:3px}
 svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* Thành phần khung màn */
+.tbar{display:grid;grid-template-columns:repeat(5,1fr);background:var(--white);border-top:1px solid color-mix(in srgb,var(--navy-900) 6%,transparent);padding:8px 4px 10px;max-width:360px;border-radius:0 0 var(--r-md) var(--r-md)}
+.tbar span{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:var(--fs-2xs);font-weight:500;color:var(--tx3);position:relative}
+.tbar span.on{color:var(--gold-500)}
+.tbar svg{width:22px;height:22px}
+.badge{display:inline-block;min-width:18px;height:18px;border-radius:9px;background:#C73A3A;color:#fff;font:500 11px/18px var(--f-body);text-align:center;padding:0 5px}
+.dbar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--bg);border-top:1px solid var(--line);padding:12px 16px 10px;max-width:360px}
+.dbar small{display:block;font-size:var(--fs-2xs);color:var(--tx3)}
+.dbar b{font-size:var(--fs-xl);font-weight:600}
+.toast{display:inline-block;background:var(--navy-900);color:var(--bg);font-size:var(--fs-xs);font-weight:500;border-radius:var(--r-sm);padding:9px 14px}
+.shdemo{max-width:360px;background:var(--white);border-radius:var(--r-lg) var(--r-lg) 0 0;box-shadow:0 0 0 1px var(--line);padding:10px 16px 16px}
+.shdemo .grab{width:40px;height:4px;border-radius:4px;background:color-mix(in srgb,var(--navy-900) 8%,transparent);margin:0 auto 12px}
+.shdemo h4{font-family:var(--f-disp);font-weight:400;font-size:22px;margin:0 0 8px}
+.av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#B8904A,#D2AE62 50%,#E2C68A);color:#fff;display:grid;place-items:center;font-weight:600}
+.gnote{display:flex;gap:8px;font-size:var(--fs-xs);color:var(--tx2);max-width:360px}
+.gnote svg{width:15px;height:15px;color:var(--gold-600);flex:none;margin-top:2px}
+.bk{background:none;border:0;color:var(--acc-tx);font:400 var(--fs-sm) var(--f-body);display:flex;align-items:center;gap:4px;padding:0}
+.cr{display:inline-block;font-size:11px;font-weight:600;padding:1px 6px;border-radius:999px}
+.cr.ok{background:#E3F0E8;color:#2F6B4F}.cr.no{background:#F6E3E3;color:#8C3232}.cr.mid{background:#F5EEDF;color:#7A5A26}
 </style>
 </head>
 <body><div class="wrap">
 <h1>AIPCON Design System V3</h1>
-<p class="lead">Bản chốt 02/10/2026 · nguồn token: <code>AIPCON_APP_DESIGN_V3.html</code> (khối <code>V3 · DESIGN TOKENS</code> + khối tinh giản). Ví dụ dưới đây dùng đúng giá trị trong app.</p>
-<nav><a href="#mau">Màu</a><a href="#chu">Chữ & phân cấp</a><a href="#kc">Khoảng cách</a><a href="#bo">Bo góc</a><a href="#line">Line & stroke</a><a href="#bong">Đổ bóng</a><a href="#grad">Gradient</a><a href="#nut">Nút</a><a href="#chon">Ô chọn & tab</a><a href="#form">Ô nhập</a><a href="#dong">Dòng & thẻ</a><a href="#icon">Icon</a><a href="#quytac">Quy tắc chung</a></nav>
+<p class="lead">Bản chốt 02/10/2026 (đã rà soát) · nguồn token: <code>AIPCON_APP_DESIGN_V3.html</code>. Mục <a href="#chenh">Chênh lệch với app</a> liệt kê những chỗ app chưa theo guide này.</p>
+<nav><a href="#mau">Màu</a><a href="#tuongphan">Tương phản</a><a href="#chu">Chữ & phân cấp</a><a href="#kc">Khoảng cách</a><a href="#bo">Bo góc</a><a href="#line">Line & stroke</a><a href="#bong">Đổ bóng</a><a href="#grad">Gradient</a><a href="#nut">Nút</a><a href="#chon">Ô chọn & tab</a><a href="#form">Ô nhập</a><a href="#dong">Dòng & thẻ</a><a href="#khung">Khung màn</a><a href="#trangthai">Trạng thái</a><a href="#cham">Vùng chạm</a><a href="#icon">Icon</a><a href="#quytac">Quy tắc chung</a><a href="#chenh">Chênh lệch với app</a></nav>
 
-<section id="mau"><h2>Màu sử dụng</h2><p class="sub">Vàng chỉ dành cho hành động chính và trạng thái đang chọn. Chữ dùng 3 tông navy theo cấp thông tin.</p>
+<section id="mau"><h2>Màu sử dụng</h2><p class="sub">Vàng đậm cho chữ, vàng chuẩn cho nút và viền. Chữ dùng 3 tông navy theo cấp thông tin. Chỉ một màu xám nền (ấm).</p>
 <h3>Nền & chữ</h3><div class="grid">
 <div class="sw"><i style="background:var(--bg)"></i><div><b>Nền màn hình</b><span>--bg #F9F7F0</span></div></div>
-<div class="sw"><i style="background:#fff"></i><div><b>Thẻ, ô nhập, popup</b><span>--white #FFFFFF</span></div></div>
+<div class="sw"><i style="background:#fff"></i><div><b>Thẻ, ô nhập, popup, vùng mua</b><span>--white #FFFFFF</span></div></div>
+<div class="sw"><i style="background:var(--fill-soft)"></i><div><b>Nền xám mềm (duy nhất)</b><span>--fill-soft · navy 4% trên kem ≈ #F0EFEA · ô mã voucher, số đếm tab, ô không chọn được</span></div></div>
 <div class="sw"><i style="background:var(--navy-900)"></i><div><b>Chữ chính</b><span>--tx #232360</span></div></div>
-<div class="sw"><i style="background:var(--ink-700)"></i><div><b>Chữ phụ (nhãn form, ghi chú)</b><span>--tx2 #454973</span></div></div>
-<div class="sw"><i style="background:var(--ink-500)"></i><div><b>Dòng phụ, icon</b><span>--tx3 #6A6D92</span></div></div>
-<div class="sw"><i style="background:var(--ink-400)"></i><div><b>Thông tin kèm, không chọn được</b><span>--ink-400 #8E91AB</span></div></div>
+<div class="sw"><i style="background:var(--ink-700)"></i><div><b>Nhãn, ghi chú</b><span>--tx2 #454973</span></div></div>
+<div class="sw"><i style="background:var(--ink-500)"></i><div><b>Chữ phụ, thông tin kèm, icon</b><span>--tx3 #6A6D92</span></div></div>
+<div class="sw"><i style="background:var(--ink-400)"></i><div><b>Chỉ cho "không chọn được"</b><span>--tx-off #8E91AB · không dùng cho chữ cần đọc</span></div></div>
 </div>
 <h3>Nhấn & trạng thái</h3><div class="grid">
-<div class="sw"><i style="background:var(--gold-600)"></i><div><b>Nhấn / đang chọn</b><span>--gold-600 #9C6D2A</span></div></div>
-<div class="sw"><i style="background:var(--trk)"></i><div><b>Nền thanh trượt, nút ±</b><span>--trk · gold 9% trên trắng</span></div></div>
+<div class="sw"><i style="background:var(--gold-600)"></i><div><b>Nút, viền, gạch chân, icon nhấn</b><span>--gold-600 #9C6D2A</span></div></div>
+<div class="sw"><i style="background:var(--gold-700)"></i><div><b>Chữ vàng (link, quay lại, nhãn chờ)</b><span>--acc-tx · --gold-700 #7A5A26</span></div></div>
+<div class="sw"><i style="background:var(--trk)"></i><div><b>Nền thanh trượt, nút ±</b><span>--trk · gold 9% trên trắng ≈ #F6F2EC</span></div></div>
 <div class="sw"><i style="background:var(--green-700)"></i><div><b>Thành công</b><span>#2F6B4F</span></div></div>
-<div class="sw"><i style="background:var(--gold-600)"></i><div><b>Chờ / cảnh báo</b><span>#9C6D2A</span></div></div>
-<div class="sw"><i style="background:var(--red-700)"></i><div><b>Lỗi</b><span>#8C3232</span></div></div>
+<div class="sw"><i style="background:var(--red-700)"></i><div><b>Lỗi</b><span>#8C3232 · chấm giỏ hàng #C73A3A</span></div></div>
 <div class="sw"><i style="background:var(--blue-600)"></i><div><b>Thông tin</b><span>#3F4C9A</span></div></div>
 </div></section>
 
-<section id="chu"><h2>Chữ & phân cấp thông tin</h2><p class="sub">Thông tin chính rõ ràng. Thông tin phụ nhỏ hơn (chỉ cần đủ đọc) và nhạt hơn. Cấp dưới không bao giờ to hơn cấp trên trên cùng một màn.</p>
+<section id="tuongphan"><h2>Tương phản</h2><p class="sub">Chuẩn WCAG AA: chữ nhỏ cần tối thiểu 4.5:1.</p>
+<table><tr><th>Chữ</th><th>Trên nền</th><th>Tỉ lệ</th><th></th></tr>
+<tr><td>--tx #232360</td><td>kem / trắng</td><td>13.2</td><td><span class="cr ok">Đạt</span></td></tr>
+<tr><td>--tx2 #454973</td><td>kem / xám mềm</td><td>8.0</td><td><span class="cr ok">Đạt</span></td></tr>
+<tr><td>--tx3 #6A6D92</td><td>kem / trắng</td><td>4.65 / 4.98</td><td><span class="cr ok">Đạt</span></td></tr>
+<tr><td>--tx3 #6A6D92</td><td>xám mềm · thanh trượt</td><td>4.33 · 4.47</td><td><span class="cr mid">Sát ngưỡng</span> chữ trên nền xám mềm dùng --tx2</td></tr>
+<tr><td>--acc-tx #7A5A26</td><td>kem / trắng / nhãn chờ</td><td>5.9 / 6.3 / 5.6</td><td><span class="cr ok">Đạt</span></td></tr>
+<tr><td>--gold-600 #9C6D2A làm chữ</td><td>kem / nhãn chờ</td><td>4.23 / 4.00</td><td><span class="cr no">Không dùng làm chữ nhỏ</span></td></tr>
+<tr><td>--ink-400 #8E91AB</td><td>kem / trắng</td><td>2.89 / 3.09</td><td><span class="cr no">Chỉ cho trạng thái không chọn được</span></td></tr>
+<tr><td>Trắng trên nút vàng</td><td>điểm giữa gradient</td><td>2.95</td><td><span class="cr mid">Ngoại lệ thương hiệu</span> luôn 14/600 + bóng chữ</td></tr>
+</table></section>
+
+<section id="chu"><h2>Chữ & phân cấp thông tin</h2><p class="sub">Thông tin chính rõ ràng. Thông tin phụ nhỏ hơn (đủ đọc) và nhạt hơn. Chữ phụ chỉ có 3 cấp. Cấp dưới không bao giờ to hơn cấp trên trên cùng một màn.</p>
 <table><tr><th>Cấp</th><th>Dùng cho</th><th>Cỡ / đậm / màu</th><th>Mẫu</th></tr>
-<tr><td>1 · Tiêu đề trang</td><td>Dịch vụ, Giỏ hàng</td><td>26 · 400 · SVN-Aptima · --tx</td><td style="font-family:var(--f-disp);font-size:26px">Dịch vụ</td></tr>
+<tr><td>1 · Tiêu đề trang</td><td>Dịch vụ, Giỏ hàng · tiêu đề popup 22</td><td>26 · 400 · SVN-Aptima · --tx</td><td style="font-family:var(--f-disp);font-size:26px">Dịch vụ</td></tr>
 <tr><td>2 · Tiêu đề nhóm</td><td>Ví của tôi, Booking của tôi</td><td>15 · 600 · --tx</td><td style="font-size:15px;font-weight:600">Booking của tôi</td></tr>
 <tr><td>3 · Nội dung chính</td><td>Tên dòng, tên thẻ, giá trị</td><td>14 · 500 · --tx</td><td style="font-size:14px;font-weight:500">SH Premium Lounge</td></tr>
 <tr><td>3b · Chính trong ô hẹp</td><td>Tên trong lưới dịch vụ</td><td>11 · 500 · --tx</td><td style="font-size:11px;font-weight:500">Fast Track</td></tr>
-<tr><td>4 · Phụ</td><td>Dòng phụ dưới tên, nơi dùng · mã</td><td><b>12 · 400 · --tx3</b></td><td style="font-size:12px;color:var(--tx3)">Ha Noi 1 · ACV-8820-MR</td></tr>
-<tr><td>4b · Nhãn form, ghi chú</td><td>Họ và tên, ghi chú chính sách</td><td>12.5 · 400 · --tx2</td><td style="font-size:12.5px;color:var(--tx2)">Họ và tên</td></tr>
-<tr><td>5 · Thông tin kèm</td><td>Giờ thông báo, số đếm cạnh tiêu đề, gợi ý dưới ô nhập, đơn vị giá</td><td><b>11 · 400 · --ink-400</b></td><td style="font-size:11px;color:var(--ink-400)">2 giờ · /khách</td></tr>
-<tr><td>5b · Gợi ý</td><td>Chip tìm nhanh</td><td>11 · 400 · --tx3</td><td><button class="chip sq">Fast Track</button></td></tr>
-<tr><td>Số tiền</td><td>Giá, Tạm tính, Tổng</td><td>theo cấp · 600</td><td style="font-weight:600">855.000đ</td></tr>
+<tr><td>4 · Phụ</td><td>Dòng phụ dưới tên (nơi dùng · mã, ngày · nơi dùng)</td><td>12 · 400 · --tx3</td><td style="font-size:12px;color:var(--tx3)">Ha Noi 1 · ACV-8820-MR</td></tr>
+<tr><td>5 · Nhãn & ghi chú</td><td>Nhãn form, nhãn câu hỏi (Chọn gói, Nhà ga), ghi chú chính sách, nhãn bảng giá, điều kiện sử dụng</td><td>12.5 · 400 · --tx2</td><td style="font-size:12.5px;color:var(--tx2)">Chọn gói</td></tr>
+<tr><td>6 · Kèm</td><td>Giờ thông báo, số đếm cạnh tiêu đề, gợi ý dưới ô nhập, đơn vị giá, chip tìm nhanh</td><td>11 · 400 · --tx3</td><td style="font-size:11px;color:var(--tx3)">2 giờ · /khách</td></tr>
+<tr><td>Số tiền</td><td>Giá, Tạm tính, Tổng (thanh đáy 17)</td><td>theo cấp · 600</td><td style="font-weight:600">855.000đ</td></tr>
 <tr><td>Nhãn trạng thái</td><td>Chờ xác nhận, Sẵn sàng</td><td>11 · 500 · màu trạng thái</td><td><span class="st warn">Chờ xác nhận</span></td></tr>
 </table>
-<p class="note">Độ đậm: <b>600</b> chỉ cho tiêu đề nhóm, số tiền, nút bấm, mã voucher/đơn, số đếm tab. Mọi chữ khác 500 hoặc 400. Không dùng 700.</p></section>
+<p class="note">Độ đậm: <b>600</b> chỉ cho tiêu đề nhóm, số tiền, nút bấm, mã voucher/đơn, tên trên thẻ hồ sơ. Mọi chữ khác 500 hoặc 400, kể cả số đếm trên tab và tab đang chọn. Không dùng 700.</p></section>
 
-<section id="kc"><h2>Khoảng cách</h2><p class="sub">Chỉ 2 nhịp trong một khung: 8px trong cùng nhóm, 16px giữa các nhóm.</p>
-<table><tr><th>Token</th><th>Giá trị</th><th>Dùng cho</th><th></th></tr>
-<tr><td><code>--pad-x</code></td><td>16px</td><td>Lề 2 bên màn hình, đệm popup</td><td class="sp"><i style="width:16px"></i></td></tr>
-<tr><td><code>--gap-sec</code></td><td>16px</td><td>Giữa các nhóm (ô tìm kiếm ↔ lưới, lưới ↔ Booking)</td><td class="sp"><i style="width:16px"></i></td></tr>
+<section id="kc"><h2>Khoảng cách</h2><p class="sub">Giữa các khối trong một màn chỉ dùng 2 nhịp: 8px trong cùng nhóm, 16px giữa các nhóm. Đệm bên trong thành phần theo bảng thứ hai.</p>
+<h3>Giữa các khối</h3><table><tr><th>Token</th><th>Giá trị</th><th>Dùng cho</th><th></th></tr>
+<tr><td><code>--pad-x</code></td><td>16px</td><td>Lề 2 bên màn hình, đệm ngang popup và vùng mua</td><td class="sp"><i style="width:16px"></i></td></tr>
+<tr><td><code>--gap-sec</code></td><td>16px</td><td>Giữa các nhóm (ô tìm kiếm ↔ lưới, lưới ↔ Booking, giữa các phần trang chi tiết)</td><td class="sp"><i style="width:16px"></i></td></tr>
 <tr><td><code>--gap-in</code></td><td>8px</td><td>Trong cùng nhóm: tiêu đề → nội dung, ô lưới, chip, ô tìm kiếm ↔ chip</td><td class="sp"><i style="width:8px"></i></td></tr>
-<tr><td>Đệm thẻ</td><td>16px · 14px</td><td>Thẻ nội dung · thẻ voucher / booking / giỏ</td><td class="sp"><i style="width:16px"></i></td></tr>
-<tr><td>Dòng danh sách</td><td>13px trên/dưới</td><td>Tài khoản, Ví, booking</td><td class="sp"><i style="width:13px"></i></td></tr>
-<tr><td>Vùng chạm</td><td>tối thiểu 44px</td><td>Nút nhỏ dùng vùng chạm vô hình mở rộng</td><td class="sp"><i style="width:44px"></i></td></tr>
+</table>
+<h3>Bên trong thành phần</h3><table><tr><th>Thành phần</th><th>Đệm</th></tr>
+<tr><td>Thẻ nội dung</td><td>16px</td></tr><tr><td>Thẻ voucher / booking / giỏ hàng</td><td>14px</td></tr>
+<tr><td>Dòng danh sách</td><td>13px trên/dưới · icon ↔ chữ 14px (có ảnh: 12px)</td></tr>
+<tr><td>Nhãn câu hỏi trong vùng mua / popup</td><td>16px phía trên · 6px tới ô chọn</td></tr>
+<tr><td>Ô lưới dịch vụ</td><td>14px trên · 12px dưới · 6px ngang · icon ↔ tên 8px</td></tr>
+<tr><td>Nút chính / nút nhỏ</td><td>14 × 20px / 8 × 14px</td></tr>
 </table></section>
-
 <section id="bo"><h2>Bo góc</h2><div class="row">
 <div class="box" style="border-radius:4px;box-shadow:var(--sh-opt)">--r-xs 4<br>gạch chân tab</div>
 <div class="box" style="border-radius:9px;box-shadow:var(--sh-opt)">--r-sm 9<br>ô nhập, ảnh nhỏ</div>
@@ -205,27 +240,28 @@ svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke
 <tr><td>Chính</td><td>Hành động chính của màn (Mua ngay, Thanh toán)</td><td><button class="btn">Mua ngay</button></td></tr>
 <tr><td>Phụ</td><td>Hành động thứ hai (Thêm vào giỏ, Chọn từ Ví)</td><td><button class="btn ghost">Thêm vào giỏ</button></td></tr>
 <tr><td>Nhỏ</td><td>Trong thẻ (Xem mã QR, Liên hệ)</td><td><button class="btn sm">Xem mã QR</button> <button class="btn sm ghost">Liên hệ</button></td></tr>
-<tr><td>Link chữ</td><td>Xem tất cả, Xem chi tiết, Xem thông tin chi tiết</td><td><button class="lnk">Xem tất cả</button></td></tr>
-<tr><td>Xoá</td><td>Xoá khỏi giỏ, xoá hành khách</td><td><button class="rm">Xoá</button></td></tr>
-<tr><td>Icon tròn</td><td>Thao tác nhanh trên dòng voucher (QR, đặt lịch)</td><td><button class="rb"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2z"/></svg></button></td></tr>
+<tr><td>Link chữ</td><td>Xem tất cả, Xem chi tiết · --acc-tx 13/500</td><td><button class="lnk">Xem tất cả</button></td></tr>
+<tr><td>Quay lại</td><td>Đầu màn con · --acc-tx 13/400 · ghi theo nơi vào</td><td><button class="bk">‹ Tài khoản</button></td></tr>
+<tr><td>Xoá</td><td>Xoá khỏi giỏ, xoá hành khách · --tx2 12.5/500</td><td><button class="rm">Xoá</button></td></tr>
+<tr><td>Icon tròn</td><td>Thao tác tại chỗ trên dòng voucher (QR, đặt lịch), không phải điều hướng</td><td><button class="rb"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2z"/></svg></button></td></tr>
 <tr><td>Tìm kiếm</td><td>Nút phụ trong ô tìm kiếm</td><td><button class="sgo"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button></td></tr>
-<tr><td>Không bấm được</td><td>Thiếu thông tin bắt buộc</td><td><button class="btn" disabled>Tiếp tục</button></td></tr>
+<tr><td>Không bấm được</td><td>Thiếu thông tin bắt buộc · mờ 45%</td><td><button class="btn" disabled>Tiếp tục</button></td></tr>
 </table></section>
 
-<section id="chon"><h2>Ô chọn & tab</h2><p class="sub">Ô trắng nổi = bấm được · viền vàng = đang chọn · nền xám phẳng = không chọn được. Không dùng chấm tròn radio.</p>
-<h3>Thanh trượt (chọn ngang, tối đa 4, không ghi giá)</h3>
+<section id="chon"><h2>Ô chọn & tab</h2><p class="sub">Ô trắng nổi = bấm được · viền vàng = đang chọn · nền xám mềm phẳng = không chọn được. Không dùng chấm tròn radio. Nhãn câu hỏi phía trên: 12.5 --tx2.</p>
+<h3>Thanh trượt (chuyển gói / phương án, tối đa 4)</h3>
 <div class="pku" style="grid-template-columns:repeat(3,1fr)"><button class="on">Tiêu Chuẩn</button><button>Cao Cấp</button><button disabled>VIP</button></div>
-<p class="note">Mô tả gói đang chọn đặt ngay dưới hàng nút. Chữ không đổi độ đậm khi chọn. Tên dài không vừa thì chuyển sang danh sách.</p>
+<p class="note"><b>Không ghi giá</b> trên nút, giá nhảy ở Tạm tính. Mô tả gói đang chọn đặt ngay dưới hàng nút. Chữ không đổi độ đậm khi chọn. Tên dài không vừa thì chuyển sang danh sách.</p>
 <h3>Danh sách lựa chọn (xếp dọc)</h3>
 <div class="opts"><button class="opt on"><span>Sedan 4 chỗ<small>Tối đa 3 khách · 2 kiện</small></span><b>380.000đ</b></button><button class="opt"><span>SUV 7 chỗ<small>Tối đa 6 khách · 4 kiện</small></span><b>480.000đ</b></button><button class="opt off"><span>Van 9 chỗ<small>Không phục vụ vùng này</small></span></button></div>
+<p class="note">Ngoại lệ giá: danh sách <b>sản phẩm khác nhau</b> (xe theo vùng, quà tặng, gói combo) được hiện giá bên phải vì giá là thông tin để chọn. Chuyển gói của cùng một dịch vụ thì không.</p>
 <h3>Chip (xuống dòng, không trượt ngang)</h3>
-<div class="row"><button class="chip on">Hoàn Kiếm</button><button class="chip">Cầu Giấy</button><button class="chip">Hà Đông</button></div>
-<h3>Tab (chuyển nhóm nội dung)</h3>
+<div class="row"><button class="chip on">Hoàn Kiếm</button><button class="chip">Cầu Giấy</button><button class="chip">Hà Đông</button><span style="width:16px"></span><button class="chip sq">Fast Track</button><span class="note" style="margin:0">chip tìm nhanh (cấp 6)</span></div>
+<h3>Tab (chuyển nhóm nội dung) · chữ 13/500, số đếm 11/500</h3>
 <div class="tabs"><button class="on">Sắp tới<span>3</span></button><button>Đã hoàn thành</button><button>Đã huỷ</button></div>
 <h3>Ô tích & nút cộng trừ</h3>
 <div class="row"><span class="chk on"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke-width:2.4"><path d="M5 12l5 5 9-10"/></svg></span><span class="chk"></span><span style="display:flex;align-items:center;gap:12px"><button class="step">−</button><b>2</b><button class="step">+</button></span></div>
 </section>
-
 <section id="form"><h2>Ô nhập</h2><div style="display:grid;gap:14px;max-width:360px">
 <div><label class="lab">Họ và tên</label><input class="inp" value="Nguyễn Quỳnh Anh"></div>
 <div><label class="lab">Email</label><input class="inp focus" value="quynhanh@example.com"><p class="hint">Voucher và hoá đơn gửi tới email này.</p></div>
@@ -238,9 +274,9 @@ svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke
 <div class="li"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></span><div><b>SH Elite+</b><small>T7, 05/09 · Ha Noi 2</small></div><span class="st warn">Chờ xác nhận</span></div>
 <div class="li"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Booking của tôi</b><small>3 sắp tới</small></div><span class="r">›</span></div>
 </div>
-<h3>Ô mã voucher (chạm để sao chép)</h3>
+<h3>Ô mã voucher (chạm để sao chép) · nền --fill-soft, nhãn --tx2</h3>
 <div class="vcode"><small>Mã voucher <svg viewBox="0 0 24 24" style="width:12px;height:12px"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg></small><code>ACV-8820-MR</code></div>
-<h3>Ô lưới dịch vụ (4 cột)</h3>
+<h3>Ô lưới dịch vụ (4 cột, tên đầy đủ tối đa 2 dòng)</h3>
 <div class="row" style="background:var(--bg);padding:12px;border-radius:13px;gap:8px">
 <div class="tile"><span class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><b>Fast Track</b></div>
 <div class="tile"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="2"/><path d="M6 18v2M18 18v2"/></svg></span><b>Phòng chờ thương gia</b></div>
@@ -249,15 +285,61 @@ svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke
 <h3>Nhãn trạng thái</h3><div class="row"><span class="st ok">Sẵn sàng</span><span class="st warn">Chờ xác nhận</span><span class="st info">Cần đặt lịch</span><span class="st err">Hết suất</span></div>
 </section>
 
+<section id="khung"><h2>Khung màn</h2>
+<table><tr><th>Thành phần</th><th>Thông số</th><th>Mẫu</th></tr>
+<tr><td>Thanh tab dưới</td><td>Nền trắng · line trên navy 6% · không bóng · icon 23px nét 1.5 · chữ 11/500 · chưa chọn --tx3 · đang chọn --gold-500</td><td><div class="tbar"><span class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg>Trang chủ</span><span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>Dịch vụ</span><span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Đặt lịch</span><span><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>Giỏ hàng</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Tài khoản</span></div></td></tr>
+<tr><td>Chấm giỏ hàng</td><td>18px · #C73A3A · chữ trắng 11/500</td><td><span class="badge">3</span></td></tr>
+<tr><td>Thanh đáy (giá + nút)</td><td>Nền kem · line trên --line · đệm 12 / 16 / 10 · nhãn 11 --tx3 · giá 17/600</td><td><div class="dbar"><div><small>Tạm tính</small><b>855.000đ</b></div><button class="btn">Mua ngay</button></div></td></tr>
+<tr><td>Popup</td><td>Nền trắng · bo trên 18 · thanh kéo 40×4 navy 8% · tiêu đề 22 Aptima · đệm 10 / 16 / 24 · cao tối đa 80% · lớp phủ navy 55% · ẩn thanh cuộn</td><td><div class="shdemo"><div class="grab"></div><h4>Fast Track</h4><span class="note" style="margin:0">Nội dung popup</span></div></td></tr>
+<tr><td>Thông báo nổi</td><td>Nền navy · chữ kem 12.5/500 · bo 9 · đệm 9 × 14 · mã trong thông báo không ngắt dòng</td><td><span class="toast">Đã sao chép mã ACV‑8820‑MR</span></td></tr>
+<tr><td>Ghi chú có icon</td><td>Icon 15px --gold-600 · chữ 12.5 --tx2 · cách 8</td><td><div class="gnote"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/></svg><span>Voucher gửi qua email ngay sau khi thanh toán.</span></div></td></tr>
+<tr><td>Avatar</td><td>48px tròn · gradient vàng · chữ trắng 600</td><td><span class="av">QA</span></td></tr>
+<tr><td>Ảnh</td><td>Ảnh nhỏ trên dòng 40×40 bo 9 · ảnh giỏ hàng 64 · ảnh đầu trang chi tiết cao 250 tràn lề · thẻ sản phẩm ảnh trên, bo 18</td><td><span style="display:inline-block;width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,#5b5f86,#232360)"></span></td></tr>
+<tr><td>Thẻ ACP</td><td>Bo 18 · chất liệu kim loại theo hạng · viền trong 0.5px vàng · chữ trên thẻ cỡ riêng 8.5 / 9.5 / 10 · chạm mở mã hội viên</td><td></td></tr>
+<tr><td>Slide ưu đãi</td><td>1 thẻ rộng hết khung · cao 180 · bo 18 · chữ trên ảnh + lớp tối · cặp mũi tên 30px góc trên phải · chấm vị trí · tự trượt 4 giây</td><td><div class="ov"><span>Ưu đãi</span></div></td></tr>
+<tr><td>Trạng thái trống</td><td>Thẻ trắng · chữ 12.5 --tx2 căn giữa · 1 nút phụ nhỏ</td><td><div class="box" style="width:180px;height:auto;padding:14px;box-shadow:var(--sh-card)">Chưa có booking nào bị huỷ.<br><button class="btn sm ghost" style="margin-top:8px">Đặt dịch vụ</button></div></td></tr>
+</table></section>
+
+<section id="trangthai"><h2>Trạng thái</h2>
+<table><tr><th>Trạng thái</th><th>Nút</th><th>Lựa chọn / chip</th><th>Ô nhập</th></tr>
+<tr><td>Bình thường</td><td>Như mẫu</td><td>Ô trắng nổi</td><td>Viền --line</td></tr>
+<tr><td>Đang nhấn</td><td>Nút chính <code>--grad-btn-press</code> · nút phụ, dòng, ô lưới: nền vàng 6% trên trắng</td><td>Nền vàng 6%</td><td>Không áp dụng</td></tr>
+<tr><td>Đang chọn / focus</td><td>Không áp dụng</td><td><code>--sel-stroke</code> 2px, cách mép 2px</td><td><code>--sel-stroke</code> 2px, cách mép 2px</td></tr>
+<tr><td>Không bấm được</td><td>Mờ 45%</td><td>Nền --fill-soft phẳng, chữ --tx-off, không bóng · chạm hiện thông báo lý do nếu cần</td><td>Không áp dụng</td></tr>
+<tr><td>Lỗi</td><td>Không áp dụng</td><td>Không áp dụng</td><td>Viền #8C3232, nền đỏ 4% · lỗi dưới ô 11 #8C3232 · cuộn tới ô lỗi đầu tiên</td></tr>
+</table></section>
+
+<section id="cham"><h2>Vùng chạm</h2><p class="sub">Tối thiểu 44 × 44px. Nút nhìn nhỏ hơn thì mở rộng vùng chạm vô hình, không phóng to nút.</p>
+<table><tr><th>Thành phần</th><th>Kích thước nhìn thấy</th><th>Cách đạt 44px</th></tr>
+<tr><td>Nút tìm kiếm, thông báo trên đầu trang</td><td>34px</td><td>Mở rộng vô hình 5px mỗi phía</td></tr>
+<tr><td>Nút chọn sân bay</td><td>cao 32px</td><td>Mở rộng vô hình 6px trên/dưới</td></tr>
+<tr><td>Link quay lại</td><td>cao 26px</td><td>Mở rộng vô hình 9px trên/dưới</td></tr>
+<tr><td>Link "Xem thông tin chi tiết"</td><td>cao 29px</td><td>Mở rộng vô hình 8px trên/dưới</td></tr>
+<tr><td>Chip tìm nhanh</td><td>cao khoảng 24px</td><td>Mở rộng vô hình 10px trên/dưới, giữ khoảng 8px giữa chip</td></tr>
+<tr><td>Ô tích giỏ hàng, nút ±, mũi tên slide</td><td>22 / 32 / 30px</td><td>Đã có vùng mở rộng</td></tr>
+</table></section>
 <section id="icon"><h2>Icon</h2><p class="sub">Nét mảnh 1.4–1.5px, không ô nền, màu --tx3. Ô không chọn được dùng --ink-400. Không tự thêm icon khi không cần.</p>
 <div class="row" style="color:var(--tx3)"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1112 0v5l1.5 2h-15zM10 20a2 2 0 004 0"/></svg><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div></section>
 
 <section id="quytac"><h2>Quy tắc chung</h2><table>
-<tr><td class="do">Nên</td><td>Chữ trên nút, chip, tab, ô chọn giữ 1 dòng. Quá dài thì thu một bậc, vẫn không vừa thì xếp mỗi phương án một hàng.</td></tr>
-<tr><td class="do">Nên</td><td>Trong một khung chỉ dùng 2 nhịp khoảng cách: 8px và 16px.</td></tr>
+<tr><td class="do">Nên</td><td>Chữ trên nút, chip, tab, ô chọn giữ 1 dòng. Quá dài thì thu một bậc, vẫn không vừa thì xếp mỗi phương án một hàng. Riêng tên trong lưới dịch vụ tối đa 2 dòng.</td></tr>
+<tr><td class="do">Nên</td><td>Giữa các khối chỉ dùng 2 nhịp 8px / 16px. Đổi khoảng cách thì sửa token.</td></tr>
 <tr><td class="do">Nên</td><td>Tên và dòng phụ ngăn bằng " · ". Câu văn dùng ":" hoặc ",". Khoảng thời gian dùng "–" (06:00 – 22:00).</td></tr>
 <tr><td class="do">Nên</td><td>Trạng thái booking lấy một nguồn duy nhất, hiện bằng nhãn ở mọi trang. Ngày trong dòng dạng "T7, 05/09".</td></tr>
-<tr><td class="dont">Không</td><td>Dùng dấu "—" trong nội dung hiển thị. Ghi giá trên nút chọn gói. Lặp thông tin màn hình đã thể hiện (vd. trạng thái trùng tab).</td></tr>
-<tr><td class="dont">Không</td><td>Đặt nhiều nút chữ trên từng dòng. Dùng chữ 700. Để chữ phụ to hơn chữ chính.</td></tr>
+<tr><td class="do">Nên</td><td>Chữ cần đọc luôn đạt tương phản 4.5:1. Chữ vàng dùng --acc-tx.</td></tr>
+<tr><td class="dont">Không</td><td>Dùng dấu "—" trong nội dung hiển thị. Ghi giá trên nút chuyển gói. Lặp thông tin màn hình đã thể hiện (vd. trạng thái trùng tab).</td></tr>
+<tr><td class="dont">Không</td><td>Đặt nút chữ ("Chọn", "Đặt lịch") trên từng dòng điều hướng. Dùng chữ 700. Để chữ phụ to hơn chữ chính. Dùng --ink-400 cho chữ cần đọc. Dùng xám lạnh #F4F5F8.</td></tr>
+</table></section>
+
+<section id="chenh"><h2>Chênh lệch với app (chưa áp vào bản nháp)</h2><p class="sub">Guide đã chốt theo rà soát 02/10/2026. Những điểm app cần chỉnh để khớp guide:</p>
+<table><tr><th>#</th><th>Hiện tại trong app</th><th>Theo guide</th></tr>
+<tr><td>1</td><td>Thông tin kèm 11px dùng --ink-400</td><td>--tx3</td></tr>
+<tr><td>2</td><td>Chữ vàng (link, quay lại, nhãn chờ, chữ nút phụ) dùng --gold-600</td><td>Chữ dùng --acc-tx #7A5A26 · viền và nền nút giữ --gold-600</td></tr>
+<tr><td>3</td><td>Chữ tab chưa chọn ở thanh tab dưới dùng --ink-400</td><td>--tx3</td></tr>
+<tr><td>4</td><td>Ô mã voucher, số đếm tab dùng xám lạnh #F4F5F8; nhãn trên nền xám dùng --tx3</td><td>--fill-soft; nhãn --tx2</td></tr>
+<tr><td>5</td><td>Nhãn câu hỏi (Chọn gói, Nhà ga) 12.5 --tx3</td><td>12.5 --tx2 như nhãn form</td></tr>
+<tr><td>6</td><td>Nhãn bảng giá ở Thanh toán, điều kiện sử dụng 13 --tx2</td><td>12.5 --tx2</td></tr>
+<tr><td>7</td><td>Giá ở thanh đáy 17/700</td><td>17/600</td></tr>
+<tr><td>8</td><td>Vùng chạm dưới 44px ở 5 chỗ (mục Vùng chạm)</td><td>Mở rộng vùng chạm vô hình</td></tr>
 </table></section>
 </div></body></html>

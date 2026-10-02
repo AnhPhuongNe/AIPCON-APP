@@ -20,7 +20,7 @@
 - **Chữ trên ảnh** luôn có lớp tối phủ đủ đậm (kiểm tra ở màn hẹp 360px, tên 2 dòng).
 - **Khoảng cách (token):** `--pad-x` 16px lề 2 bên màn và đệm popup · **chỉ 2 nhịp trong một khung: `--gap-in` 8px trong cùng nhóm, `--gap-sec` 16px giữa các nhóm** · tiêu đề nhóm → nội dung 8px · đệm thẻ 16px (thẻ voucher/booking/giỏ 14px) · dòng danh sách đệm 13px trên/dưới. Đổi khoảng cách thì sửa token, không viết cứng số mới.
 - **Thang chữ theo vai trò:** 1 tiêu đề trang 26 Aptima · 2 tiêu đề nhóm 15/600 navy · 3 nội dung chính (tên dòng, booking) 14/500 navy; trong ô hẹp (lưới) 11–12.5/500 navy · 4 phụ (dòng phụ dưới tên) **12px/400 `--tx3`** (token `--fs-sub`); nhãn form, ghi chú 12.5/400 `--tx2` · 5 thông tin kèm (giờ, số đếm cạnh tiêu đề, gợi ý dưới ô nhập, đơn vị giá) **11/400 `--ink-400`** · 5b chip tìm nhanh 11/400 `--tx3`. Logo trang chủ cao 40px. Cấp dưới không bao giờ to hơn cấp trên trên cùng một màn. Tab: 13 ở mọi nơi. Không dùng 700 (trừ avatar); số đếm cạnh tiêu đề nhóm là cấp phụ 12.5/400 xám.
-- **Độ đậm chữ:** 600 chỉ cho tiêu đề nhóm, số tiền, nút bấm, mã voucher/đơn, tiêu đề lịch, số đếm tab, thẻ ACP, tên trên thẻ hồ sơ. Mọi chữ khác (tên trong danh sách, lựa chọn kể cả khi đang chọn, nhãn form, tab, chip, nhãn trạng thái, link, thông báo nổi) dùng 500.
+- **Độ đậm chữ:** 600 chỉ cho tiêu đề nhóm, số tiền, nút bấm, mã voucher/đơn, tiêu đề lịch, thẻ ACP, tên trên thẻ hồ sơ (số đếm tab 500). Mọi chữ khác (tên trong danh sách, lựa chọn kể cả khi đang chọn, nhãn form, tab, chip, nhãn trạng thái, link, thông báo nổi) dùng 500.
 - **Tối giản nút điều hướng:** dòng danh sách dẫn sang màn khác thì cả dòng bấm được + mũi tên, không đặt nút chữ ("Đặt lịch") trên từng dòng. Link đầu nhóm ghi "Xem tất cả", không kèm số lượng. Nút tìm kiếm là nút phụ (nền trắng, viền vàng mảnh, icon vàng).
 - **Booking:** tab Đặt lịch và trang Dịch vụ chỉ hiện booking dạng tóm tắt (`bkRow`: tên dịch vụ / ngày · nơi dùng / nhãn trạng thái) + "Xem tất cả" mở màn `bookings` ("Booking của tôi", theo tab Booking trong Tài khoản của web V10: 3 tab Sắp tới/Đã hoàn thành/Đã huỷ, mỗi booking 1 dòng gọn: tên dịch vụ + nhãn trạng thái / ngày · mã booking / mũi tên; chi tiết ở màn booking). Đường vào: Tài khoản (dưới Ví của tôi), "Xem tất cả" ở Đặt lịch và Dịch vụ, lối tắt Tìm kiếm. Nút quay lại ghi theo nơi vào. Ví của tôi chỉ chứa voucher, không chứa booking. Đổi tab giữ nguyên vị trí cuộn (`rr()`).
 - **Nút "Xoá"** (giỏ hàng, hành khách…): một kiểu chung `.rm` — chữ xám 12.5/500, không khung.
@@ -30,7 +30,7 @@
 
 ## Quy tắc đã chốt
 - **V3 là bản chốt** (02/10/2026). V1a chỉ còn là lịch sử, không còn là nguồn design. Web V10 chỉ dùng để tham chiếu **flow và nội dung**, không lấy giao diện web áp vào app.
-- Hướng design (02/10/2026): **tinh giản mạnh, khoảng cách gọn** (đã giảm độ thoáng theo feedback), vẫn rõ ràng trực quan; giữ nguyên nội dung và flow. **Quy ước màu và nút bấm của V3 giữ nguyên** (nút chính chuyển sắc vàng, nút phụ viền vàng, nút "Chọn"/"Đặt lịch" trên dòng, nút QR tròn, số đếm trên tab, nhãn trạng thái có nền, ô tìm kiếm, avatar). Tinh giản chỉ áp vào khoảng thở, khung, icon trong danh sách, tiêu đề nhóm.
+- Hướng design (02/10/2026): **tinh giản mạnh, khoảng cách gọn** (đã giảm độ thoáng theo feedback), vẫn rõ ràng trực quan; giữ nguyên nội dung và flow. **Quy ước màu và nút bấm của V3 giữ nguyên** (nút chính chuyển sắc vàng, nút phụ viền vàng, nút QR tròn, số đếm trên tab, nhãn trạng thái có nền, avatar). Nút chữ trên dòng điều hướng đã bỏ, thay bằng mũi tên. Tinh giản chỉ áp vào khoảng thở, khung, icon trong danh sách, tiêu đề nhóm.
 - Nghiệp vụ và thứ tự bước theo web V10; app chỉ khác ở cách trình bày cho điện thoại (chi tiết ở mục 2b của `AIPCON_REFERENCE.md`).
 - Chỉ phát triển nền sáng. Không thêm lại chế độ nền navy (còn sót vài selector `data-theme="dark"` trong CSS, không cần dùng).
 - Chỉ màn hình điện thoại, không cột điều hướng, không ghi chú thiết kế trong file; mọi thao tác chạy như app thật.
@@ -38,6 +38,16 @@
 - **Không dùng dấu "—"** trong nội dung hiển thị: tên và dòng phụ dùng " · ", câu văn dùng ":" hoặc "," hoặc tách câu, ô trống thì bỏ trống hoặc ghi bằng chữ. Dấu "–" chỉ dùng cho khoảng (06:00 – 22:00).
 - Tiêu đề dòng (voucher, thông báo) giữ 1 dòng: chỉ tên dịch vụ; nơi dùng, mã, trạng thái xuống dòng phụ; không lặp thông tin màn hình đã thể hiện (vd. trạng thái trùng tab). Mã voucher luôn hiện đủ.
 - Dự án này là app của khách hàng (Airport Connects), dùng bộ nhận diện AIPCON bên dưới, không dùng màu/font iHouzz.
+
+## Rà soát guide (chốt 02/10/2026, chi tiết trong AIPCON_DESIGN_SYSTEM_V3.html)
+- **Tương phản ≥ 4.5:1** cho chữ cần đọc. `--ink-400` chỉ dùng cho trạng thái không chọn được. Thông tin kèm 11px dùng `--tx3`.
+- **Chữ vàng** (link, quay lại, nhãn chờ, chữ nút phụ) dùng `--acc-tx` = `--gold-700` #7A5A26; nền/viền/gạch chân giữ `--gold-600`.
+- **Một màu xám nền duy nhất** `--fill-soft` (navy 4% trên kem): ô mã voucher, số đếm tab, ô không chọn được. Không dùng xám lạnh #F4F5F8. Chữ trên nền xám mềm dùng `--tx2`.
+- **Chữ phụ chỉ 3 cấp:** phụ 12/`--tx3` · nhãn & ghi chú 12.5/`--tx2` (nhãn form, nhãn câu hỏi, ghi chú, nhãn bảng giá, điều kiện sử dụng) · kèm 11/`--tx3`.
+- **Giá trên lựa chọn:** chuyển gói của cùng dịch vụ thì không ghi giá; danh sách sản phẩm khác nhau (xe theo vùng, quà, combo) được ghi giá.
+- **Nhịp 8/16px** áp cho khoảng cách giữa các khối; đệm bên trong thành phần theo bảng riêng trong guide.
+- **Vùng chạm 44px:** nút nhỏ mở rộng vùng chạm vô hình. Giá ở thanh đáy 17/600.
+- App chưa áp các điểm trên: xem mục "Chênh lệch với app" trong guide.
 
 ## Độ chính xác nội dung (chốt 02/10/2026)
 - Phải đúng theo Web V10 / bên yêu cầu: **giá và danh mục dịch vụ, thông tin cần thu thập (trường form), luồng thao tác, chính sách**.
