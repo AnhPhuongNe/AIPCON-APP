@@ -23,6 +23,10 @@
 - Tiêu đề dòng (voucher, thông báo) giữ 1 dòng: chỉ tên dịch vụ; nơi dùng, mã, trạng thái xuống dòng phụ; không lặp thông tin màn hình đã thể hiện (vd. trạng thái trùng tab). Mã voucher luôn hiện đủ.
 - Dự án này là app của khách hàng (Airport Connects), dùng bộ nhận diện AIPCON bên dưới, không dùng màu/font iHouzz.
 
+## Độ chính xác nội dung (chốt 02/10/2026)
+- Phải đúng theo Web V10 / bên yêu cầu: **giá và danh mục dịch vụ, thông tin cần thu thập (trường form), luồng thao tác, chính sách**.
+- Dữ liệu minh hoạ (ngày, tên khách, mã đơn, mốc thời gian, booking mẫu) chỉ là demo, không cần chính xác, không cần hỏi lại.
+
 ## Hệ thống thiết kế V3 (nguồn duy nhất: khối `V3 · DESIGN TOKENS` đầu file)
 - **Nền màn hình** `--bg` #F9F7F0 (kem) · khung nội dung, ô nhập, popup, nút phụ: trắng #FFFFFF.
 - **Chữ** navy #232360 · phụ #454973 · nhạt #6A6D92.
