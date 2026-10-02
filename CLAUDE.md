@@ -19,6 +19,8 @@
 - **Ô mã voucher** (Mã voucher, Mã combo, Mã quà tặng, Voucher dùng — giá trị dạng `ACx-0000-XX`): dùng `cellH` (class `.vcode`; `.cpy` đã có sẵn trong V3, không dùng lại), icon copy nhỏ 12px ngay sau nhãn, chạm vào ô để sao chép mã và hiện thông báo; không kích hoạt thẻ bao ngoài.
 - **Chữ trên ảnh** luôn có lớp tối phủ đủ đậm (kiểm tra ở màn hẹp 360px, tên 2 dòng).
 - **Độ đậm chữ:** 600 chỉ cho tiêu đề nhóm, số tiền, nút bấm, mã voucher/đơn, tiêu đề lịch, số đếm tab, thẻ ACP, tên trên thẻ hồ sơ. Mọi chữ khác (tên trong danh sách, lựa chọn kể cả khi đang chọn, nhãn form, tab, chip, nhãn trạng thái, link, thông báo nổi) dùng 500.
+- **Tối giản nút điều hướng:** dòng danh sách dẫn sang màn khác thì cả dòng bấm được + mũi tên, không đặt nút chữ ("Đặt lịch") trên từng dòng. Link đầu nhóm ghi "Xem tất cả", không kèm số lượng. Nút tìm kiếm là nút phụ (nền trắng, viền vàng mảnh, icon vàng).
+- **Giỏ hàng:** ô tích trước mỗi dịch vụ (mặc định chọn hết, dịch vụ hết suất bị khoá) + "Chọn tất cả" khi có từ 2 dịch vụ; Tổng và Thanh toán chỉ tính dịch vụ đã chọn; thanh toán xong chỉ xoá dịch vụ đã mua khỏi giỏ.
 - **Không rớt chữ** trên mọi nút, chip, tab, ô lựa chọn: chữ một dòng; quá dài thì thu một bậc, vẫn không vừa thì xếp mỗi phương án một hàng.
 - `_preview/`: server xem trước (`serve.ps1`, cổng 5173, cấu hình trong `.claude/launch.json` tên `preview`) và bản nháp (`V3_draft.html`, `patch.css`).
 
