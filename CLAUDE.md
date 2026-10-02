@@ -8,7 +8,8 @@
 - `_preview/`: server xem trước (`serve.ps1`, cổng 5173, cấu hình trong `.claude/launch.json` tên `preview`) và bản nháp (`V3_draft.html`, `patch.css`).
 
 ## Quy tắc đã chốt
-- Giữ nguyên design của App V1a. Web V10 chỉ dùng để tham chiếu **flow và nội dung**, không lấy giao diện web áp vào app.
+- **V3 là bản chốt** (02/10/2026). V1a chỉ còn là lịch sử, không còn là nguồn design. Web V10 chỉ dùng để tham chiếu **flow và nội dung**, không lấy giao diện web áp vào app.
+- Hướng design (02/10/2026): **tinh giản mạnh, nhiều khoảng thở**, vẫn rõ ràng trực quan; giữ nguyên nội dung và flow.
 - Nghiệp vụ và thứ tự bước theo web V10; app chỉ khác ở cách trình bày cho điện thoại (chi tiết ở mục 2b của `AIPCON_REFERENCE.md`).
 - Chỉ phát triển nền sáng. Không thêm lại chế độ nền navy (còn sót vài selector `data-theme="dark"` trong CSS, không cần dùng).
 - Chỉ màn hình điện thoại, không cột điều hướng, không ghi chú thiết kế trong file; mọi thao tác chạy như app thật.
